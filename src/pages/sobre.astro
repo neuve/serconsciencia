@@ -1,0 +1,391 @@
+---
+import Base from '../layouts/Base.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Button from '../components/Button.astro';
+import ParallaxImage from '../components/ParallaxImage.astro';
+
+const formacion = [
+  { titulo: 'Terapia de Respuesta Espiritual', con: 'Verónica Bau y Adriana Alcazar' },
+  { titulo: 'Sanación cuántica con rosas', con: 'Elda Salvador' },
+  { titulo: 'Radiestesia', con: 'Alida Morales' },
+  { titulo: 'Sanación angelical', con: 'Silvia de Torres' },
+  { titulo: 'Comunicación animal', con: 'Olga Porqueras y Clara Martí' },
+  { titulo: 'Doula del alma animal', con: 'Olga Porqueras' },
+  { titulo: 'Master Angel (comunicación angelical)', con: 'Peroshini Naidoo and Charles Virtue' },
+  { titulo: 'Numerología', con: 'Leonardo Apelbaum' },
+  { titulo: 'Sanación con cristales', con: 'Alejandra Salatino' },
+  { titulo: 'Registros akáshicos', con: 'Marta Campos' },
+  { titulo: 'Astrología', con: 'Jimena Zúñiga' },
+  { titulo: 'Reiki Usui nivel I y II', con: 'Alida Morales' },
+  { titulo: 'Sanación reconectiva · Reconexión', con: 'Eric Pearl' },
+  { titulo: 'Radiónica y péndulo egipcio', con: 'Silvia de Torres' },
+];
+---
+
+<Base title="Sobre mí" description="Conoce a Karen Silva: su camino, su formación y su forma de acompañar procesos de sanación en humanos y animales.">
+  <!-- HERO SPLIT -->
+  <section class="about-hero">
+    <div class="about-hero__text gutter">
+      <Eyebrow text="Sobre mí" color="var(--cyan)" />
+      <h1 class="visually-hidden">Karen Silva</h1>
+      <p class="about-hero__lede">
+        Acompaño a personas y a animales en sus propios procesos de sanación. Tengo la certeza
+        absoluta que desde la consciencia, la coherencia y la verdad podemos crear una vida más
+        plena, libre y feliz.
+        <br />
+        Me interesa mostrarte que la espiritualidad la puedes vivir en lo cotidiano desde la
+        alegría, la liviandad y autenticidad.
+      </p>
+    </div>
+    <div class="about-hero__image">
+      <ParallaxImage src="/assets/karen-retrato.jpg" alt="Karen Silva" objectPosition="50% 30%" />
+    </div>
+  </section>
+
+  <!-- BLOQUE "FILOSOFÍA" -->
+  <section class="philosophy-section">
+    <!--
+      El .gutter va en un wrapper, NO en .philosophy: la tarjeta tiene borde,
+      radio y sombra, y con el padding dentro de ella misma su trazo se dibujaba
+      igualmente en x=0 / x=100vw (el bug de sangrado original).
+    -->
+    <div class="gutter">
+      <div class="philosophy">
+        <div class="philosophy__text">
+          <div class="philosophy__icon" aria-hidden="true"><span></span></div>
+          <Eyebrow text="Mi camino" color="var(--cyan)" />
+          <p class="philosophy__body">
+            Lo que comenzó como curiosidad y autoconocimiento se fue convirtiendo en mi camino: el
+            péndulo, los registros akáshicos, la sanación energética, la comunicación con animales,
+            el camino con rosas.
+          </p>
+          <p class="philosophy__body">
+            Soy una apasionada del trabajo energético, de la observación de los cambios, de las
+            transformaciones (y del chismecito cósmico). También de poder encontrar respuestas y
+            comprensión a lo que no es evidente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMACIÓN Y TRAYECTORIA -->
+  <section class="training">
+    <div class="training__inner gutter">
+      <div class="training__eyebrow">
+        <Eyebrow text="Formación y trayectoria" color="var(--amber)" />
+      </div>
+      <div class="training__grid">
+        <div class="training__cards">
+          <div class="training__card">
+            <h3 class="training__card-title">Estudios formales universitarios</h3>
+            <p class="training__card-desc">
+              Diseñadora de vestuario y accesorios — 9 años de trayectoria profesional. Trabajo
+              independiente, creadora de la marca personal Petunia, enfocada en la
+              experimentación textil.
+            </p>
+          </div>
+          <div class="training__card">
+            <h3 class="training__card-title">Cómo acompaño</h3>
+            <p class="training__card-desc">
+              Trabajo energético profundo, presencial en CDMX y online, con sesiones y talleres.
+            </p>
+          </div>
+        </div>
+        <div class="training__list-box">
+          <h3 class="training__list-title">Formación</h3>
+          <ul class="training__list">
+            {formacion.map((item) => (
+              <li>
+                <span class="training__list-item-title">{item.titulo}</span>
+                <span class="training__list-item-con">{item.con}</span>
+              </li>
+            ))}
+            <li class="training__list-item--full">
+              <span class="training__list-item-title">Actualmente cursando</span>
+              <span class="training__list-item-con">Segundo nivel de Sanación cuántica con rosas</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="more-about">
+        <h3 class="more-about__title">Más sobre mí</h3>
+        <p>
+          Chilena, hija de profesores, crecí siendo scout desde los 7 hasta los 17 años, una
+          experiencia que marcó profundamente mi forma de mirar el mundo y de relacionarme con
+          las personas.
+        </p>
+        <p>
+          Sin haberlo planeado, la vida me llevó a recorrer mundos muy distintos. En Chile formé
+          parte de iniciativas vinculadas al diseño, como Santiago Maker Space, donde descubrí el
+          valor de la creatividad, la experimentación y el aprendizaje colaborativo. Más adelante
+          tuve la fortuna de conocer y trabajar junto a maestros del ámbito espiritual y
+          holístico, entre ellos Elda Salvador (México), Olga Porqueras (España), Mireille Blan
+          (Francia) y Víctor Morales (Argentina).
+        </p>
+        <p>
+          <b>Con el tiempo comprendí que no eran dos caminos distintos: la creatividad del diseño
+          y la profundidad del trabajo interior terminaron encontrándose, y esa integración se
+          convirtió en el sello de mi manera de aprender, enseñar y crear.</b>
+        </p>
+        <p>
+          En 2018 viví un punto de inflexión al participar en dos retiros espirituales, en Egipto
+          y Rapa Nui. Esos viajes marcaron el inicio de una profunda transformación personal y
+          consolidaron una forma de vivir y de trabajar mucho más consciente, coherente y
+          alineada con quien soy.
+        </p>
+        <p>
+          Actualmente vivo en Ciudad de México, un lugar que disfruto profundamente por su
+          riqueza cultural, su gastronomía y la diversidad de personas, colores, historias y
+          texturas que lo hacen único.
+        </p>
+        <p>
+          Si algo me ha regalado este recorrido, ha sido una comunidad maravillosa de personas:
+          alumnos y pacientes con quienes he tenido el privilegio de compartir aprendizajes,
+          desafíos y muchas risas. Verlos crecer y seguir siendo parte de sus historias es, sin
+          duda, una de las cosas que más disfruto de lo que hago.
+        </p>
+      </div>
+
+      <div class="more-about__cta">
+        <Button variant="primary" label="Ver mis servicios" href="/terapias" showDot />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ---------- Hero split ---------- */
+  .about-hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    min-height: 70vh;
+  }
+
+  .about-hero__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: clamp(40px, 6vw, 96px);
+  }
+
+  .about-hero__lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.3;
+    color: var(--amber);
+    font-weight: 600;
+    max-width: none;
+    margin: 0;
+  }
+
+  .about-hero__image {
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
+  }
+
+  /* La foto es un retrato de cuerpo completo: con object-fit:cover (el
+     default de ParallaxImage) la cabeza y los pies quedaban recortados.
+     Aquí se muestra completa, sin fondo de relleno. */
+  .about-hero__image :global(.parallax-image) {
+    object-fit: contain;
+  }
+
+  /* ---------- Filosofía / bloque split con borde ---------- */
+  .philosophy-section {
+    padding: var(--section-py-compact) 0;
+    background: var(--sand);
+  }
+
+  .philosophy {
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-split);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
+
+  .philosophy__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(32px, 4vw, 48px);
+    max-width: 68ch;
+    margin-inline: auto;
+  }
+
+  .philosophy__icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 24px;
+    border-radius: var(--r-dot);
+    border: 1.5px solid var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .philosophy__icon span {
+    width: 16px;
+    height: 16px;
+    border-radius: var(--r-dot);
+    background: var(--amber);
+    display: block;
+  }
+
+  .philosophy__body {
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--ink-mid);
+    margin: 20px 0 0;
+  }
+
+  /* ---------- Formación ---------- */
+  .training {
+    padding: var(--section-py-wide) 0;
+    background: var(--sand);
+  }
+
+  .training__eyebrow {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .training__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: var(--grid-gap);
+    align-items: stretch;
+  }
+
+  .training__cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--grid-gap);
+    height: 100%;
+  }
+
+  .training__card {
+    flex: 1;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-box);
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .training__card-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--amber);
+    margin: 0 0 12px;
+  }
+
+  .training__card-desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-body);
+    margin: 0;
+  }
+
+  .training__list-box {
+    background: var(--sage);
+    border-radius: var(--r-box);
+    padding: 32px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .training__list-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--amber);
+    margin: 0 0 18px;
+  }
+
+  .training__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px 32px;
+  }
+
+  .training__list li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .training__list-item--full {
+    grid-column: 2;
+  }
+
+  .training__list-item-title {
+    font-size: 14px;
+    line-height: 1.25;
+    color: var(--cream);
+    font-weight: 600;
+  }
+
+  .training__list-item-con {
+    font-size: 12px;
+    line-height: 1.25;
+    /*
+      Era var(--overlay-cream-border) (alfa .16): un token pensado para
+      bordes, ilegible como texto sobre el verde. El prototipo usa .7.
+    */
+    color: rgba(var(--cream-rgb), 0.7);
+  }
+
+  /* ---------- Más sobre mí ---------- */
+  .more-about {
+    margin-top: 22px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-body);
+  }
+
+  .more-about__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 27px;
+    color: var(--sage);
+    margin: 0 0 12px;
+  }
+
+  .more-about p {
+    margin: 0 0 14px;
+  }
+
+  .more-about p:last-child {
+    margin-bottom: 0;
+  }
+
+  .more-about__cta {
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 860px) {
+    .about-hero,
+    .training__grid,
+    .training__list {
+      grid-template-columns: 1fr;
+    }
+
+    .training__list-item--full {
+      grid-column: 1;
+    }
+
+    .about-hero__image {
+      min-height: 46vh;
+    }
+  }
+</style>

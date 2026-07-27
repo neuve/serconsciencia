@@ -1,0 +1,71 @@
+---
+interface Props {
+  title: string;
+  eyebrow: string;
+  summary: string;
+  tone: string;
+  href: string;
+  class?: string;
+}
+
+const { title, eyebrow, summary, tone, href, class: className } = Astro.props;
+---
+
+<a href={href} class:list={['therapy-card', className]} style={{ backgroundColor: tone }}>
+  <div class="therapy-card__text">
+    <div class="therapy-card__eyebrow">{eyebrow}</div>
+    <h3 class="therapy-card__title">{title}</h3>
+    <p class="therapy-card__summary">{summary}</p>
+  </div>
+  <span class="therapy-card__arrow" aria-hidden="true">&rarr;</span>
+</a>
+
+<style>
+  .therapy-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-radius: var(--r-content);
+    padding: 34px 36px;
+    text-align: left;
+    transition: filter var(--ease-standard);
+  }
+
+  .therapy-card:hover {
+    filter: brightness(1.04);
+  }
+
+  .therapy-card__eyebrow {
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--amber);
+    margin-bottom: 12px;
+  }
+
+  .therapy-card__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.05;
+    color: var(--cream);
+    margin: 0 0 10px;
+  }
+
+  .therapy-card__summary {
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(var(--cream-rgb), 0.85);
+    margin: 0;
+    max-width: 44ch;
+  }
+
+  .therapy-card__arrow {
+    font-family: var(--font-display);
+    font-size: 34px;
+    color: var(--cream);
+    flex: none;
+  }
+</style>

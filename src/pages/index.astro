@@ -1,0 +1,290 @@
+---
+import Base from '../layouts/Base.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Button from '../components/Button.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import LeadMagnet from '../components/LeadMagnet.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import Faq from '../components/Faq.astro';
+import { testimoniosFull } from '../data/testimonios';
+import { faqsHome } from '../data/faqs';
+
+const destacados = testimoniosFull.filter((t) => t.destacado);
+---
+
+<Base title="Inicio">
+  <!-- HERO -->
+  <section class="hero bleed">
+    <img src="/assets/mandala.jpg" alt="" class="hero__bg anim-zoom" />
+    <div class="hero__scrim" aria-hidden="true"></div>
+
+    <div class="hero__bottom gutter">
+      <p class="hero__lede anim-fade">Acompaño a humanos y animales en sus procesos de sanación.</p>
+      <Eyebrow text="Karen Silva · Terapias y Talleres" color="var(--sage)" class="anim-float" />
+      <h1 class="hero__title anim-float-delay-1">reconectando<br />con la <em>consciencia del amor</em></h1>
+      <div class="hero__ctas anim-float-delay-2">
+        <Button variant="primary" label="Comienza tu camino" href="/terapias" showDot />
+        <Button variant="ghost" label="Talleres" href="/talleres" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="services">
+    <SectionHeader
+      eyebrow="Terapias y servicios"
+      title="Cada camino es distinto."
+      lede="Estas son algunas de las puertas de entrada a tu proceso."
+    />
+    <div class="services__grid gutter">
+      <ServiceCard
+        title="Canalización y TRE"
+        image="/assets/abuelo.avif"
+        imagePosition="58% 62%"
+        href="/servicios/canal"
+        height="480px"
+        summary="Trabajo de profunda investigación y limpieza de tus registros del alma."
+      />
+      <ServiceCard
+        title="Comunicación animal"
+        image="/assets/karen-caballo.jpg"
+        imagePosition="62% 32%"
+        href="/comunicacion-animal"
+        height="480px"
+        summary="Un puente de corazón a corazón con tus compañeros de otras especies."
+      />
+      <ServiceCard
+        title="Especiales"
+        image="/assets/bosque.jpg"
+        imagePosition="50% 40%"
+        href="/servicios/especiales"
+        height="480px"
+        summary="Encuentros diseñados a tu medida para momentos que se salen del catálogo regular."
+      />
+    </div>
+
+    <!-- SERVICIOS SECUNDARIOS -->
+    <div class="secondary-services gutter">
+      <a href="/servicios/rosas" class="secondary-card">
+        <div class="secondary-card__text">
+          <h3 class="secondary-card__title">Sanación cuántica con Rosas</h3>
+          <p class="secondary-card__summary">
+            La medicina de las rosas es una técnica psico-espiritual profunda para abrir el
+            corazón y, desde la energía del amor, transformar patrones de raíz.
+          </p>
+        </div>
+        <span class="secondary-card__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a href="/servicios/ankh" class="secondary-card">
+        <div class="secondary-card__text">
+          <h3 class="secondary-card__title">Sanación con Cruz Ankh</h3>
+          <p class="secondary-card__summary">
+            Limpieza minuciosa de todo tipo de energías mal calificadas que pueden vivirse como
+            ataques energéticos y bloqueos — envidias, mal de ojo, trabajos dirigidos.
+          </p>
+        </div>
+        <span class="secondary-card__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- LEAD MAGNET -->
+  <LeadMagnet
+    title="Meditación para armonizar y"
+    italicWord="enraizar."
+    description="Lleva tu cuerpo a un espacio de tranquilidad, seguridad y comodidad. Un audio guiado para entrenar tu propio poder de autorregulación — uno de los grandes regalos que hoy puedes hacerte."
+  />
+
+  <!-- TESTIMONIOS -->
+  <section class="testimonials">
+    <SectionHeader eyebrow="Historias" title="Cómo cambian los" italicWord="relatos." />
+    <div class="testimonials__grid gutter">
+      {destacados.map((t) => (
+        <TestimonialCard quote={t.quote} name={t.name} service={t.service} />
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <SectionHeader eyebrow="Preguntas frecuentes" title="Antes de agendar." />
+    <div class="faq-section__wrap gutter">
+      <Faq items={faqsHome} />
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: var(--sand);
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 45%;
+  }
+
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      0deg,
+      rgba(var(--line-rgb), 0.4) 0%,
+      rgba(var(--line-rgb), 0.08) 42%,
+      transparent 62%
+    );
+  }
+
+  .hero__lede {
+    max-width: 420px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--amber);
+    margin: 0 0 18px;
+  }
+
+  .hero__bottom {
+    position: relative;
+    z-index: 1;
+    padding-bottom: clamp(44px, 7vh, 92px);
+  }
+
+  .hero__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-h1);
+    line-height: var(--lh-h1);
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    margin: 18px 0 0;
+  }
+
+  .hero__title em {
+    font-style: italic;
+  }
+
+  .hero__ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 34px;
+  }
+
+  .hero__ctas :global(.btn--ghost) {
+    color: var(--cream);
+    border-color: var(--overlay-cream-border);
+  }
+
+  /* ---------- Servicios ---------- */
+  .services {
+    padding: var(--section-py-compact) 0;
+    background: var(--sand);
+  }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+    margin-top: 44px;
+  }
+
+  .secondary-services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--grid-gap);
+    margin-top: 22px;
+  }
+
+  .secondary-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-radius: var(--r-card);
+    padding: 30px 34px;
+    text-align: left;
+    background-color: var(--sage);
+    transition: filter var(--ease-standard);
+  }
+
+  .secondary-card:hover {
+    filter: brightness(1.04);
+  }
+
+  .secondary-card__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--cyan);
+    margin: 0 0 8px;
+  }
+
+  .secondary-card__summary {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(var(--cream-rgb), 0.85);
+    margin: 0;
+    max-width: 44ch;
+  }
+
+  .secondary-card__arrow {
+    font-family: var(--font-display);
+    font-size: 34px;
+    color: var(--cream);
+    flex: none;
+  }
+
+  /* ---------- Testimonios ---------- */
+  .testimonials {
+    padding: var(--section-py-wide) 0;
+    background: var(--sand);
+  }
+
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+    margin-top: 44px;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-section {
+    padding: var(--section-py-wide) 0;
+    background: var(--sand-mid);
+  }
+
+  /*
+    El max-width vive en el contenido, no en el wrapper: si se aplica al
+    mismo elemento que .gutter, el padding del gutter queda DENTRO de los
+    900px y las hairlines del FAQ dejan de alinear con el resto del sitio.
+  */
+  .faq-section__wrap {
+    margin-top: 44px;
+  }
+
+  .faq-section__wrap :global(.faq) {
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  @media (max-width: 900px) {
+    .services__grid,
+    .secondary-services,
+    .testimonials__grid {
+      grid-template-columns: 1fr;
+    }
+
+  }
+</style>

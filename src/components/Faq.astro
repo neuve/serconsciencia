@@ -1,0 +1,97 @@
+---
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  items: FaqItem[];
+  class?: string;
+}
+
+const { items, class: className } = Astro.props;
+---
+
+<div class:list={['faq', className]} data-faq>
+  {items.map((item) => (
+    <details class="faq__item">
+      <summary class="faq__question">{item.q}</summary>
+      <p class="faq__answer">{item.a}</p>
+    </details>
+  ))}
+</div>
+
+<script>
+  // Exclusividad: cierra los demás <details> al abrir uno, ya que
+  // el atributo `name` compartido en <details> no es estándar.
+  document.querySelectorAll<HTMLElement>('[data-faq]').forEach((group) => {
+    const items = Array.from(group.querySelectorAll('details'));
+    items.forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (item.open) {
+          items.forEach((other) => {
+            if (other !== item) other.open = false;
+          });
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .faq {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq__item {
+    border-bottom: 1px solid var(--hairline-strong);
+    /*
+      Padding simétrico consistente en todos los items (corrige el
+      inset lateral arbitrario e inconsistente del prototipo, que
+      variaba entre vistas). Solo padding vertical: este componente
+      se usa dentro de una sección que ya aplica .gutter al wrapper
+      de contenido, así que un padding lateral aquí duplicaría el
+      sangrado en vez de solo corregirlo.
+    */
+    padding: 24px 0;
+  }
+
+  .faq__question {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 23px;
+    color: var(--sage);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .faq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq__question::after {
+    content: '+';
+    font-family: var(--font-ui);
+    font-size: 22px;
+    color: var(--sage);
+    flex: none;
+    transition: transform var(--ease-standard);
+  }
+
+  .faq__item[open] .faq__question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq__answer {
+    font-size: 16px;
+    line-height: 1.62;
+    color: var(--ink-body);
+    margin: 14px 0 0;
+    max-width: 70ch;
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+interface Props {
+  quote: string;
+  name: string;
+  service: string;
+  class?: string;
+}
+
+const { quote, name, service, class: className } = Astro.props;
+---
+
+<div class:list={['testimonial-card', className]}>
+  <p class="testimonial-card__quote">{quote}</p>
+  <div class="testimonial-card__name">{name}</div>
+  <div class="testimonial-card__service">{service}</div>
+</div>
+
+<style>
+  .testimonial-card {
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-box);
+    padding: 34px 30px;
+  }
+
+  .testimonial-card__quote {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-mid);
+    font-style: italic;
+    margin: 0 0 24px;
+    white-space: pre-line;
+  }
+
+  .testimonial-card__name {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    font-weight: 600;
+  }
+
+  .testimonial-card__service {
+    font-size: 13px;
+    color: var(--warm-gray);
+    margin-top: 3px;
+  }
+</style>

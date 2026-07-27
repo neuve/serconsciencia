@@ -1,0 +1,474 @@
+---
+import { Image } from 'astro:assets';
+import logoFlama from '../assets/logo-flama.png';
+
+interface NavLink {
+  href: string;
+  label: string;
+}
+
+const links: NavLink[] = [
+  { href: '/sobre', label: 'Sobre mí' },
+  { href: '/terapias', label: 'Terapias' },
+  { href: '/comunicacion-animal', label: 'Comunicación animal' },
+  { href: '/talleres', label: 'Talleres' },
+  { href: '/testimonios', label: 'Testimonios' },
+];
+
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/';
+
+function isActive(href: string) {
+  return currentPath === href || currentPath.startsWith(href + '/');
+}
+---
+
+<nav class="nav gutter">
+  <a
+    href="/"
+    class="nav__brand"
+    aria-label="Karen Silva — Ir al inicio"
+    aria-current={isHome ? 'page' : undefined}
+  >
+    <Image src={logoFlama} alt="" width={38} height={38} class="nav__logo" />
+    <span class="nav__wordmark">Karen <span class="nav__wordmark-italic">Silva</span></span>
+  </a>
+
+  <div class="nav__links">
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class="nav__link"
+        aria-current={isActive(link.href) ? 'page' : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
+    <a
+      href="https://wa.me/525532407194"
+      class="nav__cta"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Agendar cita
+      <span class="nav__dot" aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <button
+    type="button"
+    class="nav__burger"
+    id="nav-burger"
+    aria-expanded="false"
+    aria-controls="nav-mobile"
+    aria-label="Abrir menú"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="nav__mobile" id="nav-mobile">
+  <div class="nav__mobile-header">
+    <a
+      href="/"
+      class="nav__mobile-brand"
+      aria-label="Karen Silva — Ir al inicio"
+    >
+      <Image src={logoFlama} alt="" width={38} height={38} class="nav__mobile-logo" />
+      <span class="nav__mobile-wordmark">Karen <span class="nav__wordmark-italic">Silva</span></span>
+    </a>
+    <button
+      type="button"
+      class="nav__mobile-close"
+      id="nav-close"
+      aria-label="Cerrar menú"
+    >
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <nav class="nav__mobile-links" aria-label="Menú principal">
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class="nav__mobile-link"
+        aria-current={isActive(link.href) ? 'page' : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+
+  <div class="nav__mobile-bottom">
+    <p class="nav__mobile-support">
+      Canalización, registros akáshicos, péndulo y comunicación animal.
+    </p>
+    <a
+      href="https://wa.me/525532407194"
+      class="nav__cta nav__cta--mobile"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Agendar cita
+      <span class="nav__dot" aria-hidden="true"></span>
+    </a>
+  </div>
+</div>
+
+<script>
+  const nav = document.querySelector('.nav');
+  const burger = document.getElementById('nav-burger');
+  const closeBtn = document.getElementById('nav-close');
+  const mobile = document.getElementById('nav-mobile');
+
+  let menuOpen = false;
+
+  if (nav && burger && mobile) {
+    const closeMenu = () => {
+      menuOpen = false;
+      mobile.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('nav--hidden-for-menu');
+      document.body.style.overflow = '';
+    };
+
+    const openMenu = () => {
+      menuOpen = true;
+      mobile.classList.add('is-open');
+      burger.setAttribute('aria-expanded', 'true');
+      nav.classList.add('nav--hidden-for-menu');
+      document.body.style.overflow = 'hidden';
+    };
+
+    burger.addEventListener('click', () => {
+      if (menuOpen) closeMenu();
+      else openMenu();
+    });
+
+    closeBtn?.addEventListener('click', closeMenu);
+
+    mobile.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', closeMenu);
+    });
+  }
+
+  // Auto-hide de la barra: se oculta al bajar, reaparece al subir o al
+  // acercar el puntero al borde superior de la ventana.
+  if (nav) {
+    let lastY = window.scrollY;
+    const topThreshold = 12;
+    const pointerThreshold = 60;
+    let ticking = false;
+
+    const setHidden = (hidden) => {
+      if (menuOpen) return;
+      nav.classList.toggle('nav--hidden', hidden);
+    };
+
+    const onScroll = () => {
+      const y = window.scrollY;
+
+      if (y <= topThreshold) {
+        setHidden(false);
+      } else if (y > lastY) {
+        setHidden(true);
+      } else if (y < lastY) {
+        setHidden(false);
+      }
+
+      lastY = y;
+      ticking = false;
+    };
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(onScroll);
+        }
+      },
+      { passive: true }
+    );
+
+    window.addEventListener('mousemove', (e) => {
+      if (e.clientY <= pointerThreshold) {
+        setHidden(false);
+      }
+    });
+  }
+</script>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 22px;
+    min-height: var(--nav-height);
+    background: rgba(var(--cream-rgb), 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--hairline-soft);
+    transition: transform var(--ease-standard), background var(--ease-standard);
+  }
+
+  .nav--hidden {
+    transform: translateY(-100%);
+  }
+
+  .nav__brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .nav__logo {
+    object-fit: contain;
+  }
+
+  .nav__wordmark {
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--sage);
+  }
+
+  .nav__wordmark-italic {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2.4vw, 38px);
+  }
+
+  .nav__link {
+    font-size: var(--fs-nav);
+    letter-spacing: var(--ls-nav);
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    font-weight: 500;
+    transition: color var(--ease-standard);
+  }
+
+  .nav__link:hover,
+  .nav__link[aria-current='page'] {
+    color: var(--sage);
+  }
+
+  .nav__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--cta);
+    color: var(--cta-text);
+    padding: 12px 22px;
+    border-radius: var(--r-pill);
+    font-size: 11px;
+    letter-spacing: var(--ls-button);
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: filter var(--ease-standard);
+  }
+
+  .nav__cta:hover {
+    filter: brightness(0.94);
+  }
+
+  .nav__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--r-dot);
+    background: var(--amber);
+    flex: none;
+  }
+
+  .nav__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    flex: none;
+  }
+
+  .nav__burger span {
+    display: block;
+    width: 26px;
+    height: 1.5px;
+    background: var(--sage);
+  }
+
+  .nav__burger span:nth-child(2) {
+    width: 18px;
+    align-self: flex-start;
+  }
+
+  .nav--hidden-for-menu {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav__mobile {
+    display: none;
+  }
+
+  @media (max-width: 880px) {
+    .nav__links {
+      display: none;
+    }
+
+    .nav__burger {
+      display: flex;
+    }
+
+    .nav__mobile {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      inset: 0;
+      z-index: 70;
+      background: var(--sage);
+      min-height: 100%;
+      overflow-y: auto;
+      animation: navMenuFade 0.45s both;
+    }
+
+    .nav__mobile.is-open {
+      display: flex;
+    }
+
+    .nav__mobile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: clamp(56px, 10vh, var(--nav-height));
+      padding: 22px clamp(20px, 5vw, 64px) 0;
+    }
+
+    .nav__mobile-brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .nav__mobile-logo {
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(84%) sepia(11%) saturate(541%)
+        hue-rotate(157deg) brightness(101%) contrast(93%);
+    }
+
+    .nav__mobile-wordmark {
+      font-family: var(--font-display);
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--cta);
+    }
+
+    .nav__mobile-close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      flex: none;
+      position: relative;
+    }
+
+    .nav__mobile-close span {
+      position: absolute;
+      width: 26px;
+      height: 1.5px;
+      background: var(--cta);
+    }
+
+    .nav__mobile-close span:first-child {
+      transform: rotate(45deg);
+    }
+    .nav__mobile-close span:last-child {
+      transform: rotate(-45deg);
+    }
+
+    .nav__mobile-links {
+      display: flex;
+      flex-direction: column;
+      margin-top: clamp(16px, 4vh, 40px);
+      gap: clamp(0px, 0.6vh, 6px);
+      padding-inline: clamp(20px, 5vw, 64px);
+    }
+
+    .nav__mobile-link {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(22px, 7vw, 42px);
+      line-height: 1.15;
+      color: var(--cream);
+      text-align: left;
+      padding: clamp(2px, 1.2vh, 8px) 0;
+      animation: navMenuFloat 0.65s both;
+    }
+
+    .nav__mobile-link[aria-current='page'] {
+      font-style: italic;
+      color: var(--cta);
+    }
+
+    .nav__mobile-bottom {
+      margin-top: auto;
+      padding: clamp(14px, 3vh, 30px) clamp(20px, 5vw, 64px) clamp(20px, 4vh, 40px);
+      border-top: 1px solid rgba(var(--cream-rgb), 0.18);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: clamp(10px, 2.2vh, 22px);
+      animation: navMenuFloat 0.7s 0.15s both;
+    }
+
+    .nav__mobile-support {
+      font-size: clamp(13px, 2vh, 15px);
+      line-height: 1.4;
+      color: rgba(var(--cream-rgb), 0.85);
+      margin: 0;
+      max-width: 40ch;
+    }
+
+    .nav__cta--mobile {
+      width: fit-content;
+    }
+  }
+
+  @keyframes navMenuFade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes navMenuFloat {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

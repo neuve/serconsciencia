@@ -1,0 +1,471 @@
+---
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TherapyCard from '../components/TherapyCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import Faq from '../components/Faq.astro';
+
+const colorGroups = [
+  {
+    label: 'Fondos',
+    swatches: [
+      { name: '--sand', hex: '#F5E8D8' },
+      { name: '--sand-mid', hex: '#F2D6A1' },
+      { name: '--cream', hex: '#F4F2ED' },
+      { name: '--white', hex: '#FFFFFF' },
+    ],
+  },
+  {
+    label: 'Marca',
+    swatches: [
+      { name: '--sage', hex: '#5C7A70' },
+      { name: '--sage-light', hex: '#92ADA4' },
+      { name: '--sage-deep', hex: '#3F5449' },
+      { name: '--sage-tone-2', hex: '#AECABB' },
+      { name: '--sage-tone-3', hex: '#C8DDD0' },
+    ],
+  },
+  {
+    label: 'Acción',
+    swatches: [
+      { name: '--cta', hex: '#B3D9E0' },
+      { name: '--cta-text', hex: '#2A3B44' },
+      { name: '--cyan', hex: '#4DC3D6' },
+      { name: '--amber', hex: '#F1A805' },
+    ],
+  },
+  {
+    label: 'Texto',
+    swatches: [
+      { name: '--ink', hex: '#1C2530' },
+      { name: '--ink-mid', hex: '#3C4657' },
+      { name: '--ink-body', hex: '#4A5563' },
+      { name: '--warm-gray', hex: '#A19A8C' },
+    ],
+  },
+];
+
+const typeScale = [
+  { token: '--fs-h1', sample: 'Reconectando', family: 'var(--font-display)', extra: 'font-style: italic;' },
+  { token: '--fs-h2', sample: 'Elige tu camino.', family: 'var(--font-display)' },
+  { token: '--fs-h3', sample: 'Lo que te llevas.', family: 'var(--font-display)' },
+];
+
+const radii = [
+  { token: '--r-card', label: 'Tarjeta de servicio (6px)' },
+  { token: '--r-box', label: 'Caja de contenido (8px)' },
+  { token: '--r-content', label: 'Caja de contenido grande (10px)' },
+  { token: '--r-band', label: 'Banda (12px)' },
+  { token: '--r-split', label: 'Bloque split (16px)' },
+  { token: '--r-pill', label: 'Botón / pill (44px)' },
+];
+---
+
+<Base
+  title="Design system"
+  description="Referencia visual interna de los tokens y componentes del sitio."
+>
+  <section class="ds-hero">
+    <div class="gutter">
+      <Eyebrow text="Referencia interna" color="var(--cyan)" />
+      <h1 class="ds-hero__title">Design system.</h1>
+      <p class="ds-hero__lede">
+        Todo lo que ves aquí lee los tokens reales de <code>src/styles/tokens.css</code> y los
+        componentes reales de <code>src/components/</code> — no es una maqueta aparte. Página no
+        enlazada desde la navegación pública.
+      </p>
+    </div>
+  </section>
+
+  <!-- COLOR -->
+  <section class="ds-section">
+    <div class="gutter">
+      <h2 class="ds-section__title">Color</h2>
+      {colorGroups.map((group) => (
+        <div class="ds-color-group">
+          <h3 class="ds-color-group__label">{group.label}</h3>
+          <div class="ds-swatches">
+            {group.swatches.map((s) => (
+              <div class="ds-swatch">
+                <div class="ds-swatch__chip" style={{ background: `var(${s.name})` }}></div>
+                <div class="ds-swatch__name">{s.name}</div>
+                <div class="ds-swatch__hex">{s.hex}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- TIPOGRAFÍA -->
+  <section class="ds-section ds-section--alt">
+    <div class="gutter">
+      <h2 class="ds-section__title">Tipografía</h2>
+
+      <div class="ds-type-families">
+        <p class="ds-type-sample" style="font-family: var(--font-display); font-size: 32px;">
+          Cormorant Garamond — <em>display</em>
+        </p>
+        <p class="ds-type-sample" style="font-family: var(--font-ui); font-size: 20px;">
+          Instrument Sans — UI y cuerpo
+        </p>
+        <p class="ds-type-sample" style="font-family: var(--font-mono); font-size: 16px;">
+          ui-monospace — datos y notas
+        </p>
+      </div>
+
+      <div class="ds-type-scale">
+        {typeScale.map((t) => (
+          <div class="ds-type-row">
+            <span class="ds-type-row__token">{t.token}</span>
+            <span
+              class="ds-type-row__sample"
+              style={`font-family:${t.family}; font-size:var(${t.token});${t.extra ?? ''}`}
+            >
+              {t.sample}
+            </span>
+          </div>
+        ))}
+        <div class="ds-type-row">
+          <span class="ds-type-row__token">Eyebrow</span>
+          <span class="eyebrow">Karen Silva · Terapias y Talleres</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTONES Y EYEBROWS -->
+  <section class="ds-section">
+    <div class="gutter">
+      <h2 class="ds-section__title">Botones</h2>
+      <div class="ds-row">
+        <Button variant="primary" label="Comienza tu camino" href="#" showDot />
+        <Button variant="ghost" label="Talleres" href="#" />
+      </div>
+
+      <h2 class="ds-section__title ds-section__title--spaced">Eyebrows</h2>
+      <div class="ds-row">
+        <Eyebrow text="Karen Silva" color="var(--sage)" />
+        <Eyebrow text="Terapias y sesiones" color="var(--cyan)" />
+        <Eyebrow text="Terapia · Sesión individual" color="var(--amber)" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION HEADER -->
+  <section class="ds-section ds-section--alt">
+    <SectionHeader
+      eyebrow="Ejemplo de encabezado"
+      title="Elige tu"
+      italicWord="camino."
+      italicColor="var(--amber)"
+      lede="SectionHeader combina eyebrow, título con palabra final en itálica y una bajada centrada — usado en Home, Terapias y Testimonios."
+    />
+  </section>
+
+  <!-- TARJETAS -->
+  <section class="ds-section">
+    <div class="gutter">
+      <h2 class="ds-section__title">Tarjetas</h2>
+      <div class="ds-cards-grid">
+        <ServiceCard
+          title="Canalización y TRE"
+          image="/assets/abuelo.avif"
+          href="#"
+          height="320px"
+        />
+        <TherapyCard
+          title="Limpieza con Cruz Ankh"
+          eyebrow="Trabajo asincrónico"
+          summary="Limpieza minuciosa de energías mal calificadas."
+          tone="#5C7A70"
+          href="#"
+        />
+        <TestimonialCard
+          quote="Un ejemplo de testimonio para ver la tarjeta blanca con cita, nombre y servicio."
+          name="Nombre Apellido"
+          service="Servicio de ejemplo"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="ds-section ds-section--alt">
+    <div class="gutter ds-faq-wrap">
+      <h2 class="ds-section__title">Acordeón FAQ</h2>
+      <Faq items={[
+        { q: '¿Cómo funciona este componente?', a: 'Usa <details>/<summary> nativos con un script que fuerza exclusividad — un solo item abierto a la vez.' },
+        { q: '¿Se puede reutilizar en cualquier página?', a: 'Sí, solo requiere un array de {q, a}.' },
+      ]} />
+    </div>
+  </section>
+
+  <!-- RADIOS Y SOMBRA -->
+  <section class="ds-section">
+    <div class="gutter">
+      <h2 class="ds-section__title">Radios y sombra</h2>
+      <div class="ds-radii-grid">
+        {radii.map((r) => (
+          <div class="ds-radius-sample">
+            <div class="ds-radius-sample__box" style={{ borderRadius: `var(${r.token})` }}></div>
+            <div class="ds-radius-sample__label">{r.label}</div>
+          </div>
+        ))}
+      </div>
+      <div class="ds-shadow-sample">
+        <div class="ds-shadow-sample__box"></div>
+        <span>--shadow-card</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGLA DE SANGRADO -->
+  <section class="ds-section ds-section--alt">
+    <div class="gutter">
+      <h2 class="ds-section__title">Regla de sangrado</h2>
+      <p class="ds-bleed-explainer">
+        Fondos e imágenes van de borde a borde <strong>sin</strong> radio ni borde en los extremos
+        (<code>.bleed</code>). Cualquier elemento con radio, borde o sombra vive dentro de
+        <code>--gutter</code> (<code>.gutter</code>), para que ningún trazo toque el borde de la
+        ventana. Es la corrección del bug de sangrado del prototipo original.
+      </p>
+      <div class="ds-bleed-demo bleed">
+        <div class="ds-bleed-demo__bar"></div>
+      </div>
+      <div class="ds-bleed-demo gutter">
+        <div class="ds-bleed-demo__box"></div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ds-hero {
+    padding: clamp(70px, 9vh, 120px) 0 clamp(30px, 4vh, 50px);
+    background: var(--sand);
+  }
+
+  .ds-hero__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 64px);
+    color: var(--sage);
+    margin: 20px 0 0;
+  }
+
+  .ds-hero__lede {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-body);
+    max-width: 62ch;
+    margin: 18px 0 0;
+  }
+
+  .ds-hero__lede code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: rgba(var(--line-rgb), 0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .ds-section {
+    padding: clamp(50px, 7vh, 90px) 0;
+    background: var(--sand);
+  }
+
+  .ds-section--alt {
+    background: var(--sand-mid);
+  }
+
+  .ds-section__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--sage);
+    margin: 0 0 28px;
+  }
+
+  .ds-section__title--spaced {
+    margin-top: 48px;
+  }
+
+  .ds-color-group {
+    margin-bottom: 36px;
+  }
+
+  .ds-color-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .ds-color-group__label {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin: 0 0 14px;
+  }
+
+  .ds-swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .ds-swatch__chip {
+    height: 64px;
+    border-radius: var(--r-box);
+    border: 1px solid var(--hairline);
+  }
+
+  .ds-swatch__name {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink);
+    margin-top: 8px;
+  }
+
+  .ds-swatch__hex {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--warm-gray);
+  }
+
+  .ds-type-families {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .ds-type-sample {
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .ds-type-scale {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .ds-type-row {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 14px;
+  }
+
+  .ds-type-row__token {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--warm-gray);
+    width: 90px;
+    flex: none;
+  }
+
+  .ds-type-row__sample {
+    color: var(--sage);
+    line-height: 1;
+  }
+
+  .ds-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .ds-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+  }
+
+  .ds-faq-wrap {
+    max-width: 700px;
+  }
+
+  .ds-radii-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .ds-radius-sample__box {
+    height: 90px;
+    background: var(--sage-light);
+  }
+
+  .ds-radius-sample__label {
+    font-size: 13px;
+    color: var(--ink-body);
+    margin-top: 10px;
+  }
+
+  .ds-shadow-sample {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .ds-shadow-sample__box {
+    width: 140px;
+    height: 90px;
+    background: var(--white);
+    border-radius: var(--r-box);
+    box-shadow: var(--shadow-card);
+  }
+
+  .ds-shadow-sample span {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--warm-gray);
+  }
+
+  .ds-bleed-explainer {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-body);
+    max-width: 70ch;
+    margin: 0 0 28px;
+  }
+
+  .ds-bleed-explainer code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: rgba(var(--line-rgb), 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .ds-bleed-demo {
+    margin-bottom: 16px;
+  }
+
+  .ds-bleed-demo__bar {
+    height: 40px;
+    background: var(--sage);
+  }
+
+  .ds-bleed-demo__box {
+    height: 40px;
+    background: var(--sage);
+    border-radius: var(--r-box);
+  }
+
+  @media (max-width: 780px) {
+    .ds-cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

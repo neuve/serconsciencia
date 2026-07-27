@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Instrument Sans',system-ui,sans-serif;color:#1c2530;background:#F5E8D8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+input[type=email]::placeholder{color:#4DC3D6;opacity:1}
+@keyframes kFloat{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes kZoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+@keyframes kFade{from{opacity:0}to{opacity:1}}
+@keyframes kPulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.35);opacity:.4}}
+</style>
+</helmet>
+
+<div style="min-height:100vh">
+
+<!-- ============ NAV ============ -->
+<nav style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(20px,5vw,64px);background:rgba(244,242,237,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(51,58,53,.07)">
+  <button onClick="{{ goInicio }}" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/logo-verde.png" alt="Logo Karen Silva" style="height:38px;width:38px;object-fit:contain">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;letter-spacing:.02em;color:#5C7A70">Karen <span style="font-style:italic;color:#5C7A70">Silva</span></span>
+  </button>
+  <div style="display:flex;align-items:center;gap:clamp(14px,2.4vw,38px)">
+    <button onClick="{{ goInicio }}" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#3c4657;font-weight:500">Inicio</button>
+    <button onClick="{{ goSobre }}" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#3c4657;font-weight:500">Sobre mí</button>
+    <button onClick="{{ goTerapias }}" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#3c4657;font-weight:500">Terapias</button>
+    <button onClick="{{ goAnimal }}" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#3c4657;font-weight:500">Comunicación animal</button>
+    <button onClick="{{ goTaller }}" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#3c4657;font-weight:500">Talleres</button>
+    <button onClick="{{ goTestimonios }}" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#3c4657;font-weight:500">Testimonios</button>
+    <button onClick="{{ goTerapias }}" style="display:inline-flex;align-items:center;gap:12px;background:#B3D9E0;color:#2a3b44;padding:12px 22px;border-radius:40px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Agendar cita <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+  </div>
+</nav>
+
+<!-- ============ HOME ============ -->
+<sc-if value="{{ pInicio }}" hint-placeholder-val="{{ true }}">
+<div>
+
+  <!-- variation switcher removed — Propuesta 2 elegida -->
+
+  <!-- HERO A · Serena -->
+  <sc-if value="{{ hvA }}" hint-placeholder-val="{{ true }}">
+  <section style="display:grid;grid-template-columns:1.05fr .95fr;gap:0;min-height:100vh;padding-top:84px;background:#F5E8D8">
+    <div style="display:flex;flex-direction:column;justify-content:center;padding:clamp(32px,6vw,96px)">
+      <div style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#92ADA4;font-weight:600;margin-bottom:26px;animation:kFloat .7s .05s both">Terapias · cursos · acompañamiento</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(52px,7.2vw,112px);line-height:.92;letter-spacing:-.02em;color:#5C7A70;margin:0;animation:kFloat .8s .12s both">Reconecta con la consciencia del <span style="font-style:italic;color:#5C7A70">amor.</span></h1>
+      <p style="max-width:440px;font-size:17px;line-height:1.65;color:#4a5563;margin:32px 0 38px;animation:kFloat .8s .22s both">Canalización, registros akáshicos, ángeles, péndulo, numerología, sanación cuántica con rosas y comunicación animal — para clarificar, ordenar y sanar tu momento presente.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;animation:kFloat .8s .32s both">
+        <button onClick="{{ goTerapias }}" style="display:inline-flex;align-items:center;gap:14px;background:#B3D9E0;color:#2a3b44;padding:16px 30px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Agendar una cita <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+        <button onClick="{{ goTaller }}" style="display:inline-flex;align-items:center;gap:12px;color:#5C7A70;padding:16px 26px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;border:1px solid rgba(51,58,53,.22)">Ver cursos</button>
+      </div>
+    </div>
+    <div style="position:relative;overflow:hidden;animation:kFade 1s both">
+      <img src="assets/karen-retrato.jpg" alt="Karen Silva" ref="{{ parallaxRef }}" style="position:absolute;left:0;right:0;top:-12%;width:100%;height:124%;object-fit:cover;object-position:52% 32%;animation:kZoom 2.6s ease-out both;will-change:transform">
+      <div style="position:absolute;inset:0;background:linear-gradient(115deg,rgba(244,242,237,.32),transparent 34%)"></div>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- HERO B · Portada color -->
+  <sc-if value="{{ hvB }}" hint-placeholder-val="{{ true }}">
+  <section style="position:relative;min-height:100vh;overflow:hidden;background:#F5E8D8;display:flex;align-items:flex-end;padding-top:84px">
+    <img src="assets/mandala.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%">
+    <div style="position:absolute;inset:0;background:radial-gradient(45% 40% at 55% 42%,rgba(255,255,255,.15),transparent 70%);animation:kFade 2s both"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(51,58,53,.38) 0%,rgba(51,58,53,.05) 42%,transparent 62%)"></div>
+    <div style="position:absolute;top:120px;right:clamp(24px,5vw,72px);max-width:340px;text-align:right;animation:kFloat .9s .2s both">
+      <p style="font-size:16px;line-height:1.7;color:#2a3b44;margin:0 0 26px">Acompaño a humanos y animales en sus procesos de sanación.</p>
+      <button onClick="{{ goTerapias }}" style="display:inline-flex;align-items:center;gap:14px;background:#92ADA4;color:#fff;padding:15px 26px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Comienza tu camino <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+    </div>
+    <div style="position:relative;width:100%;padding:0 clamp(24px,5vw,72px) clamp(44px,7vh,92px);animation:kFloat 1s .1s both">
+      <div style="font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:18px">Karen Silva · Terapias y Talleres</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,6.25vw,95px);line-height:.84;letter-spacing:-.02em;color:#fff;margin:0">reconectando<br>con la <span style="font-style:italic;color:#fff">consciencia del amor</span></h1>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- PHILOSOPHY split · foto media página (enmarcada) -->
+  
+
+  <!-- SERVICES -->
+  <section style="padding: clamp(40px,7vh,90px) 0; background: #F5E8D8">
+    
+  <div style="width:100%;display:grid;grid-template-columns:.95fr 1.05fr;gap:0;background:#fff;border:1px solid rgba(51,58,53,.08);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(51,58,53,.06);align-items:stretch">
+      <div style="position:relative;overflow:hidden;min-height:clamp(420px,64vh,680px)">
+      <img src="assets/karen-retrato.jpg" alt="Karen Silva" ref="{{ parallaxRef }}" style="position:absolute;left:0;right:0;top:-12%;width:100%;height:124%;object-fit:cover;object-position:50% 30%;will-change:transform">
+    </div><div style="display: flex; flex-direction: column; justify-content: center; padding: clamp(32px,4vw,48px)">
+      
+      <div style="width:52px;height:52px;margin-bottom:24px;border-radius:50%;border:1.5px solid #4DC3D6;display:flex;align-items:center;justify-content:center"><span style="width:16px;height:16px;border-radius:50%;background:#F1A805;display:block"></span></div>
+      <div style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#4DC3D6;font-weight:600;margin-bottom:28px">Mi filosofía</div>
+      <p style="font-family: 'Cormorant Garamond',serif; font-weight: 500; font-size: clamp(32px,3.9vw,58px); line-height: 1.16; letter-spacing: -.01em; margin: 0; color: #5C7A70"><span style="color: rgb(241, 168, 5); font-size: 23px; width: 100%;"><b>Mi objetivo principal es ayudarte tener mayor claridad y sabiduría en tu camino de vida. Dándole un espacio en lo cotidiano al mundo sutil y espiritual que está en y con nosotros.<br></b></span><span style="color: rgb(90, 138, 111); font-size: 23px;"><b>Creo profundamente en la capacidad infinita que tenemos de transformarnos, y estoy feliz de poder acompañarte en eso.&nbsp;</b></span></p><button onClick="{{ goSobre }}" style="margin-top: 24px; align-self: flex-start; display: inline-flex; align-items: center; gap: 14px; background: #B3D9E0; color: #2a3b44; padding: 15px 28px; border-radius: 44px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; justify-content: flex-end">Conoce a Karen <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+        
+      </div>
+    </div></section>
+
+  <!-- LEAD MAGNET -->
+  <section style="padding:clamp(30px,4vw,50px) 0 clamp(80px,10vh,130px);background:#F5E8D8">
+    <div style="width:100%;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:18px;margin-bottom:44px">
+        <div>
+          <div style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 16px">Terapias y servicios</div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4.6vw,60px);line-height:1.02;letter-spacing:-.01em;margin:0;color:#5C7A70">Cada camino es distinto.<br>Estas son las puertas de entrada.</h2>
+        </div>
+        <button onClick="{{ goTerapias }}" style="font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #F1A805; font-weight: 600; border-bottom: 1px solid #5C7A70; padding-bottom: 4px">Ver todos los servicios</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+
+        <!-- card 1 · real photo -->
+        <button onClick="{{ open.canal }}" style="position:relative;height:480px;border-radius:6px;overflow:hidden;text-align:left;display:block">
+          <img src="assets/abuelo.avif" alt="El Abuelo" ref="{{ parallaxRef }}" style="position:absolute;left:0;right:0;top:-12%;width:100%;height:124%;object-fit:cover;object-position:58% 62%;will-change:transform">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(51,58,53,.1),rgba(51,58,53,.5))"></div>
+          <div style="position:absolute;top:30px;left:30px;right:30px">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;line-height:1.02;color:#fff;margin:0">Canalización y TRE<br></h3>
+          </div>
+          <div style="position:absolute;left:30px;right:30px;bottom:30px">
+            <p style="font-size:14px;line-height:1.55;color:rgba(255,255,255,.9);margin:0 0 14px">Trabajo de profunda investigación y limpieza de tus registros del alma. Apoya para comprender el propósito mayor que hay detrás de nuestros problemas.</p>
+          </div>
+        </button>
+
+        <!-- card 2 · real photo -->
+        <button onClick="{{ goAnimal }}" style="position:relative;height:480px;border-radius:6px;overflow:hidden;text-align:left;display:block">
+          <img src="assets/karen-caballo.jpg" alt="Karen con su caballo" ref="{{ parallaxRef }}" style="position:absolute;left:0;right:0;top:-12%;width:100%;height:124%;object-fit:cover;object-position:62% 32%;will-change:transform">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(51,58,53,.1),rgba(51,58,53,.5))"></div>
+          <div style="position:absolute;top:30px;left:30px;right:30px">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;line-height:1.02;color:#fff;margin:0">Comunicación<br>animal</h3>
+          </div>
+          <div style="position:absolute;left:30px;right:30px;bottom:30px">
+            <p style="font-size:14px;line-height:1.55;color:rgba(255,255,255,.92);margin:0 0 14px">Un puente de corazón a corazón con tus compañeros de otras especies: cómo se sienten, qué necesitan y cómo acompañarlos.</p>
+          </div>
+        </button>
+
+        <!-- card 3 -->
+        <button onClick="{{ goTerapias }}" style="position:relative;height:480px;border-radius:6px;overflow:hidden;text-align:left;display:block">
+          <div style="position:absolute;inset:0;background:#92ADA4"></div>
+          <img src="assets/bosque.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(51,58,53,.1),rgba(51,58,53,.5))"></div>
+          <div style="position:absolute;top:30px;left:30px;right:30px">
+            <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,242,237,.75);font-weight:600;margin-bottom:14px">Sesiones a medida</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;line-height:1.02;color:#fff;margin:0">Especiales</h3>
+          </div>
+          <div style="position:absolute;left:30px;right:30px;bottom:30px">
+            <p style="font-size:14px;line-height:1.55;color:rgba(255,255,255,.9);margin:0 0 14px">Sesiones especiales fuera del catálogo regular —&nbsp; asesoría en proyectos, cierre de ciclos, cumpleaños, apoyo para parejas.</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- secondary services -->
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:22px">
+        <button onClick="{{ open.ankh }}" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 6px; padding: 30px 34px; text-align: left; background-color: #5C7A70">
+          <div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;color:#fff;margin:0 0 8px;white-space:nowrap">Sanación con Cruz Ankh</h3>
+            <p style="font-size: 14px; line-height: 1.5; color: #FFFFFFD9; margin: 0; max-width: 44ch">Limpieza minuciosa&nbsp; de todo tipo energías mal calificadas&nbsp; que pueden vivirse como ataques energéticos y bloqueos — envidias, mal de ojo, trabajos dirigidos.</p>
+          </div>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:34px;color:#fff">→</span>
+        </button>
+        <button onClick="{{ open.rosas }}" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 6px; padding: 30px 34px; text-align: left; background-color: #5C7A70">
+          <div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;color:#fff;margin:0 0 8px;white-space:nowrap">Sanación cuántica con Rosas</h3>
+            <p style="font-size:14px;line-height:1.5;color:rgba(255,255,255,.85);margin:0;max-width:44ch">La medicina de las rosas es una técnica psico-espiritual profunda para abrir el corazón y poder desde la energía del amor&nbsp; transformar patrones de raíz.<br>Técnica canalizada por Elda Salvador.</p>
+          </div>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:34px;color:#fff">→</span>
+        </button>
+      </div>
+    </div>
+  </section><section style="padding: clamp(80px,11vh,140px) 0; background-color: #5C7A70">
+    <div style="width:100%;text-align:center">
+      <div style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 26px">Regalo · 100% gratuito</div>
+      <h2 style="font-family: 'Cormorant Garamond',serif; font-weight: 500; font-size: clamp(32px,4.6vw,58px); line-height: 1.08; color: #FFE1A8; margin: 0 0 22px">Meditación para armonizar<br>y <span style="font-style: italic; color: #C9F7FF">enraizar.</span></h2>
+      <p style="width:100%; 36px; font-size: 17px; line-height: 1.65; color: #FFFFFF">Lleva tu cuerpo a un espacio de tranquilidad, seguridad y comodidad. Un audio guiado para entrenar tu propio poder de autorregulación — uno de los grandes regalos que hoy puedes hacerte.</p>
+      <form onSubmit="{{ submitLead }}" style="display:flex;gap:12px;width:100%;flex-wrap:wrap;justify-content:center">
+        <input type="email" required="" placeholder="tu correo" style="flex:1;min-width:220px;background:rgba(244,242,237,.08);border:1px solid #B3D9E0;color:#fff;padding:16px 20px;border-radius:44px;font-size:15px;font-family:inherit;outline:none">
+        <button type="submit" style="display:inline-flex;align-items:center;gap:12px;background:#B3D9E0;color:#2a3b44;padding:16px 28px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">La necesito <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+      </form>
+      <p style="font-size:13px;color:rgba(244,242,237,.5);margin-top:16px">{{ leadNote }}</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS (placeholder real) -->
+  <section style="padding:clamp(80px,11vh,140px) 0;background:#F5E8D8">
+    <div style="width:100%;">
+      <div style="text-align:center;margin-bottom:50px">
+        <div style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 16px">Historias</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,4.4vw,56px);line-height:1.05;margin:0;color:#5C7A70">Cómo cambian los relatos.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+        <sc-for list="{{ testimonios }}" as="t" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid rgba(51,58,53,.08);border-radius:8px;padding:34px 30px">
+            
+            <p style="font-size:16px;line-height:1.6;color:#3c4657;margin:18px 0 24px;font-style:italic">{{ t.quote }}</p>
+            <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#92ADA4;font-weight:600">{{ t.name }}</div>
+            <div style="font-size:13px;color:#8a94a0;margin-top:3px">{{ t.service }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding:clamp(70px,10vh,120px) 0;background:#F2D6A1">
+    <div style="width:100%;">
+      <div style="text-align:center;margin-bottom:44px">
+        <div style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #FFFFFF; font-weight: 600; margin-bottom: 16px">Preguntas frecuentes</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.2vw,52px);line-height:1.05;margin:0;color:#5C7A70">Antes de agendar.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+          <div style="border-bottom:1px solid rgba(51,58,53,.14);padding:24px 4px">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;color:#5C7A70;margin:0 0 10px">{{ f.q }}</h3>
+            <p style="font-size:16px;line-height:1.62;color:#4a5563;margin:0;max-width:70ch">{{ f.a }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+</div>
+</sc-if>
+
+<!-- ============ SOBRE MÍ ============ -->
+<sc-if value="{{ pSobre }}" hint-placeholder-val="{{ true }}">
+<div style="padding-top:84px">
+  <section style="display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:70vh">
+    <div style="display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,96px)">
+      <div style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#4DC3D6;font-weight:600;margin-bottom:24px">Sobre mí</div>
+      <h1 style="font-family: 'Cormorant Garamond',serif; font-weight: 500; font-size: clamp(40px,5.4vw,78px); line-height: 1; letter-spacing: -.015em; margin: 0; color: #5C7A70">Karen <span style="font-style: italic; color: #5C7A70">Silva.</span></h1>
+      <p style="font-family: 'Cormorant Garamond',serif; font-size: clamp(22px,2.4vw,30px); line-height: 1.3; color: #FFAB00; margin: 28px 0 0; max-width: 32ch; text-decoration-line: none; font-weight: 900">Acompaño a personas y a animales en sus propios procesos de sanación.&nbsp;<br>Tengo la certeza absoluta que desde la consciencia, la coherencia y la verdad podemos crear una vida más plena, libre y feliz.<br><i><span style="font-style: normal;">Me interesa mostrarte que la espiritualidad la puedes vivir en lo cotidiano desde la alegría, la liviandad y autenticidad.</span></i></p>
+    </div>
+    <div style="position:relative;overflow:hidden;min-height:60vh">
+      <img src="assets/karen-retrato.jpg" alt="Karen Silva" ref="{{ parallaxRef }}" style="position:absolute;left:0;right:0;top:-12%;width:100%;height:124%;object-fit:cover;object-position:50% 30%;will-change:transform">
+    </div>
+  </section>
+
+  
+
+  <section style="padding: clamp(70px,10vh,120px) 0; background: #F5E8D8">
+    <div style="width:100%;">
+      <div style="border: 1px solid rgba(51,58,53,.08); border-radius: 8px; padding: 28px 30px; background-color: #F2D6A1">
+      <p style="font-size:18px;line-height:1.75;color:#3c4657;margin:0 0 22px">Lo que comenzó como curiosidad y autoconocimiento se fue convirtiendo en mi camino: el péndulo, los registros akáshicos, la sanación energética, la comunicación con animales, el camino con rosas.</p>
+      <p style="font-size:18px;line-height:1.75;color:#3c4657;margin:0 0 22px">Soy una apasionada del trabajo energético, de la observación de los cambios, de las transformaciones (y del chismecito cósmico). También de poder encontrar respuestas y comprensión a lo que no es evidente.</p>
+      </div>
+      
+      <p style="font-size:18px;line-height:1.75;color:#3c4657;margin:0"><br></p>
+    </div>
+  </section><section style="padding:0 0 clamp(80px,11vh,130px);background:#F5E8D8">
+    <div style="width:100%;">
+      <div style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 30px; text-align: center">Formación y trayectoria</div>
+      <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:22px;align-items:stretch">
+        <div style="display:flex;flex-direction:column;gap:22px;height:100%">
+          <div style="flex:1;background:#fff;border:1px solid rgba(51,58,53,.08);border-radius:8px;padding:24px 26px;display:flex;flex-direction:column;justify-content:center">
+            <h3 style="font-family: 'Cormorant Garamond',serif; font-weight: 600; font-size: 20px; color: #F1A805; margin: 0 0 12px">Estudios formales universitarios</h3>
+            <p style="font-size:14px;line-height:1.55;color:#4a5563;margin:0">Diseñadora de vestuario y accesorios — 9 años de trayectoria profesional. Trabajo independiente, creadora de la marca personal Petunia, enfocada en la experimentación textil.</p>
+          </div>
+          <div style="flex:1;background:#fff;border:1px solid rgba(51,58,53,.08);border-radius:8px;padding:24px 26px;display:flex;flex-direction:column;justify-content:center">
+            <h3 style="font-family: 'Cormorant Garamond',serif; font-weight: 600; font-size: 20px; color: #F1A805; margin: 0 0 12px">Cómo acompaño</h3>
+            <p style="font-size:14px;line-height:1.55;color:#4a5563;margin:0">Trabajo energético profundo, presencial en CDMX y online, con sesiones y talleres.</p>
+          </div>
+        </div>
+        <div style="background:#5C7A70;border-radius:8px;padding:32px 30px;display:flex;flex-direction:column;justify-content:center">
+          <h3 style="font-family: 'Cormorant Garamond',serif; font-weight: 600; font-size: 22px; color: #F1A805; margin: 0 0 18px">Formación&nbsp;</h3>
+          <ul style="list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:11px 32px">
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Terapia de Respuesta Espiritual</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Verónica Bau y Adriana Alcazar</span></li>
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Sanación cuántica con rosas</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Elda Salvador</span></li>
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Radiestesia&nbsp;</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Alida Morales</span></li>
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Sanación angelical</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Silvia de Torres</span></li>
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Comunicación animal y Doula del alma</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Olga Porqueras y Clara Martí</span></li>
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Numerología</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Leonardo Apelbaum</span></li>
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Sanación con cristales</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Alejandra Salatino</span></li>
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Registros akáshicos</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Marta Campos</span></li>
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Astrología</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Jimena Zúñiga</span></li>
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Reiki Usui nivel I y II</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Alida Morales</span></li>
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Sanación reconectiva · Reconexión</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Eric Pearl</span></li>
+            <li style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Radiónica y péndulo egipcio</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Silvia de Torres</span></li>
+            <li style="grid-column:2;display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;line-height:1.25;color:#fff;font-weight:600">Actualmente cursando</span><span style="font-size:12px;line-height:1.25;color:rgba(255,255,255,.7)">Segundo nivel de Sanación cuántica con rosas</span></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style="margin-top: 22px">
+        <h3 style="font-family: 'Cormorant Garamond',serif; font-weight: 600; font-size: 27px; color: #5C7A70; margin: 0 0 12px">Más sobre mi</h3>
+        <div style="font-size:14px;line-height:1.65;color:#4a5563;margin:0"><p style="margin:0 0 14px">Chilena, hija de profesores, crecí siendo scout desde los 7 hasta los 17 años, una experiencia que marcó profundamente mi forma de mirar el mundo y de relacionarme con las personas.</p>
+          
+          <p style="margin:0 0 14px">Sin haberlo planeado, la vida me llevó a recorrer mundos muy distintos. En Chile formé parte de iniciativas vinculadas al diseño, como Santiago Maker Space, donde descubrí el valor de la creatividad, la experimentación y el aprendizaje colaborativo. Más adelante tuve la fortuna de conocer y trabajar junto a maestros del ámbito espiritual y holístico, entre ellos Elda Salvador (México), Olga Porqueras (España), Mireille Blan (Francia) y Víctor Morales (Argentina).</p>
+          <p style="margin:0 0 14px"><b>Con el tiempo comprendí que no eran dos caminos distintos: la creatividad del diseño y la profundidad del trabajo interior terminaron encontrándose, y esa integración se convirtió en el sello de mi manera de aprender, enseñar y crear.</b></p>
+          <p style="margin:0 0 14px">En 2018 viví un punto de inflexión al participar en dos retiros espirituales, en Egipto y Rapa Nui. Esos viajes marcaron el inicio de una profunda transformación personal y consolidaron una forma de vivir y de trabajar mucho más consciente, coherente y alineada con quien soy.</p>
+          <p style="margin:0 0 14px">Actualmente vivo en Ciudad de México, un lugar que disfruto profundamente por su riqueza cultural, su gastronomía y la diversidad de personas, colores, historias y texturas que lo hacen único.</p>
+          <p style="margin:0">Si algo me ha regalado este recorrido, ha sido una comunidad maravillosa de personas: alumnos y pacientes con quienes he tenido el privilegio de compartir aprendizajes, desafíos y muchas risas. Verlos crecer y seguir siendo parte de sus historias es, sin duda, una de las cosas que más disfruto de lo que hago.</p></div>
+      </div><div style="text-align:center;margin-top:48px">
+        <button onClick="{{ goTerapias }}" style="display:inline-flex;align-items:center;gap:14px;background:#B3D9E0;color:#2a3b44;padding:16px 30px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Ver mis servicios <span style="width:6px;height:6px;border-radius:50%;background:#F3E635"></span></button>
+      </div>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ============ TESTIMONIOS ============ -->
+<sc-if value="{{ pTestimonios }}" hint-placeholder-val="{{ true }}">
+<div data-screen-label="Testimonios" style="padding-top:84px">
+  <section style="padding:clamp(60px,8vh,110px) 0 clamp(30px,4vh,50px);background:#F5E8D8;text-align:center">
+    <div style="width:100%;">
+      <div style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#92ADA4;font-weight:600;margin-bottom:20px">Testimonios</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,5.4vw,80px);line-height:1;letter-spacing:-.015em;margin:0;color:#5C7A70">Cómo cambian los <span style="font-style:italic;color:#5C7A70">relatos.</span></h1>
+      <p style="font-size:17px;line-height:1.65;color:#4a5563;margin:28px auto 0;max-width:52ch">Palabras de quienes han caminado sus procesos de sanación en compañía. Cada historia es única — estas son algunas que se compartieron con permiso.</p>
+    </div>
+  </section>
+
+  <section style="padding:clamp(20px,3vh,40px) 0 clamp(80px,11vh,140px);background:#F5E8D8">
+    <div style="width:100%;">
+
+      <div style="display:flex;align-items:baseline;gap:16px;margin:0 0 30px;padding-bottom:16px;border-bottom:1px solid rgba(51,58,53,.14)">
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(26px,3vw,38px);color:#5C7A70;margin:0">Alumnos</h2>
+        <span style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#92ADA4;font-weight:600">Cursos y talleres</span>
+      </div>
+      <div style="column-count:3;column-gap:22px;margin-bottom:66px">
+        <sc-for list="{{ testimoniosAlumnos }}" as="t" hint-placeholder-count="3">
+          <div style="break-inside:avoid;margin-bottom:22px;background:#fff;border:1px solid rgba(51,58,53,.08);border-radius:8px;padding:34px 30px">
+            <p style="font-size:16px;line-height:1.65;color:#3c4657;margin:14px 0 24px;font-style:italic;white-space:pre-line">{{ t.quote }}</p>
+            <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#92ADA4;font-weight:600">{{ t.name }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;align-items:baseline;gap:16px;margin:0 0 30px;padding-bottom:16px;border-bottom:1px solid rgba(51,58,53,.14)">
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(26px,3vw,38px);color:#5C7A70;margin:0">Comunicación animal</h2>
+        <span style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#92ADA4;font-weight:600">Sesiones con animales</span>
+      </div>
+      <div style="column-count:3;column-gap:22px;margin-bottom:66px">
+        <sc-for list="{{ testimoniosAnimal }}" as="t" hint-placeholder-count="2">
+          <div style="break-inside:avoid;margin-bottom:22px;background:#fff;border:1px solid rgba(51,58,53,.08);border-radius:8px;padding:34px 30px">
+            <p style="font-size:16px;line-height:1.65;color:#3c4657;margin:14px 0 24px;font-style:italic;white-space:pre-line">{{ t.quote }}</p>
+            <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#92ADA4;font-weight:600">{{ t.name }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;align-items:baseline;gap:16px;margin:0 0 30px;padding-bottom:16px;border-bottom:1px solid rgba(51,58,53,.14)">
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(26px,3vw,38px);color:#5C7A70;margin:0">Sesiones</h2>
+        <span style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#92ADA4;font-weight:600">Terapias individuales</span>
+      </div>
+      <div style="column-count:3;column-gap:22px">
+        <sc-for list="{{ testimoniosSesiones }}" as="t" hint-placeholder-count="3">
+          <div style="break-inside:avoid;margin-bottom:22px;background:#fff;border:1px solid rgba(51,58,53,.08);border-radius:8px;padding:34px 30px">
+            <p style="font-size:16px;line-height:1.65;color:#3c4657;margin:14px 0 24px;font-style:italic;white-space:pre-line">{{ t.quote }}</p>
+            <div style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#92ADA4;font-weight:600">{{ t.name }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:56px">
+      <button onClick="{{ goTerapias }}" style="display:inline-flex;align-items:center;gap:14px;background:#B3D9E0;color:#2a3b44;padding:16px 30px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Agendar una sesión <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ============ TERAPIAS (mosaico) ============ -->
+<sc-if value="{{ pTerapias }}" hint-placeholder-val="{{ true }}">
+<div style="padding-top:84px">
+  <section style="padding:clamp(50px,7vh,90px) 0 clamp(30px,4vh,54px);background:#F5E8D8;text-align:center">
+    <div style="width:100%;">
+      <div style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #42C8E1; font-weight: 600; margin-bottom: 22px">Terapias y sesiones</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,5.6vw,80px);line-height:1;letter-spacing:-.015em;margin:0;color:#5C7A70">Elige tu <span style="font-style:italic;color:#F1A805">camino.</span></h1>
+      <p style="font-size:18px;line-height:1.6;color:#4a5563;margin:26px auto 0;max-width:600px">Cada sesión es una puerta distinta hacia la claridad y la sanación. <br>Explora cada una y elige la que resuene con tu momento.</p>
+    </div>
+  </section>
+  <section style="padding:0 0 clamp(80px,11vh,130px);background:#F5E8D8">
+    <div style="width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px">
+      <sc-for list="{{ terapiasList }}" as="s" hint-placeholder-count="6">
+        <button onClick="{{ s.open }}" style="position:relative;min-height:200px;border-radius:10px;overflow:hidden;text-align:left;display:block">
+          <div ref="{{ parallaxRef }}" style="position:absolute;left:0;right:0;top:-12%;height:124%;background:{{ s.tone }};will-change:transform"></div>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-start;padding:34px 32px">
+            <div>
+              <div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #C48700; font-weight: 600; margin-bottom: 20px">{{ s.tag }}</div>
+              <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:1.05;color:#fff;margin:0">{{ s.nombre }}</h3>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:20px">
+              <p style="font-size:14px;line-height:1.55;color:rgba(244,242,237,.78);margin:0;max-width:34ch;text-align:left">{{ s.resumen }}</p>
+              <span style="flex:none;font-family:'Cormorant Garamond',serif;font-size:32px;color:#fff;line-height:.7">→</span>
+            </div>
+          </div>
+        </button>
+      </sc-for>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ============ SERVICIO ============ -->
+<sc-if value="{{ pServicio }}" hint-placeholder-val="{{ true }}">
+<div style="padding-top:84px">
+  <section style="padding:clamp(50px,7vh,90px) 0 clamp(40px,5vh,60px);background:#F5E8D8;text-align:center">
+    <div style="width:100%;">
+      <div style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 22px">Terapia · {{ svc.eyebrow }}</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,5.6vw,74px);line-height:1.02;letter-spacing:-.015em;margin:0;color:#5C7A70">{{ svc.nombre }}</h1>
+      <p style="font-size:19px;line-height:1.6;color:#4a5563;margin:28px auto 0;max-width:620px">{{ svc.frase }}</p>
+      <button onClick="{{ goServicio }}" style="margin-top:34px;display:inline-flex;align-items:center;gap:14px;background:#B3D9E0;color:#2a3b44;padding:16px 30px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Agendar una cita <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+    </div>
+  </section>
+
+  <section style="position:relative;height:clamp(300px,42vh,440px);overflow:hidden">
+    {{ svcImgEl }}
+    <sc-if value="{{ svcNoImg }}" hint-placeholder-val="{{ true }}">
+      <div ref="{{ parallaxRef }}" style="position:absolute;left:0;right:0;top:-12%;height:124%;background:radial-gradient(110% 90% at 40% 30%,#8fa9c4,#4d6480 55%,#2f4258);will-change:transform"></div>
+      <div style="position:absolute;left:26px;bottom:24px;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(255,255,255,.85);background:rgba(51,58,53,.32);padding:6px 11px;border-radius:6px">imagen evocadora — pendiente</div>
+    </sc-if>
+  </section>
+
+  <sc-if value="{{ svcCajon }}" hint-placeholder-val="{{ false }}">
+  <section style="padding: clamp(60px,9vh,110px) 0 0; background: #F5E8D8">
+    <div style="width:100%;display:flex;flex-direction:column;gap:40px">
+      <sc-if value="{{ svc.extra }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#F2D6A1;border-radius:10px;padding:38px 34px">
+          <div style="font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #5C7A70; font-weight: 600; margin-bottom: 18px">{{ svc.extra.titulo }}</div>
+          <p style="font-size:16px;line-height:1.65;color:#4a5563;margin:0">{{ svc.extra.desc }}</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ svc.sobre }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#F2D6A1;border-radius:10px;padding:38px 34px">
+          <div style="font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #5C7A70; font-weight: 600; margin-bottom: 18px">{{ svc.sobre.titulo }}</div>
+          <p style="font-size: 16px; line-height: 1.65; color: #4a5563; margin: 0; max-width: 80ch; text-align: justify">{{ svc.sobre.desc }}</p>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+  </sc-if>
+
+  <section style="padding: clamp(60px,9vh,110px) 0; background: #F5E8D8">
+    <div style="width:100%;display:flex;flex-direction:column;gap:40px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start">
+        <div>
+          <div style="font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 22px">Para quién es</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px">
+            <sc-for list="{{ svc.paraQuien }}" as="p" hint-placeholder-count="5">
+              <li style="display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.55;color:#3c4657"><span style="flex:none;margin-top:8px;width:7px;height:7px;border-radius:50%;background:#F1A805"></span>{{ p }}</li>
+            </sc-for>
+          </ul>
+        </div>
+        <div style="background:#F2D6A1;border-radius:10px;padding:38px 34px">
+          <div style="font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #5C7A70; font-weight: 600; margin-bottom: 18px">Para quién no es</div>
+          <p style="font-size:16px;line-height:1.65;color:#4a5563;margin:0 0 14px">{{ svc.noEs }}</p>
+          <sc-if value="{{ svc.noEsNota }}" hint-placeholder-val="{{ true }}"><p style="font-size:15px;line-height:1.6;color:#8a7d6c;margin:0;font-style:italic">{{ svc.noEsNota }}</p></sc-if>
+        </div>
+      </div>
+    </div>
+  </section><section style="padding: clamp(60px,9vh,110px) 0; background: #5C7A70">
+    <div style="width:100%;">
+      <div style="text-align:center;margin-bottom:50px">
+        <div style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 16px">Las 3 transformaciones</div>
+        <h2 style="font-family: 'Cormorant Garamond',serif; font-weight: 500; font-size: clamp(30px,4vw,50px); line-height: 1.05; margin: 0; color: #B3D9E0">Lo que te llevas de cada sesión.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+        <sc-for list="{{ svc.transf }}" as="t" hint-placeholder-count="3">
+          <div style="border: 1px solid rgba(244,242,237,.14); border-radius: 10px; padding: 34px 30px">
+            <div style="font-family: 'Cormorant Garamond',serif; font-size: 44px; color: #F1A805; line-height: 1; margin-bottom: 16px">{{ t.n }}</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:25px;color:#fff;margin:0 0 10px">{{ t.titulo }}</h3>
+            <p style="font-size: 15px; line-height: 1.6; color: rgba(244,242,237,.7); margin: 0; text-align: justify">{{ t.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: clamp(60px,9vh,110px) 0; background: #F5E8D8">
+    <div style="width:100%;">
+      <div style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#F1A805;font-weight:600;margin-bottom:22px">Cómo es el acompañamiento</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,3.2vw,40px);line-height:1.15;color:#5C7A70;margin:0 0 28px">{{ svc.primeraTitulo }}</h2>
+      <sc-for list="{{ svc.primeraBody }}" as="b" hint-placeholder-count="2">
+        <p style="font-size: 16px; line-height: 1.75; color: #3c4657; margin: 0 0 18px; white-space: pre-line; text-align: justify">{{ b }}</p>
+      </sc-for>
+      <div style="margin-top:34px;background:#F2D6A1;border-radius:10px;padding:32px 34px">
+        <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#5C7A70;font-weight:600;margin-bottom:14px">{{ svc.notaExtra.label }}</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.45;color:#5C7A70;white-space:pre-line">{{ svc.notaExtra.val }}</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: clamp(60px,9vh,110px) 0; background: #F5E8D8">
+    <div style="width:100%;">
+      <div style="display:grid;grid-template-columns:1fr 2fr 1fr;gap:16px">
+        <sc-for list="{{ svc.detalles }}" as="d" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid rgba(51,58,53,.08);border-radius:8px;padding:24px">
+            <div style="font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #F1A805; margin-bottom: 8px">{{ d.label }}</div><div style="font-family: 'Cormorant Garamond',serif; font-size: 22px; color: #5C7A70; text-align: justify">{{ d.val }}</div>
+            
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ svc.notaExtra }}" hint-placeholder-val="{{ false }}">
+      
+      </sc-if>
+    </div>
+  </section>
+
+  <sc-if value="{{ svc.pack }}" hint-placeholder-val="{{ false }}">
+  <section style="padding:clamp(60px,9vh,110px) 0;background:#F2D6A1">
+    <div style="width:100%;">
+      <div style="margin-bottom:44px">
+        <div style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#5C7A70;font-weight:600;margin-bottom:16px">{{ svc.pack.eyebrow }}</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4vw,50px);line-height:1.05;margin:0 0 18px;color:#5C7A70">{{ svc.pack.titulo }}</h2>
+        <p style="font-size:17px;line-height:1.7;color:#4a5563;margin:0">{{ svc.pack.desc }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+        <sc-for list="{{ svc.pack.pasos }}" as="p" hint-placeholder-count="3">
+          <div style="background:#F5E8D8;border-radius:10px;padding:34px 30px">
+            
+            <h3 style="font-family: 'Cormorant Garamond',serif; font-weight: 600; font-size: 25px; color: #F1A805; margin: 0 0 10px">{{ p.titulo }}</h3>
+            <p style="font-size:15px;line-height:1.6;color:#4a5563;margin:0">{{ p.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+      
+    </div>
+  </section>
+  </sc-if>
+
+  <section style="padding: clamp(60px,8vh,100px) 0; background: #5C7A70; text-align: center">
+    <div style="width:100%;">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4vw,50px);line-height:1.08;color:#F5E8D8;margin:0 0 28px">¿Lista para ordenar tu momento presente?</h2>
+      <button onClick="{{ goServicio }}" style="display:inline-flex;align-items:center;gap:14px;background:#B3D9E0;color:#2a3b44;padding:17px 34px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Agendar una cita <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+      <div style="margin-top:56px;text-align:left">
+        <div style="font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #F1A805E5; font-weight: 600; margin-bottom: 18px">Te puede interesar</div>
+        <button onClick="{{ relOpen }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;background:rgba(244,242,237,.06);border:1px solid rgba(244,242,237,.14);border-radius:8px;padding:24px 28px;text-align:left">
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff">{{ svc.rel.nombre }}</div>
+            <div style="font-size:14px;color:rgba(244,242,237,.6);margin-top:4px">{{ svc.rel.desc }}</div>
+          </div>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#fff">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ============ COMUNICACIÓN ANIMAL ============ -->
+<sc-if value="{{ pAnimal }}" hint-placeholder-val="{{ true }}">
+<div style="padding-top:84px">
+  <section style="padding:clamp(50px,7vh,90px) 0 clamp(40px,5vh,60px);background:#F5E8D8;text-align:center">
+    <div style="width:100%;">
+      <div style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 22px">Servicio · acompañamiento animal</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,5.6vw,80px);line-height:1;letter-spacing:-.015em;margin:0;color:#5C7A70">Comunicación <span style="font-style: italic; color: #5C7A70">animal.</span></h1>
+      <p style="font-size:19px;line-height:1.6;color:#4a5563;margin:28px auto 0;max-width:640px">Un puente con nuestros compañeros de otras especies, que facilita entender cómo se sienten, qué quieren o necesitan y cómo podemos acompañarlos.</p>
+      <button onClick="{{ goAnimal }}" style="margin-top:34px;display:inline-flex;align-items:center;gap:14px;background:#B3D9E0;color:#2a3b44;padding:16px 30px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Agendar una sesión <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+    </div>
+  </section>
+
+  <section style="position:relative;height:clamp(340px,52vh,540px);overflow:hidden">
+    <img src="assets/caballo-cafe-blanco.jpg" alt="Karen con caballo café y caballo blanco" ref="{{ parallaxRef }}" style="position:absolute;left:0;right:0;top:-12%;width:100%;height:124%;object-fit:cover;object-position:50% 42%;will-change:transform">
+  </section>
+
+  
+
+  
+
+  <section style="padding: clamp(60px,9vh,110px) 0; background: #F5E8D8">
+    <div style="width:100%;background:#F2D6A1;border-radius:10px;padding:38px 34px">
+      <div style="font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #5C7A70; font-weight: 600; margin-bottom: 22px">COMUNICACIÓN ANIMAL</div>
+      
+      <p style="font-size:16px;line-height:1.65;color:#4a5563;margin:0">La comunicación interespecie nos ayuda como tutores y responsables a comprender los&nbsp; comportamientos de nuestro compañero animal, identificar hábitos que podrían requerir un cambio y acompañarlos en procesos de enfermedad, muerte o intervenciones médicas.&nbsp;<br><span style="color:#4a5563">Es una guía profunda - y muchas veces sorprendente - sobre la forma en que experimenta su vida tu animal,&nbsp; permitiéndote aprender a escuchar y comprender su sentir, y por consecuencia fomentar un vínculo más profundo, equilibrado y respetuoso.</span></p>
+    </div>
+  </section><section style="padding: clamp(60px,9vh,110px) 0; background: #F5E8D8">
+    <div style="width:100%;display:grid;grid-template-columns:1fr 1fr;gap:56px">
+      <div>
+        <div style="font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 22px">Para quién es</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px">
+          <sc-for list="{{ animalParaQuien }}" as="p" hint-placeholder-count="4">
+            <li style="display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.55;color:#3c4657"><span style="flex:none;margin-top:8px;width:7px;height:7px;border-radius:50%;background:#F1A805"></span>{{ p }}</li>
+          </sc-for>
+        </ul>
+      </div>
+      <div style="background:#F2D6A1;border-radius:10px;padding:38px 34px;align-self:start">
+        <div style="font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #5C7A70; font-weight: 600; margin-bottom: 18px">Para quién no es</div>
+        <p style="font-size:16px;line-height:1.65;color:#4a5563;margin:0">Para quien no cree que los animales pueden comunicarnos sus necesidades. Este trabajo es para quienes respetan la vida animal y quieren darle voz y elección en su propia vida.</p>
+      </div>
+    </div>
+  </section><section style="padding:clamp(60px,9vh,110px) 0;background:#5C7A70">
+    <div style="width:100%;">
+      <div style="text-align:center;margin-bottom:50px">
+        <div style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 16px">Las 3 transformaciones</div>
+        <h2 style="font-family: 'Cormorant Garamond',serif; font-weight: 500; font-size: clamp(30px,4vw,50px); line-height: 1.05; margin: 0; color: #B3D9E0">Lo que cambia para ti y tu animal.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+        <div style="border:1px solid rgba(244,242,237,.18);border-radius:10px;padding:34px 30px">
+          <div style="font-family: 'Cormorant Garamond',serif; font-size: 44px; color: #F1A805; line-height: 1; margin-bottom: 16px">01</div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:25px;color:#fff;margin:0 0 10px">Entender qué necesita</h3>
+          <p style="font-size:15px;line-height:1.6;color:rgba(244,242,237,.82);margin:0">Comprendes lo que tu animal siente y necesita, más allá de las suposiciones.</p>
+        </div>
+        <div style="border:1px solid rgba(244,242,237,.18);border-radius:10px;padding:34px 30px">
+          <div style="font-family: 'Cormorant Garamond',serif; font-size: 44px; color: #F1A805; line-height: 1; margin-bottom: 16px">02</div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:25px;color:#fff;margin:0 0 10px">Un vínculo más fuerte</h3>
+          <p style="font-size:15px;line-height:1.6;color:rgba(244,242,237,.82);margin:0">La relación entre tú y tu animal se vuelve más cercana, clara y confiada.</p>
+        </div>
+        <div style="border:1px solid rgba(244,242,237,.18);border-radius:10px;padding:34px 30px">
+          <div style="font-family: 'Cormorant Garamond',serif; font-size: 44px; color: #F1A805; line-height: 1; margin-bottom: 16px">03</div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:25px;color:#fff;margin:0 0 10px">Consciencia sobre tu proceso personal</h3>
+          <p style="font-size:15px;line-height:1.6;color:rgba(244,242,237,.82);margin:0">El animal te muestra con claridad que partes de tu proceso están afectando en su experiencia de vida.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(50px,7vh,90px) 0 0;background:#F5E8D8">
+    <div style="width:100%;">
+      <button onClick="{{ open.doula }}" style="display:flex;align-items:center;gap:26px;width:100%;text-align:left;background:#3f5449;border-radius:12px;padding:36px 38px">
+        <div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;line-height:1.2;color:#fff;margin:0 0 10px">Acompañamiento para animales en proceso de muerte</h3>
+          <p style="font-size:15px;line-height:1.55;color:rgba(244,242,237,.8);margin:0;font-style:italic">Doula del alma animal.</p>
+        </div>
+        <span style="flex:none;margin-left:auto;font-family:'Cormorant Garamond',serif;font-size:34px;color:#fff">→</span>
+      </button>
+    </div>
+  </section>
+
+  
+
+  <section style="padding: clamp(60px,9vh,110px) 0; background: #F5E8D8">
+    <div style="width:100%;">
+      <div style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#F1A805;font-weight:600;margin-bottom:22px">CÓMO SON LAS SESIONES</div>
+      
+      <p style="font-size:17px;line-height:1.75;color:#3c4657;margin:0 0 18px"><strong style="color: rgb(92, 122, 112); font-weight: 600;"><span style="font-weight: normal; text-decoration-line: underline">Cada sesión se estructura en dos partes:<br></span>Envío de información.</strong> Me compartes fotos de tu animal, tu motivo de consulta y las preguntas que deseas hacerle. En esta parte coordinamos sobre tus objetivos de la sesión, la historia del animal y la situación actual que te lleva a querer saber cómo está y qué necesita de ti.</p>
+      <p style="font-size:17px;line-height:1.75;color:#3c4657;margin:0"><strong style="color: rgb(92, 122, 112); font-weight: 600;">Encuentro de devolución.</strong> Nos reunimos online para conversar sobre lo que tu animal respondió y resolver tus dudas, este encuentro puede ser grabado para que puedas volver a integrar la información y/o detalles que en vivo se pueden ir.</p>
+    </div>
+  </section>
+
+  <section style="padding: 0 0 clamp(60px,9vh,110px); background: #F5E8D8">
+    
+  <div style="width:100%;">
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+        
+        <div style="background: #fff; border: 1px solid rgba(51,58,53,.08); border-radius: 8px; padding: 24px">
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#F1A805;margin-bottom:8px">Duración</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#5C7A70">45 min + seguimiento</div>
+        </div><div style="background: #fff; border: 1px solid rgba(51,58,53,.08); border-radius: 8px; padding: 24px">
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#F1A805;margin-bottom:8px">Modalidad</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#5C7A70">Online</div>
+        </div>
+      </div>
+    </div></section><section style="padding:clamp(60px,8vh,100px) 0;background:#5C7A70;text-align:center">
+    <div style="width:100%;">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4vw,50px);line-height:1.08;color:#F5E8D8;margin:0 0 28px">¿Quieres saber cómo se siente tu animal?</h2>
+      <button onClick="{{ goAnimal }}" style="display:inline-flex;align-items:center;gap:14px;background:#B3D9E0;color:#2a3b44;padding:17px 34px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Agendar una sesión <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+      <div style="margin-top:56px;text-align:left">
+        <div style="font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #F1A805E5; font-weight: 600; margin-bottom: 18px">Te puede interesar</div>
+        <button onClick="{{ open.canal }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;background:rgba(244,242,237,.06);border:1px solid rgba(244,242,237,.14);border-radius:8px;padding:24px 28px;text-align:left">
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff">Canalización y registros akáshicos</div>
+            <div style="font-size:14px;color:rgba(244,242,237,.6);margin-top:4px">Claridad y limpieza de los bloqueos que hoy te detienen.</div>
+          </div>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#fff">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ============ TALLER ============ -->
+<sc-if value="{{ pTaller }}" hint-placeholder-val="{{ true }}">
+<div style="padding-top:84px">
+  <section style="padding:clamp(56px,8vh,100px) 0;background:#5C7A70;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(60% 80% at 80% 20%,rgba(129,166,152,.28),transparent 60%)"></div>
+    <div style="position:relative;width:100%;">
+      <div style="font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 24px">Taller · nivel básico</div>
+      <h1 style="font-family: 'Cormorant Garamond',serif; font-weight: 500; font-size: clamp(40px,6vw,86px); line-height: 1; letter-spacing: -.015em; margin: 0; color: #F5E8D8; max-width: 16ch">Taller de&nbsp;<span style="font-style: italic; color: #B3D9E0">péndulo terapeutico.</span></h1>
+      <p style="font-size:19px;line-height:1.6;color:rgba(244,242,237,.78);margin:28px 0 0">Curso intensivo para comprender y dominar el arte de la radiestesia, creado espacialmente para apoyar procesos terapéuticos</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:34px">
+        <div style="display:flex;align-items:center;gap:9px;background:rgba(244,242,237,.08);border:1px solid rgba(244,242,237,.16);padding:10px 18px;border-radius:40px;font-size:13px;color:#F5E8D8"><span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(179, 217, 224);"></span>Presencial, Col. Nápoles&nbsp; - CDMX</div>
+        <div style="display:flex;align-items:center;gap:9px;background:rgba(244,242,237,.08);border:1px solid rgba(244,242,237,.16);padding:10px 18px;border-radius:40px;font-size:13px;color:#F5E8D8"><span style="width:6px;height:6px;border-radius:50%;background:#F2D6A1"></span>5 y 12 de septiembre 2026</div>
+        <div style="display:flex;align-items:center;gap:9px;background:rgba(244,242,237,.08);border:1px solid rgba(244,242,237,.16);padding:10px 18px;border-radius:40px;font-size:13px;color:#F5E8D8"><span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span>Cupo limitado</div>
+        <button onClick="{{ goTaller }}" style="display:inline-flex;align-items:center;gap:14px;background:#B3D9E0;color:#2a3b44;padding:16px 32px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Reservar mi lugar <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: clamp(60px,9vh,110px) 0; background: #F5E8D8">
+    <div style="width:100%; background: #F2D6A1; border-radius: 10px; padding: clamp(34px,5vw,56px)">
+      
+      <p style="font-size:16px;line-height:1.65;color:#4a5563;margin:0">Ten las bases que necesitas para trabajar con el péndulo de manera clara y certera. Aprende desde cero a usarlo de forma práctica en tu vida diaria, con preguntas simples y diagnósticos inmediatos. Integra herramientas de conexión energética para trabajar con mayor profundidad tanto en ti como en otros.</p>
+    </div>
+  </section>
+
+  
+
+  <section style="padding: clamp(60px,9vh,110px) 0; background: #F5E8D8">
+    <div style="width:100%;">
+      <div style="font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 30px">¿Qué aprenderás?</div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px 32px">
+        <sc-for list="{{ tallerAprender }}" as="a" hint-placeholder-count="6" style="color: #B3D9E0">
+          <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(51,58,53,.1)">
+            <span style="flex:0 0 auto;width:7px;height:7px;border-radius:50%;background:#F1A805;margin-top:8px"></span>
+            <div style="font-size:16px;line-height:1.5;color:#3c4657">{{ a }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- facilitadora + inversión -->
+  <section style="padding: clamp(60px,9vh,110px) 0; background: #F5E8D8">
+    <div style="width:100%;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch">
+      <div style="background:#fff;border:1px solid rgba(51,58,53,.08);border-radius:12px;padding:38px 36px">
+        <div style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#92ADA4;font-weight:600;margin-bottom:20px">Quién lo facilita</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;color:#5C7A70;margin:0 0 14px">Karen Silva</h3>
+        <p style="font-size:16px;line-height:1.65;color:#4a5563;margin:0">Terapeuta energética formada en Terapia de Respuesta Espiritual, registros akáshicos, comunicación animal y péndulo. Acompaña procesos de sanación en CDMX y online.</p>
+        <button onClick="{{ goSobre }}" style="margin-top:22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#5C7A70;font-weight:600;border-bottom:1px solid #5C7A70;padding-bottom:4px">Conocer más</button>
+      </div>
+      <div style="background:#5C7A70;border-radius:12px;padding:38px 36px;display:flex;flex-direction:column;justify-content:center;text-align:center">
+        <div style="font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 18px">Inversión</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,64px);color:#fff;line-height:1">$ <span style="font-family:ui-monospace,Menlo,monospace;font-size:20px;color:rgba(244,242,237,.5)">por confirmar</span></div>
+        <p style="font-size: 14px; color: #FFFFFF; margin: 14px 0 24px">Incluye manual digital y físico</p>
+        <button onClick="{{ goTaller }}" style="display:inline-flex;align-items:center;justify-content:center;gap:14px;background:#B3D9E0;color:#2a3b44;padding:16px 30px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Reservar mi lugar <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ taller -->
+  <section style="padding: clamp(60px,9vh,110px) 0 clamp(80px,11vh,130px); background: #F5E8D8">
+    <div style="width:100%;">
+      <div style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#92ADA4;font-weight:600;margin-bottom:26px;text-align:center">Preguntas del taller</div>
+      <sc-for list="{{ tallerFaq }}" as="f" hint-placeholder-count="3">
+        <div style="border-bottom:1px solid rgba(51,58,53,.14);padding:22px 4px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:#5C7A70;margin:0 0 8px">{{ f.q }}</h3>
+          <p style="font-size:16px;line-height:1.6;color:#4a5563;margin:0">{{ f.a }}</p>
+        </div>
+      </sc-for>
+      <div style="text-align:center;margin-top:44px">
+        <button onClick="{{ goTaller }}" style="display:inline-flex;align-items:center;gap:14px;background:#B3D9E0;color:#2a3b44;padding:17px 34px;border-radius:44px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Reservar mi lugar <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+        <p style="font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#a19a8c;margin-top:18px">fechas, precio y temario reales — por confirmar con Karen</p>
+      </div>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ============ FOOTER ============ -->
+<footer style="background: #5C7A70; padding: clamp(60px,8vh,90px) 0 40px">
+  <div style="width:100%;">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(244,242,237,.1)">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+          <img src="assets/logo-verde.png" alt="Logo Karen Silva" style="object-fit:contain">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#F5E8D8">Karen <span style="font-style:italic;color:#B7CAC3">Silva</span></span>
+        </div>
+        <p style="font-size:15px;line-height:1.65;color:#FFFFFF;margin:0;max-width:38ch">Terapias, cursos y acompañamiento para reconectar con la consciencia del amor. Online y presencial en la Ciudad de México.</p>
+      </div>
+      <div>
+        <div style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 18px">Navegación</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <button onClick="{{ goInicio }}" style="text-align: left; font-size: 15px; color: #FFFFFF">Inicio</button>
+          <button onClick="{{ goSobre }}" style="text-align: left; font-size: 15px; color: #F4F2ED">Sobre mí</button>
+          <button onClick="{{ goTerapias }}" style="text-align: left; font-size: 15px; color: #F4F2ED">Terapias</button>
+          <button onClick="{{ goAnimal }}" style="text-align: left; font-size: 15px; color: #F4F2ED">Comunicación animal</button>
+          <button onClick="{{ goTaller }}" style="text-align: left; font-size: 15px; color: #F4F2ED">Talleres</button>
+          <button onClick="{{ goTestimonios }}" style="text-align: left; font-size: 15px; color: #F4F2ED">Testimonios</button>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #F1A805; font-weight: 600; margin-bottom: 18px">Conversemos</div>
+        <p style="font-size: 15px; line-height: 1.6; color: #F4F2ED; margin: 0 0 16px">¿Tienes dudas antes de agendar? Escríbeme por WhatsApp.</p>
+        <button onClick="{{ openWa }}" style="display:inline-flex;align-items:center;gap:11px;background:#B3D9E0;color:#2a3b44;padding:13px 22px;border-radius:40px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600">WhatsApp <span style="width:6px;height:6px;border-radius:50%;background:#F1A805"></span></button>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:26px">
+      <span style="font-size:13px;color:rgba(244,242,237,.4)">© 2026 Karen Silva · karensilva.mx</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float removed -->
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { page: 'inicio', hv: 'B', lead: false, svc: 'canal' };
+
+  componentDidMount() {
+    this._pEls = this._pEls || [];
+    this._raf = null;
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = null;
+        const vh = window.innerHeight;
+        this._pEls.forEach(el => {
+          if (!el || !el.isConnected) return;
+          const parent = el.parentElement;
+          const r = parent.getBoundingClientRect();
+          const center = r.top + r.height / 2;
+          const offset = Math.max(-40, Math.min(40, (center - vh / 2) * 0.12));
+          el.style.transform = 'translateY(' + offset.toFixed(1) + 'px)';
+        });
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onScroll);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+
+  registerParallax = (el) => {
+    if (!this._pEls) this._pEls = [];
+    if (el && !this._pEls.includes(el)) this._pEls.push(el);
+  };
+
+  testimoniosFull = [
+    { quote: '"Mi experiencia en los diferentes cursos con esta gran maestra han sido de mucho aprendizaje y autosanación, feliz de que esté en mi camino espiritual, cerrando este año con el curso arcangelical que es realmente mágico, sanador, con herramientas claras para ayudarme y acompañar a otros en terapia. Agradecida por tu energía Karen, gracias por tanto."', name: 'Pamela — psicóloga', service: 'Talleres y Cursos', cat: 'alumnos' },
+    { quote: '"El encontrar los distintos cursos de Karen ha tenido un impacto transformador en mi vida. Sus enseñanzas, sabiduría, conocimiento y cariño han trascendido más allá de \'las clases\', impulsando una búsqueda de crecer tanto intelectual como espiritualmente. Su dedicación, pasión y empatía forman siempre un ambiente de aprendizaje enriquecedor que me ha permitido descubrir mis fortalezas y superar mis debilidades, al mismo tiempo que formar una red linda con compañeros de otros lugares. He desarrollado una mayor confianza en mí misma y una visión más amplia del mundo y estoy muy agradecida por la oportunidad y el honor de haberla encontrado en mi camino."', name: 'Ana María — Odontóloga', service: 'Talleres y Cursos', cat: 'alumnos' },
+    { quote: '"Hace ya más de un año comencé con la primera formación de péndulo arcangelical, y si bien lo mío son los ángeles, no pude dejar de seguirte en cada formación o taller del péndulo que fuera. No solo por la información recibida, sino por la energía de amor que le pones a todo. Me enseñaste a ir más profundo cada día, y hoy puedo decir que mi conexión con los ángeles es maravillosa. Incorporé el péndulo para todo, en mi día a día y en mis terapias, te seguiré siempre junto a la hermosa comunidad que formaste. Gracias, gracias, gracias."', name: 'Carola — terapeuta angelical', service: 'Talleres y Cursos', cat: 'alumnos' },
+    { quote: '"Mi sesión con Karen me ha ayudado más allá de lo que pensaba. Poder acceder a mis registros akáshicos y preguntar me ha desbloqueado cuando no sé por dónde ir, me ha dado rutas para continuar. Lo he recomendado a personas queridas y sin duda seguiría recomendándola."', name: 'Perla Vázquez', service: 'Registros akáshicos', cat: 'sesiones' },
+    { quote: '"Llegué con Karen sintiéndome escéptica y muy estancada a nivel profesional. Las sesiones con Karen me ayudaron a transformar mi vida de una forma que nunca imaginé. Hoy me siento mucho más conectada conmigo misma y ahora tengo ligereza. Lo único que pienso es que ojalá la hubiera encontrado antes. Cada sesión me trae una sensación de mayor conexión conmigo misma. La recomiendo de todo corazón a cualquier persona que busque un acompañamiento profundo lleno de sabiduría."', name: 'N.R', service: 'Sesiones', cat: 'sesiones' },
+    { quote: '"Las sesiones de Registros Akashicos han venido a darle mucha claridad y certeza a mi proceso personal, me brindan una Luz que me ayuda a complementar las sesiones de terapia o sanación. Karen es una persona muy comprometida con su trabajo y es un excelente canal."', name: 'Gerardo — psicoterapeuta', service: 'Registros akáshicos', cat: 'sesiones' },
+    { quote: '"Conocí a Karen y su servicio de lectura de Archivos Akáshicos por recomendación de mi hijo, quien ya había trabajado con ella y estaba muy satisfecho con los resultados. Desde mi primera sesión con Karen quedé impresionada por su capacidad para llegar a aspectos muy profundos de mi vida. Eran temas que yo intuía, pero que no lograba identificar con claridad ni sabía cómo transformar de manera positiva. Karen no solo me ha ayudado a comprender esas situaciones, sino también a desbloquear energías y patrones con una precisión y eficacia sorprendentes. Cada una de nuestras sesiones ha sido sumamente interesante, reveladora y enriquecedora. Karen va directo al origen de lo que necesita ser trabajado, lo que hace que el proceso sea claro, profundo y realmente transformador. Por todo ello, recomiendo ampliamente a Karen y sus servicios a cualquier persona que desee generar cambios profundos y duraderos en su vida, con resultados auténticos y significativos."', name: 'Maru', service: 'Registros akáshicos', cat: 'sesiones' },
+    { quote: '"Llegué a las sesiones con Karen en un momento muy difícil, atravesando múltiples duelos. Su apoyo fue, y sigue siendo, un refugio lleno de calidez, cuidado y profunda presencia. Con ella encontré un espacio íntimo y seguro donde pude soltar y sentir en mis propios tiempos. Su forma de acompañar me permitió comprender los duelos desde un lugar completamente diferente, conectar con una sabiduría que no entendía tan bien y con los seres que nos acompañan."', name: 'Laura', service: 'Sesiones', cat: 'sesiones' },
+    { quote: '"Es muy sensible y delicada a la hora de abordar tus experiencias, a la vez honesta y clara para comunicar cómo están las situaciones y qué se puede equilibrar en cada una de ellas.\nKaren construye un espacio de confianza amable y seguro en el que me siento cómoda para compartir lo que siento, intuyo, opino y/o me duele, por lo que posibilita el acceso a sanar mis memorias. Realiza un acompañamiento cuidadoso lleno de honestidad; agradezco la escucha y generosidad que entrega en cada sesión. Recomiendo su trabajo ampliamente. Es excelente."', name: 'Yolanda', service: 'Terapias individuales', cat: 'sesiones' },
+    { quote: '"Fue una experiencia profundamente\nconmovedora. Me\nsorprendieron la precisión, el humor y la honestidad de las respuestas . Siento que fue un diálogo terapéutico tanto para mí,  como por la claridad que gané. Me hizo ganar confianza para mis próximos pasos, sabiendo con más detalles qué tipo de apoyo me dan. El trabajo de comunicación que hizo Karen me ayudó a encontrar más paz interna y nutrir mi relación espiritual y cotidiana con mi perrita y gatita.\n', name: 'Roxane — cineasta', service: 'Comunicación animal', cat: 'animal' },
+    { quote: '"Desde nuestra sesión las cosas dieron un giro muy inesperado: comenzó a comer mejor, se mueve muchísimo y hasta corre y hace travesuras de nuevo. Platicar contigo me ayudó mucho a entenderla y a entenderme, tengo una mejor conexión con ella y siento que eso la ha hecho sanar y también a mí me ha hecho más fuerte."', name: 'Andrea — estudiante', service: 'Comunicación animal', cat: 'animal' },
+  ];
+
+  go(p){ this.setState({ page: p }); if (typeof window!=='undefined') window.scrollTo({top:0,behavior:'instant'}); }
+  openService(k){ this.setState({ svc: k, page: 'servicio' }); if (typeof window!=='undefined') window.scrollTo({top:0,behavior:'instant'}); }
+
+  services = {
+    canal: {
+      eyebrow: 'Sesión individual',
+      img: 'assets/tre.jpg',
+      nombre: 'Canalización y TRE',
+      extra: { titulo: 'Canalización y Terapia de Respuesta Espiritual', desc: 'A través de la canalización accedo a información de tu proceso presente y, junto con la Terapia de Respuesta Espiritual (TRE), identificamos y limpiamos los programas del alma —creencias, votos y bloqueos energéticos de esta u otras vidas— que te mantienen atrapado en un mismo patrón, para que puedas avanzar con más claridad y libertad.' },
+      frase: 'Trabajo profundo y limpieza de los bloqueos que están impidiendo que logres tener más claridad y sabiduría sobre tu momento actual.',
+      paraQuien: [
+        'Necesitas tomar decisiones importantes: salud, economía, trabajo, vínculos, amor o estudios.',
+        'Quieres clarificar y sanar tus vínculos más importantes.',
+        'Estás cerrando un ciclo, proceso o relación y necesitas ordenar lo vivido.',
+        'Buscas entender qué lección hay para ti en una situación (el "para qué me pasa").',
+        'Para quienes deseen conectar y escuchar a su Yo superior, la parte más elevada y sagrada del alma conectada con la Fuente Divina.',
+      ],
+      noEs: 'Para quien no cree que hay propósitos mayores detrás de lo que nos ocurre; para quienes no desean salir del victimismo; para quienes no quieren asumir responsabilidad sobre sus procesos o esperan cambiar de la noche a la mañana.',
+      noEsNota: 'Esto no es una terapia psicológica.',
+      transf: [
+        { n: '01', titulo: 'Una perspectiva diferente', desc: 'El tener mayor consciencia de lo que ocurre en este momento presente te permite salir de un estado de limitación en relación a la vivencia.' },
+        { n: '02', titulo: 'Mayor paz y tranquilidad', desc: 'Un estado interno más sereno tras ordenar, soltar lo que pesa y tomar conciencia de lo ocurrido.\nEste trabajo también permite alinear tu energía en relación a tu propósito de vida.' },
+        { n: '03', titulo: 'Claridad de lo que quieres', desc: 'Reconocer con nitidez, sabiduría y coherencia lo que necesitas y deseas para este momento de tu vida, elegir cómo quieres transitarlo.' },
+      ],
+      primeraTitulo: 'Un encuentro de 90 minutos para resolver, ordenar y clarificar los bloqueos que hoy te dificultan vivir distinto.',
+      primeraBody: [
+        'Te explico cómo vamos a trabajar, conversamos sobre lo que te ocurre y te hago preguntas. Probablemente hablemos de la energía que transitas este año y revisaremos qué sientes como bloqueo en este periodo de tu vida.\nUna vez que definimos los objetivos de la sesión tu Yo superior (o supraconciencia) nos indica a través del péndulo cuales son los programas y bloqueos que se necesitan depurar. ',
+        '',
+      ],
+      detalles: [ { label: 'Duración', val: '90 minutos' }, { label: 'Frecuencia', val: 'Sugerido esperar 21 días entre sesiones, sin embargo puedes tomarlas cuando lo necesites' }, { label: 'Modalidad', val: 'Online · CDMX' } ],
+      rel: { nombre: 'Lectura de registros akáshicos', desc: 'Accede a la sabiduría de tu alma sobre tu momento presente.', key: 'akashicos' },
+    },
+    akashicos: {
+      eyebrow: 'Sesión individual',
+      nombre: 'Lectura de registros akáshicos',
+      frase: 'Accede al registro energético de tu alma para ganar claridad y sabiduría sobre tu momento presente.',
+      paraQuien: [
+        'Necesitas tomar decisiones importantes en cualquier área de tu vida.',
+        'Quieres entender qué lección hay detrás de una situación (el "para qué me pasa").',
+        'Buscas clarificar y sanar tus vínculos más importantes.',
+        'Estás cerrando un ciclo y necesitas ordenar lo vivido.',
+        'Quieres empezar una etapa nueva con más dirección.',
+      ],
+      noEs: 'Para quien no cree que existan propósitos mayores detrás de lo que ocurre, o no desea asumir responsabilidad sobre sus procesos.',
+      noEsNota: 'Esto no es una terapia psicológica.',
+      transf: [
+        { n: '01', titulo: 'Claridad sobre tu presente', desc: 'Comprendes con nitidez lo que hoy estás viviendo.' },
+        { n: '02', titulo: 'Sabiduría para decidir', desc: 'Eliges desde un lugar más consciente e informado.' },
+        { n: '03', titulo: 'Paz con tu proceso', desc: 'Sueltas la resistencia y ordenas lo que pesa.' },
+      ],
+      primeraTitulo: 'Abrimos tus registros para acceder a la información de tu alma sobre tu momento actual.',
+      primeraBody: [
+        'Conversamos sobre lo que quieres consultar y establecemos los objetivos de la sesión. Luego realizo la apertura y lectura, y limpiamos los bloqueos que aparecen para que entres en un estado de mayor claridad.',
+      ],
+      detalles: [ { label: 'Duración', val: '90 minutos' }, { label: 'Frecuencia', val: 'Cada 3 semanas' }, { label: 'Modalidad', val: 'Online · CDMX' } ],
+      rel: { nombre: 'Canalización y TRE', desc: 'Limpia los bloqueos que hoy te detienen.', key: 'canal' },
+    },
+    rosas: {
+      eyebrow: 'Sesión individual',
+      img: 'assets/guadalupe.jpg',
+      extra: { titulo: 'Sanación cuántica con rosas', desc: 'Canalizado por Elda Salvador (México), esta técnica es asistida energéticamente por la Madre Cósmica, cuya representación es la Virgen de Guadalupe, María Guadalupe Tonantzin.\n\nDebido a la cualidad energética que portan las rosas, estas son capaces de poder trabajar desde aspectos profundos del mundo sutil para manifestar un proceso de transformación y por consecuencia de sanación.\n\nSe trabaja en todos los cuerpos que constituyen al ser humano y en todos sus tiempos (pasado, presente y futuro).' },
+      nombre: 'Sanación cuántica con Rosas',
+      frase: 'Técnica de sanación psico-espiritual profunda asistida por la \n Madre Cósmica y la medicina vibracional de las rosas.',
+      paraQuien: [
+        'Sientes afinidad con la energía de las rosas o la Madre Cósmica.',
+        'Quieres realizar cambios profundos en tu vida.',
+        'Buscas un sistema distinto de liberación de bloqueos y mayor conexión con el corazón.',
+        'Deseas trabajar aspectos fundamentales: madre, padre, niño interno, ancestros, creencias, sombras y conexión con la divinidad.',
+        'Quieres crear mayor conexión con la energía sutil y divina.',
+      ],
+      noEs: 'Para quienes buscan un acompañamiento terapéutico más mental o conductual. Quienes no tengan interés en conectarse con su espiritualidad.',
+      noEsNota: 'Esto no es psicoterapia.',
+      transf: [
+        { n: '01', titulo: 'Transformación interna profunda', desc: 'Sanas temas vinculados al aprendizaje de tu alma, de esta u otras vidas.' },
+        { n: '02', titulo: 'Mayor apertura del corazón', desc: 'Entras en un estado de más armonía, paz y expansión.' },
+        { n: '03', titulo: 'Consciencia de tus patrones', desc: 'Entiendes con claridad los bloqueos internos que se repiten.' },
+      ],
+      primeraTitulo: 'Conversamos sobre tu interés en este trabajo y realizamos una primera sesión que es una armonización con rosas.',
+      primeraBody: [
+        '',
+        'Para cada sesión es necesario que dispongas de las rosas que se te indican según el tipo de trabajo a realizar. La sesión será acostad@ o sentad@ dependiendo del trabajo a realizar.\nLa primera sesión de armonización es un requisito fundamental para cualquier tipo de proceso terapéutico con rosas que desees realizar.',
+      ],
+      detalles: [ { label: 'Duración', val: 'Aprox. 1 hora y media' }, { label: 'Frecuencia', val: 'Si deseas tomar sesiones con temas específicos debes tener en cuenta que podríamos necesitar más de un encuentro, deben espaciarse por una semana idealmente.\n\nTambién puedes tomarlo como un proceso terapéutico con encuentros semanales.' }, { label: 'Modalidad', val: 'Online para armonizaciones · Presencial para procesos completos en CDMX' } ],
+      rel: { nombre: 'Limpieza con Cruz Ankh', desc: 'Limpieza minuciosa de energías densas e interferencias.', key: 'ankh' },
+    },
+    doula: {
+      eyebrow: 'Acompañamiento especial',
+      img: 'assets/gato-manta.jpg',
+      imgPos: '60% 50%',
+      nombre: 'Doula del alma animal',
+      frase: 'Acompañamiento para animales en proceso de muerte — presencia consciente para ti y tu compañero en su tránsito final.',
+      paraQuien: [
+        'Tu animal está atravesando una enfermedad terminal o un proceso de vejez avanzada.',
+        'Necesitas apoyo para tomar decisiones sobre sus últimos días con mayor claridad y menos culpa.',
+        'Quieres saber qué siente y qué necesita tu animal en este momento de su vida.',
+        'Buscas acompañamiento emocional para ti durante el proceso de despedida.',
+      ],
+      noEs: 'No sustituye la atención veterinaria ni el manejo médico del dolor; es un acompañamiento energético y emocional en paralelo.',
+      noEsNota: null,
+      transf: [
+        { n: '01', titulo: 'Presencia ', desc: 'Acompañas a tu animal con más calma, sabiendo que estás haciendo lo correcto.' },
+        { n: '02', titulo: 'Comunicación clara', desc: 'Entiendes qué siente y qué necesita tu animal en su proceso final.' },
+        { n: '03', titulo: 'Despedida consciente', desc: 'Un tránsito acompañado con respeto, presencia y amor de ambas partes.' },
+      ],
+      primeraTitulo: 'Un espacio para escuchar a tu animal y acompañarlo en sus últimos días de vida.',
+      primeraBody: [
+        'Este acompañamiento está dirigido para sostener el proceso de muerte de un animal, ya sea por vejez, enfermedad crónica o terminal, y para tener mayor claridad en caso de requerirse o proponerse una eutanasia de parte del veterinario.\nDurante este proceso trabajamos junto a ti y a quienes forman parte de su entorno para brindarle la mayor comodidad, contención y bienestar posibles, siempre respetando su voluntad y la manera en que tu animal desea transitar esta etapa.\n\nUno de los pilares de este acompañamiento es escuchar profundamente sus necesidades, honrando su proceso con respeto, compasión y dignidad. Al mismo tiempo, te acompaño para que puedas sostener este momento desde un lugar de amor, serenidad y consciencia, preparándote emocional y energéticamente para cuando llegue el instante de su partida.\n\nEn caso de ser necesario, realizamos una sesión de limpieza energética destinada a liberar bloqueos que puedan interferir en su bienestar o dificultar el cierre natural de este ciclo.\n\nMi compromiso es ofrecerte información, guía y contención durante todo el proceso, para que tanto tú como tu animal puedan vivir esta despedida de la manera más amorosa, consciente y en paz posible.',
+        '',
+      ],
+      detalles: [ { label: 'Duración por sesión', val: 'Aprox. 45 minutos' }, { label: 'Frecuencia', val: 'Cada vez que sea necesario/seguimiento por whatsapp o video llamada durante el proceso' }, { label: 'Modalidad', val: 'Online' } ],
+      notaExtra: { label: '', val: 'Cada sesión se estructura en dos partes:\n\nEnvío de información. Me compartes fotos de tu animal, tu motivo de consulta y las preguntas que deseas hacerle. En esta parte coordinamos sobre tus objetivos de la sesión, la historia del animal y la situación actual que te lleva a querer saber cómo está y qué necesita de ti.\n\nEncuentro de devolución. Nos reunimos online para conversar sobre lo que tu animal respondió y resolver tus dudas; este encuentro puede ser grabado para que puedas volver a integrar la información y los detalles que en vivo se pueden ir.' },
+      rel: { nombre: 'Talleres y cursos', desc: 'Un puente de corazón a corazón con tus compañeros de otras especies.', key: 'canal' },
+    },
+    angelical: {
+      eyebrow: 'Sesión individual',
+      nombre: 'Canalización angelical',
+      frase: 'Guía y mensajes claros a través de la conexión con tus ángeles, para acompañarte en tu momento presente.',
+      paraQuien: [
+        'Te sientes confundido y necesitas guía.',
+        'Buscas orientación amorosa para tomar una decisión.',
+        'Quieres sentir compañía y sostén espiritual.',
+        'Necesitas claridad sobre un tema que te inquieta.',
+        'Deseas reconectar con tu intuición y tu fe.',
+      ],
+      noEs: 'Para quien busca respuestas absolutas o predicciones cerradas; este trabajo abre guía y posibilidades, no destinos fijos.',
+      noEsNota: '',
+      transf: [
+        { n: '01', titulo: 'Claridad y calma', desc: 'Recibes mensajes que ordenan lo que hoy te confunde.' },
+        { n: '02', titulo: 'Sensación de acompañamiento', desc: 'Sientes el sostén de tu guía espiritual.' },
+        { n: '03', titulo: 'Dirección para tu momento', desc: 'Reconoces el siguiente paso con más confianza.' },
+      ],
+      primeraTitulo: 'Un espacio para escuchar los mensajes que tus ángeles tienen para tu momento presente.',
+      primeraBody: [
+        'Conversamos sobre lo que te ocurre y aquello en lo que buscas guía. Luego realizo la lectura y te comparto los mensajes que surgen, resolviendo tus dudas.',
+      ],
+      detalles: [ { label: 'Duración', val: 'Aprox. 60 minutos' }, { label: 'Frecuencia', val: 'Cuando lo necesites' }, { label: 'Modalidad', val: 'Online · CDMX' } ],
+      rel: { nombre: 'Canalización y TRE', desc: 'Limpia los bloqueos que hoy te detienen.', key: 'canal' },
+    },
+    ankh: {
+      eyebrow: 'Trabajo asincrónico',
+      img: 'assets/ankh-rostros.webp',
+      imgPos: 'center 45%',
+      sobre: { titulo: 'Sobre la cruz de ankh', desc: 'La cruz de ankh es un símbolo egipcio milenario de vida, protección y equilibrio energético. En este trabajo la utilizo como herramienta para limpiar y sellar tu campo, devolviéndote fuerza vital y claridad. \nTécnica creada por José Dekovic, prestigioso radiestesista chileno. Se dedicó a la investigación de la cultura egipcia, enfocándose en la aplicación de la \ntecnología Ankh.\nGracias a su investigación hoy podemos contar una herramienta eficaz y altamente eficiente de detección y limpieza de energías discordantes.' },
+      nombre: 'Limpieza con Cruz Ankh',
+      frase: 'Trabajo minucioso de limpieza de todo tipo de ataques y energías mal calificadas: envidias, mal de ojo y trabajos energéticos dirigidos.',
+      paraQuien: [
+        'Sientes que algo impide que manifiestes la vida que anhelas.',
+        'En tu círculo cercano aparecen envidias y celos constantes.',
+        'Vives mal humor o pensamientos negativos recurrentes.',
+        'Se te caen negocios o acuerdos a última hora.',
+        'Sientes miedo o angustia sin explicación, o ves/sientes presencias.',
+        'Aparece en ti, sin razón aparente la sensación de que no vale la pena vivir.',
+        'Percibes un desvío constante de tu misión.',
+      ],
+      noEs: 'Para quien  responsabiliza a otros por todo lo que le pasa.\nQuién no quiere salir del estado de victimismo y reclamo.\n',
+      noEsNota: '',
+      transf: [
+        { n: '01', titulo: 'Limpieza profunda de tu campo energético', desc: 'Sientes que se retira el peso  y la densidad que cargabas, para experimentar la vida con mayor liviandad.\n' },
+        { n: '02', titulo: 'Armonización de tu campo energético', desc: 'Encuentras un punto de  equilibrio en tu flujo energético, promoviendo una sensación de orden y coherencia en tu sistema energético.' },
+        { n: '03', titulo: 'Descanso y energía vital', desc: 'Regeneras y recuperas tu energía vital, creatividad y orientación en tu camino de vida, centrado en tu bienestar y poder personal.' },
+      ],
+      primeraTitulo: 'Un trabajo que se realiza de manera asincrónica, con diagnóstico, limpieza y conclusiones.',
+      primeraBody: [
+        'La Cruz de Ankh, o cruz de la vida, es una herramienta de sanación egipcia que ayuda a eliminar interferencias energéticas que afectan tu campo, tu salud, tu economía y tus relaciones.',
+        'El diagnóstico, la limpieza, las conclusiones y las lecciones a aprender se te envían una vez concluido el trabajo.',
+      ],
+      detalles: [ { label: 'Duración', val: 'Aprox. 40 minutos' }, { label: 'Frecuencia', val: 'Según lo necesites' }, { label: 'Modalidad', val: 'Asincrónico · online' } ],
+      rel: { nombre: 'Sanación cuántica con Rosas', desc: 'Abre el corazón y transforma patrones de raíz.', key: 'rosas' },
+    },
+    especiales: {
+      eyebrow: 'Sesiones a medida',
+      img: 'assets/especiales-shell.jpg',
+      imgPos: '66% 8%',
+      nombre: 'Sesiones especiales',
+      frase: 'Encuentros diseñados a tu medida para momentos que se salen del catálogo regular: proyectos, cierres de ciclo, cumpleaños o el acompañamiento de una pareja.',
+      sobre: { titulo: 'Qué son las sesiones especiales', desc: 'No todas las búsquedas caben en una sesión estándar. Cuando lo que necesitas pide un enfoque propio, diseñamos juntos un espacio a la medida: elegimos las herramientas adecuadas (péndulo, registros akáshicos, sanación energética, rosas) según tu momento y tu intención. Escríbeme y lo conversamos antes de agendar.' },
+      paraQuien: [
+        'Estás por iniciar o cerrar un proyecto y buscas claridad y respaldo energético.',
+        'Atraviesas un cierre de ciclo importante y quieres transitarlo con acompañamiento.',
+        'Quieres regalar (o regalarte) una sesión distinta en un cumpleaños o fecha especial.',
+        'Tú y tu pareja desean trabajar juntos un tema que les afecta como vínculo.',
+        'Tienes una necesidad específica que no encaja en las sesiones del catálogo.',
+      ],
+      noEs: 'Para quien busca una fórmula fija o resultados garantizados. Estas sesiones se construyen contigo y requieren tu apertura y participación.',
+      noEsNota: '',
+      transf: [
+        { n: '01', titulo: 'Un espacio hecho a tu medida', desc: 'Trabajamos exactamente sobre lo que tú necesitas, sin moldes prestablecidos.' },
+        { n: '02', titulo: 'Las herramientas adecuadas', desc: 'Combino las técnicas que mejor sirvan a tu momento y a tu intención.' },
+        { n: '03', titulo: 'Claridad para avanzar', desc: 'Sales con una lectura de tu situación y pasos concretos para tu proceso.' },
+      ],
+      primeraTitulo: 'Antes de agendar conversamos para diseñar juntas el encuentro que necesitas.',
+      primeraBody: [
+        'Escríbeme contándome tu situación y lo que buscas. A partir de ahí definimos el enfoque, las herramientas y la duración de la sesión.',
+        'Cada sesión especial es única, por eso los detalles de tiempo y modalidad los acordamos según tu caso.',
+      ],
+      detalles: [ { label: 'Duración', val: 'A convenir' }, { label: 'Frecuencia', val: 'Según tu necesidad' }, { label: 'Modalidad', val: 'Online · CDMX' } ],
+      pack: {
+        eyebrow: 'especial 333',
+        titulo: 'Un camino de tres sesiones',
+        desc: 'Para quienes buscan un acompañamiento intensivo y profundo, este pack integra  encuentros pensados como un proceso continuo.  Las sesiones se realizarán con una semana de diferencia en cada encuentro.\n\nPuedes tomar esta metodología cada vez que necesites, puedes tener un motivo especial o sólo un deseo de reorganizar y depurar tu  campo energético.',
+        pasos: [
+          { n: '01', titulo: 'Primera sesión:  ANKH', desc: 'Depuramos de forma profunda tu estado energético actual.\nLiberamos los bloqueos para poder sembrar una nueva frecuencia energética' },
+          { n: '02', titulo: 'Segunda sesión:\nCanalización y TRE', desc: 'Limpiamos bloqueos específicos y trabajamos a fondo el tema central que desees trabajar. Poniendo foco en la lección que estás transitando.' },
+          { n: '03', titulo: 'Tercera sesión:\nSanación con Rosas', desc: 'Integramos la información recibida y armonizamos tus cuerpos para que el proceso se sienta sostenido en el tiempo.' },
+        ],
+        nota: 'Las tres sesiones se agendan con la frecuencia que mejor acompañe tu proceso. Escríbeme para conocer la inversión del pack.',
+      },
+      rel: { nombre: 'Canalización y TRE', desc: 'Limpia los bloqueos que hoy te detienen.', key: 'canal' },
+    },
+  };
+
+  renderVals(){
+    const pill = (on) => 'padding:10px 20px;border-radius:40px;font-size:12px;letter-spacing:.1em;font-weight:600;color:'+(on?'#262D40':'rgba(244,242,237,.7)')+';background:'+(on?'#F5E8D8':'transparent');
+    return {
+      parallaxRef: this.registerParallax,
+      pInicio: this.state.page==='inicio',
+      pSobre: this.state.page==='sobre',
+      pServicio: this.state.page==='servicio',
+      pTaller: this.state.page==='taller',
+      pAnimal: this.state.page==='animal',
+      hvA: this.state.hv==='A', hvB: this.state.hv==='B', hvC: this.state.hv==='C',
+      pillA: pill(this.state.hv==='A'), pillB: pill(this.state.hv==='B'), pillC: pill(this.state.hv==='C'),
+      goInicio: () => this.go('inicio'),
+      goSobre: () => this.go('sobre'),
+      goServicio: () => this.go('servicio'),
+      goTaller: () => this.go('taller'),
+      goAnimal: () => this.go('animal'),
+      goTerapias: () => this.go('terapias'),
+      pTerapias: this.state.page==='terapias',
+      pTestimonios: this.state.page==='testimonios',
+      goTestimonios: () => this.go('testimonios'),
+      testimoniosAlumnos: this.testimoniosFull.filter(t => t.cat === 'alumnos'),
+      testimoniosAnimal: this.testimoniosFull.filter(t => t.cat === 'animal'),
+      testimoniosSesiones: this.testimoniosFull.filter(t => t.cat === 'sesiones'),
+      svc: this.services[this.state.svc],
+      svcNoImg: !this.services[this.state.svc].img,
+      svcCajon: !!(this.services[this.state.svc].extra || this.services[this.state.svc].sobre),
+      svcImgEl: this.services[this.state.svc].img
+        ? React.createElement('img', {
+            src: this.services[this.state.svc].img,
+            alt: this.services[this.state.svc].nombre,
+            ref: this.registerParallax,
+            style: { position:'absolute', left:0, right:0, top:'-12%', width:'100%', height:'124%', objectFit:'cover', objectPosition:(this.services[this.state.svc].imgPos || 'center 15%'), willChange:'transform' }
+          })
+        : null,
+      relOpen: () => this.openService(this.services[this.state.svc].rel.key),
+      open: {
+        canal: () => this.openService('canal'),
+        akashicos: () => this.openService('akashicos'),
+        rosas: () => this.openService('rosas'),
+        angelical: () => this.openService('angelical'),
+        ankh: () => this.openService('ankh'),
+        doula: () => this.openService('doula'),
+      },
+      terapiasList: [
+        { nombre: 'Canalización y TRE', tag: 'Sesión individual', resumen: 'Limpieza e investigación profunda de tus registros akashicos', open: () => this.openService('canal'), tone: '#3f5449' },
+        { nombre: 'Limpieza con Cruz Ankh', tag: 'Trabajo asincrónico', resumen: 'Limpieza minuciosa de ataques y energías mal calificadas.', open: () => this.openService('ankh'), tone: '#5C7A70' },
+        { nombre: 'Sanación cuántica con Rosas', tag: 'Sesión individual', resumen: 'Una técnica psico-espiritual profunda para abrir el corazón.', open: () => this.openService('rosas'), tone: '#92ADA4' },
+        { nombre: 'Especiales', tag: 'Sesiones a medida', resumen: 'Sesiones especiales fuera del catálogo regular — consulta disponibilidad.', open: () => this.openService('especiales'), tone: '#92ADA4' },
+        { nombre: 'Lectura de registros akáshicos', tag: 'Sesión individual — Próximamente', resumen: 'Accede a la sabiduría de tu alma sobre tu momento presente.', open: () => this.openService('akashicos'), tone: '#aecabb' },
+        { nombre: 'Canalización angelical', tag: 'Sesión individual — Próximamente', resumen: 'Guía y mensajes claros a través de la conexión con tus ángeles.', open: () => this.openService('angelical'), tone: '#c8ddd0' },
+      ],
+      animalParaQuien: [
+        'Tu compañero animal tiene un tema de salud recurrente: enfermedad, tratamiento, una cirugía próxima, o sospechas que algo le pasa.',
+        'Hay comportamientos o hábitos que necesitas entender o negociar con él.',
+        'Está en un proceso de enfermedad grave o de final de vida.',
+        'Quieres saber cómo brindarle una mejor calidad de vida.',
+      ],
+      goHvA: () => this.setState({hv:'A'}),
+      goHvB: () => this.setState({hv:'B'}),
+      goHvC: () => this.setState({hv:'C'}),
+      openWa: () => { if (typeof window!=='undefined') window.open('https://wa.me/525532407194', '_blank'); },
+      submitLead: (e) => { e.preventDefault(); this.setState({lead:true}); },
+      leadNote: this.state.lead ? '¡Gracias! Te llega al correo (demo).' : 'Sin spam. Solo la meditación y, de vez en cuando, algo útil.',
+      testimonios: [
+        { quote: '"Llegué a las sesiones con Karen en un momento muy difícil, atravesando múltiples duelos. Su apoyo fue, y sigue siendo, un refugio lleno de calidez, cuidado y profunda presencia. Con ella encontré un espacio íntimo y seguro donde pude soltar y sentir en mis propios tiempos. Su forma de acompañar me permitió comprender los duelos desde un lugar completamente diferente, conectar con una sabiduría que no entendía tan bien y con los seres que nos acompañan."', name: 'Laura', service: 'Sesiones' },
+        { quote: '"Mi experiencia en los diferentes cursos con\nesta gran maestra han sido de mucho aprendizaje y autosanación , feliz de que\nesté en mi camino espiritual , cerrando este año con el curso arcangelical que\nes realmente mágico , sanador con herramientas claras para ayudarme y acompañar\na otros en terapia .. agradecida por tu energía Karen, gracias por tanto". ', name: 'Pamela - psicóloga', service: 'Talleres' },
+        { quote: '"Las sesiones con Karen me han ayudado a profundizar en mi desarrollo personal. A entender desde otras perspectivas emociones, pensamientos y situaciones que si bien he trabajado en terapia seguían presentes. Sin duda cada sesión ha ensanchado mi visión de mí, de mis experiencias, del mundo y me ha acompañado en momentos de duda e incertidumbre de una manera amorosa y para tener otras perspectivas. Muchas gracias Karen."', name: 'Nantzy - Psicoterapeuta', service: 'Sesiones' },
+      ],
+      faqs: [
+        { q: '¿Qué son los registros akáshicos?', a: 'Son el registro energético de la información de tu alma, de tus experiencias de vida, pasada, presente y futura. Al abrirlos podemos trabajar sobre el origen del bloqueo sobre tu momento presente para ordenar y sanar lo que hoy te limita.' },
+        { q: '¿La armonización es lo mismo que una limpieza?', a: 'No exactamente. La limpieza retira interferencias y energías densas; la armonización reequilibra tu energía después. Muchas veces se acompañan en la misma sesión.' },
+        { q: 'Tengo muchos temas y no sé por dónde empezar.', a: 'Está bien llegar así. En la primera sesión ordenamos juntos lo que traes y elegimos un punto de partida claro.' },
+        { q: 'Me siento estancado o confundido y necesito guía.', a: 'Es justo donde este trabajo ayuda: clarificamos qué está detenido, qué lección hay disponible y qué paso concreto sigue. Comprender el propósito mayor de tu experiencia actual.' },
+        { q: 'Me pasan cosas raras y no entiendo por qué.', a: 'La clave de esto es estar abiertos y receptivos para comprender la parte que nos toca sobre nuestro proceso de vida.' },
+      ],
+      paraQuien: [
+        'Necesitas tomar decisiones importantes: salud, economía, trabajo, vínculos, amor o estudios.',
+        'Quieres clarificar y sanar tus vínculos más importantes.',
+        'Estás cerrando un ciclo, proceso o relación y necesitas ordenar lo vivido.',
+        'Buscas entender qué lección hay para ti en una situación (el "para qué me pasa").',
+        'Quieres empezar un ciclo nuevo con más dirección, o enfocar tu energía en tu año de vida.',
+      ],
+      tallerAprender: [
+        'Introducción a la radiestesia y energías sutiles',
+        'El péndulo como instrumento de trabajo',
+        'Respondiendo a las preguntas: cómo, cuándo y por qué de la radiestesia',
+        'Cómo elegir, consagrar y sintonizar con tu péndulo',
+        'La convención mental',
+        'Diagnósticos básicos Sí/No',
+        'Mi trabajo personal: autocuidado, conexión y protección al trabajar',
+        'Requisitos indispensables para el trabajo',
+        'Presencia, ética y responsabilidad en procesos terapéuticos avanzados',
+        'Aplicación del péndulo al trabajo terapéutico: cómo potenciar mis sesiones',
+        'Conexión con el otro: tipos y formas de relacionarnos',
+      ],
+      tallerVivir: [
+        { n: '01', t: 'Elegir, limpiar y programar tu propio péndulo desde cero.' },
+        { n: '02', t: 'Calibrar tu sí y tu no para consultas confiables.' },
+        { n: '03', t: 'Formular buenas preguntas y leer respuestas con claridad.' },
+        { n: '04', t: 'Prácticas para consultar sin interferir con tu deseo o miedo.' },
+      ],
+      tallerTemario: [
+        { mod: 'Módulo 1', c: 'Qué es el péndulo, cómo funciona y cómo prepararte energéticamente.' },
+        { mod: 'Módulo 2', c: 'Limpieza, programación y calibración de tu péndulo.' },
+        { mod: 'Módulo 3', c: 'Tipos de preguntas, tableros y ejercicios de consulta guiada.' },
+        { mod: 'Módulo 4', c: 'Práctica en vivo, dudas y cómo integrarlo a tu día a día.' },
+      ],
+      tallerFaq: [
+        { q: '¿Necesito experiencia previa?', a: 'No. El taller está pensado para empezar desde cero, a tu ritmo.' },
+        { q: '¿Necesito mi propio péndulo?', a: 'Es ideal tenerlo. Te comparto recomendaciones al inscribirte; también podemos trabajar con uno improvisado.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

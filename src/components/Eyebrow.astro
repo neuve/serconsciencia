@@ -1,0 +1,21 @@
+---
+interface Props {
+  text: string;
+  color?: string;
+  class?: string;
+}
+
+const { text, color = 'var(--sage)', class: className } = Astro.props;
+---
+
+<div class:list={['eyebrow-component', className]} style={{ color }}>{text}</div>
+
+<style>
+  .eyebrow-component {
+    font-family: var(--font-ui);
+    font-size: var(--fs-eyebrow);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+</style>

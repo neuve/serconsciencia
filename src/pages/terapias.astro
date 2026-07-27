@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import TherapyCard from '../components/TherapyCard.astro';
+import { terapias } from '../data/terapias';
+---
+
+<Base
+  title="Terapias y sesiones"
+  description="Elige tu camino: canalización, registros akáshicos, sanación con rosas, limpieza con cruz Ankh y más terapias energéticas con Karen Silva."
+>
+  <section style="padding: clamp(50px, 7vh, 90px) 0 clamp(60px, 9vh, 110px); background: var(--sand);">
+    <SectionHeader
+      eyebrow="TERAPIAS Y SESIONES"
+      eyebrowColor="var(--cyan)"
+      title="Elige tu"
+      italicWord="camino."
+      italicColor="var(--amber)"
+      lede="Cada sesión es una puerta distinta hacia la claridad y la sanación. Explora cada una y elige la que resuene con tu momento."
+      class="anim-float"
+    />
+
+    <div class="gutter therapy-grid">
+      {terapias.map((t, i) => (
+        <TherapyCard
+          title={t.nombre}
+          eyebrow={t.tag}
+          summary={t.resumen}
+          tone={t.tone}
+          href={`/servicios/${t.svc}`}
+          class={`anim-float-delay-${Math.min((i % 3) + 1, 3)}`}
+        />
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .therapy-grid {
+    margin-top: clamp(40px, 6vh, 64px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--grid-gap);
+  }
+
+  @media (max-width: 720px) {
+    .therapy-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

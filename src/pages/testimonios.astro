@@ -1,0 +1,122 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import { testimoniosFull } from '../data/testimonios';
+
+const alumnos = testimoniosFull.filter((t) => t.cat === 'alumnos');
+const sesiones = testimoniosFull.filter((t) => t.cat === 'sesiones');
+const animal = testimoniosFull.filter((t) => t.cat === 'animal');
+---
+
+<Base
+  title="Testimonios"
+  description="Palabras de quienes han caminado sus procesos de sanación en compañía de Karen Silva."
+>
+  <section class="testimonios-hero">
+    <SectionHeader
+      eyebrow="Testimonios"
+      title="Cómo cambian los"
+      italicWord="relatos."
+      lede="Palabras de quienes han caminado sus procesos de sanación en compañía. Cada historia es única — estas son algunas que se compartieron con permiso."
+    />
+  </section>
+
+  <section class="testimonios-groups">
+    <div class="gutter">
+      <div class="group">
+        <div class="group__header">
+          <h2 class="group__title">Alumnos</h2>
+          <span class="group__tag">Cursos y talleres</span>
+        </div>
+        <div class="group__grid">
+          {alumnos.map((t) => (
+            <TestimonialCard quote={t.quote} name={t.name} service={t.service} />
+          ))}
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group__header">
+          <h2 class="group__title">Comunicación animal</h2>
+          <span class="group__tag">Sesiones con animales</span>
+        </div>
+        <div class="group__grid">
+          {animal.map((t) => (
+            <TestimonialCard quote={t.quote} name={t.name} service={t.service} />
+          ))}
+        </div>
+      </div>
+
+      <div class="group group--last">
+        <div class="group__header">
+          <h2 class="group__title">Sesiones</h2>
+          <span class="group__tag">Terapias individuales</span>
+        </div>
+        <div class="group__grid">
+          {sesiones.map((t) => (
+            <TestimonialCard quote={t.quote} name={t.name} service={t.service} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .testimonios-hero {
+    padding: clamp(60px, 8vh, 110px) 0 clamp(30px, 4vh, 50px);
+    background: var(--sand);
+  }
+
+  .testimonios-groups {
+    padding: clamp(20px, 3vh, 40px) 0 var(--section-py-wide);
+    background: var(--sand);
+  }
+
+  .group {
+    margin-bottom: 66px;
+  }
+
+  .group--last {
+    margin-bottom: 0;
+  }
+
+  .group__header {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin: 0 0 30px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+
+  .group__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(26px, 3vw, 38px);
+    color: var(--sage);
+    margin: 0;
+  }
+
+  .group__tag {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    font-weight: 600;
+  }
+
+  .group__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+  }
+
+  @media (max-width: 860px) {
+    .group__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

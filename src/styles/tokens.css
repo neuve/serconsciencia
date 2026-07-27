@@ -1,0 +1,102 @@
+/*
+  Design tokens — Karen Silva
+  Fuente de verdad extraída y normalizada del prototipo de diseño
+  (design_handoff_karen_silva). Ver README del handoff para el detalle
+  de cada token; aquí se corrigen los hardcodeos fuera de paleta
+  detectados en la auditoría del prototipo.
+*/
+
+:root {
+  /* ---------- Color: fondos ---------- */
+  --sand: #f5e8d8; /* fondo base de casi todas las secciones */
+  --sand-mid: #f2d6a1; /* bandas destacadas: FAQ, cajas de contenido */
+  --cream: #f4f2ed; /* texto sobre fondo oscuro, superficies claras */
+  --white: #ffffff; /* tarjetas */
+
+  /* ---------- Color: marca ---------- */
+  --sage: #5c7a70; /* logo, eyebrows, acentos */
+  --sage-light: #92ada4; /* fondo de tarjeta de servicio sin foto */
+  --sage-deep: #3f5449; /* tono de tarjeta de terapia (verde profundo) */
+  --sage-tone-2: #aecabb; /* tono de tarjeta: akashicos */
+  --sage-tone-3: #c8ddd0; /* tono de tarjeta: angelical */
+  --sage-tint: #b7cac3; /* "Silva" en itálica del wordmark del footer */
+
+  /* ---------- Color: acción ---------- */
+  --cta: #b3d9e0; /* todos los botones primarios */
+  --cta-text: #2a3b44; /* texto dentro de botones azules */
+  --cyan: #4dc3d6; /* bordes de iconos, placeholders de input, eyebrows */
+  --amber: #f1a805; /* dots decorativos en botones y listas, eyebrows */
+  --amber-tint: #ffe1a8; /* titular del bloque lead magnet sobre fondo sage */
+
+  /* ---------- Color: texto ---------- */
+  --ink: #1c2530; /* color de texto por defecto (body) */
+  --ink-mid: #3c4657; /* items de navegación */
+  --ink-body: #4a5563; /* color real de párrafo de cuerpo */
+  --warm-gray: #a19a8c; /* notas secundarias, texto mono pequeño */
+
+  /* ---------- Color: hairlines / overlays (base + alfas vía color-mix) ---------- */
+  --line-rgb: 51, 58, 53; /* #333A35 */
+  --cream-rgb: 244, 242, 237; /* #F4F2ED */
+  --ink-rgb: 28, 37, 48; /* #1C2530 — overlays oscuros sobre fotografía */
+  --hairline: rgba(var(--line-rgb), 0.08); /* bordes de nav y tarjetas */
+  --hairline-soft: rgba(var(--line-rgb), 0.07);
+  --hairline-strong: rgba(var(--line-rgb), 0.14);
+  --overlay-cream-soft: rgba(var(--cream-rgb), 0.06);
+  --overlay-cream-border: rgba(var(--cream-rgb), 0.16);
+
+  --shadow-card: 0 20px 60px rgba(var(--line-rgb), 0.06);
+
+  /* ---------- Tipografía ---------- */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-ui: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: ui-monospace, Menlo, monospace;
+
+  --fs-h1: clamp(52px, 7.2vw, 104px);
+  --fs-h2: clamp(40px, 5vw, 64px);
+  --fs-h3: clamp(25px, 2.4vw, 32px);
+  --fs-eyebrow: 12px;
+  --fs-nav: 12px;
+  --fs-button: 12px;
+  --fs-body: 17px;
+  --fs-note: 13px;
+
+  --lh-h1: 0.96;
+  --lh-h2: 1;
+  --lh-body: 1.65;
+
+  --ls-eyebrow: 0.22em;
+  --ls-nav: 0.14em;
+  --ls-button: 0.16em;
+
+  /* ---------- Espaciado ---------- */
+  --section-py-compact: clamp(40px, 7vh, 90px);
+  --section-py-wide: clamp(80px, 11vh, 140px);
+
+  /*
+    Gutter único de todo el sitio. Reemplaza las ~5 escalas distintas
+    del prototipo (clamp 20-64, 24-72, 32-48, 32-96, 40-96) para que
+    todo el contenido — texto y cajas con borde/radio — alinee en el
+    mismo eje vertical que el logo del nav, y ningún trazo aterrice
+    en el borde de la ventana.
+  */
+  --gutter: clamp(20px, 5vw, 64px);
+
+  --grid-gap: 22px;
+  --card-padding: 32px;
+  --nav-height: 84px;
+
+  --measure-lede: 62ch;
+  --measure-copy: 44ch;
+
+  /* ---------- Radios ---------- */
+  --r-card: 6px; /* tarjetas de servicio */
+  --r-box: 8px; /* cajas de contenido */
+  --r-content: 10px; /* cajas de contenido grandes */
+  --r-band: 12px; /* bandas (ej. Doula) */
+  --r-split: 16px; /* bloque split grande */
+  --r-pill: 44px; /* botones */
+  --r-dot: 50%; /* dots decorativos */
+
+  /* ---------- Transiciones ---------- */
+  --ease-standard: 150ms ease;
+}

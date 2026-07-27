@@ -1,0 +1,62 @@
+---
+import Eyebrow from './Eyebrow.astro';
+
+interface Props {
+  eyebrow: string;
+  eyebrowColor?: string;
+  title: string;
+  italicWord?: string;
+  italicColor?: string;
+  lede?: string;
+  class?: string;
+}
+
+const {
+  eyebrow,
+  eyebrowColor = 'var(--sage)',
+  title,
+  italicWord,
+  italicColor = 'var(--sage)',
+  lede,
+  class: className,
+} = Astro.props;
+---
+
+<div class:list={['section-header gutter', className]}>
+  <Eyebrow text={eyebrow} color={eyebrowColor} />
+  <h2 class="section-header__title">
+    {title}{italicWord ? ' ' : ''}{italicWord && (
+      <span class="section-header__italic" style={{ color: italicColor }}>{italicWord}</span>
+    )}
+  </h2>
+  {lede && <p class="section-header__lede">{lede}</p>}
+</div>
+
+<style>
+  .section-header {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .section-header__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-h2);
+    line-height: var(--lh-h2);
+    letter-spacing: -0.01em;
+    color: var(--sage);
+    margin: 16px 0 0;
+  }
+
+  .section-header__italic {
+    font-style: italic;
+  }
+
+  .section-header__lede {
+    max-width: var(--measure-lede);
+    margin: 22px auto 0;
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    color: var(--ink-body);
+  }
+</style>

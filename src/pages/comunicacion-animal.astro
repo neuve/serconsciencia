@@ -1,0 +1,525 @@
+---
+// Vista dedicada a Comunicación Animal. Hardcodeada según el prototipo
+// `prototype/design_handoff_karen_silva/design/Karen Silva Sitio.dc.html` (líneas ~544-664).
+// Solo referencia `services.doula` para el link de la banda intermedia.
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+import ParallaxImage from '../components/ParallaxImage.astro';
+import { services } from '../data/services';
+
+const animalParaQuien = [
+  'Tu compañero animal tiene un tema de salud recurrente: enfermedad, tratamiento, una cirugía próxima, o sospechas que algo le pasa.',
+  'Hay comportamientos o hábitos que necesitas entender o negociar con él.',
+  'Está en un proceso de enfermedad grave o de final de vida.',
+  'Quieres saber cómo brindarle una mejor calidad de vida.',
+];
+
+const transformaciones = [
+  { n: '01', titulo: 'Entender qué necesita', desc: 'Comprendes lo que tu animal siente y necesita, más allá de las suposiciones.' },
+  { n: '02', titulo: 'Un vínculo más fuerte', desc: 'La relación entre tú y tu animal se vuelve más cercana, clara y confiada.' },
+  { n: '03', titulo: 'Consciencia sobre tu proceso personal', desc: 'El animal te muestra con claridad que partes de tu proceso están afectando en su experiencia de vida.' },
+];
+
+const wa = 'https://wa.me/525532407194';
+const doula = services.doula;
+---
+
+<Base
+  title="Comunicación animal"
+  description="Un puente con nuestros compañeros de otras especies, que facilita entender cómo se sienten, qué quieren o necesitan y cómo podemos acompañarlos."
+>
+  <!-- Hero -->
+  <section class="gutter hero anim-fade">
+    <div class="eyebrow-line" style="color: var(--amber);">Servicio · acompañamiento animal</div>
+    <h1 class="hero__title">Comunicación <span class="hero__title-italic">animal.</span></h1>
+    <p class="hero__lede">
+      Un puente con nuestros compañeros de otras especies, que facilita entender cómo se sienten, qué
+      quieren o necesitan y cómo podemos acompañarlos.
+    </p>
+    <Button variant="primary" label="Agendar una sesión" href={wa} showDot class="hero__cta" />
+  </section>
+
+  <!-- Foto a sangre con parallax -->
+  <section class="bleed photo-band">
+    <ParallaxImage
+      src="/assets/caballo-cafe-blanco.jpg"
+      alt="Karen con caballo café y caballo blanco"
+      objectPosition="50% 42%"
+    />
+  </section>
+
+  <!-- Galería complementaria (decisión de diseño: los tres assets de la vista
+       -gato-cama.jpg, gato-manta.jpg, caballo-cafe-blanco.jpg- se distribuyen
+       entre la banda parallax y esta tira de dos fotos, ya que el prototipo no
+       define un slot explícito para las tres dentro de esta sección). -->
+  <section class="gutter photo-strip">
+    <img src="/assets/gato-cama.jpg" alt="Gato descansando en su cama" class="photo-strip__img" loading="lazy" />
+    <img src="/assets/gato-manta.jpg" alt="Gato envuelto en una manta" class="photo-strip__img" loading="lazy" />
+  </section>
+
+  <!-- Introducción -->
+  <section class="section">
+    <div class="gutter">
+      <div class="intro-box">
+        <div class="eyebrow-line" style="color: var(--sage);">COMUNICACIÓN ANIMAL</div>
+        <p class="intro-box__text">
+          La comunicación interespecie nos ayuda como tutores y responsables a comprender los
+          comportamientos de nuestro compañero animal, identificar hábitos que podrían requerir un
+          cambio y acompañarlos en procesos de enfermedad, muerte o intervenciones médicas.
+          <br />
+          Es una guía profunda — y muchas veces sorprendente — sobre la forma en que experimenta su
+          vida tu animal, permitiéndote aprender a escuchar y comprender su sentir, y por consecuencia
+          fomentar un vínculo más profundo, equilibrado y respetuoso.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quién es / no es -->
+  <section class="section">
+    <div class="gutter para-quien-grid">
+      <div>
+        <div class="eyebrow-line" style="color: var(--amber);">Para quién es</div>
+        <ul class="para-quien-list">
+          {animalParaQuien.map((p) => (
+            <li class="para-quien-list__item">
+              <span class="para-quien-list__dot" aria-hidden="true"></span>
+              {p}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="no-es-box">
+        <div class="eyebrow-line" style="color: var(--sage);">Para quién no es</div>
+        <p class="no-es-box__text">
+          Para quien no cree que los animales pueden comunicarnos sus necesidades. Este trabajo es
+          para quienes respetan la vida animal y quieren darle voz y elección en su propia vida.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Las 3 transformaciones -->
+  <section class="section transf-section">
+    <div class="gutter">
+      <div class="transf-header">
+        <div class="eyebrow-line" style="color: var(--amber);">Las 3 transformaciones</div>
+        <h2 class="transf-header__title">Lo que cambia para ti y tu animal.</h2>
+      </div>
+      <div class="transf-grid">
+        {transformaciones.map((t) => (
+          <div class="transf-card">
+            <div class="transf-card__n">{t.n}</div>
+            <h3 class="transf-card__title">{t.titulo}</h3>
+            <p class="transf-card__desc">{t.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Banda Doula -->
+  <section class="section" style="padding-bottom: 0;">
+    <div class="gutter">
+      <a href="/servicios/doula" class="doula-band">
+        <div>
+          <h3 class="doula-band__title">{doula.frase.split(' — ')[0]}</h3>
+          <p class="doula-band__subtitle">Doula del alma animal.</p>
+        </div>
+        <span class="doula-band__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Cómo son las sesiones -->
+  <section class="section">
+    <div class="gutter">
+      <div class="eyebrow-line" style="color: var(--amber); margin-bottom: 22px;">CÓMO SON LAS SESIONES</div>
+      <p class="sessions-text">
+        <strong>Cada sesión se estructura en dos partes:</strong><br />
+        <strong>Envío de información.</strong> Me compartes fotos de tu animal, tu motivo de consulta y
+        las preguntas que deseas hacerle. En esta parte coordinamos sobre tus objetivos de la sesión,
+        la historia del animal y la situación actual que te lleva a querer saber cómo está y qué
+        necesita de ti.
+      </p>
+      <p class="sessions-text">
+        <strong>Encuentro de devolución.</strong> Nos reunimos online para conversar sobre lo que tu
+        animal respondió y resolver tus dudas, este encuentro puede ser grabado para que puedas volver
+        a integrar la información y/o detalles que en vivo se pueden ir.
+      </p>
+    </div>
+  </section>
+
+  <!-- Detalles -->
+  <section class="section" style="padding-top: 0;">
+    <div class="gutter detalles-grid">
+      <div class="detalle-box">
+        <div class="detalle-box__label">Duración</div>
+        <div class="detalle-box__val">45 min + seguimiento</div>
+      </div>
+      <div class="detalle-box">
+        <div class="detalle-box__label">Modalidad</div>
+        <div class="detalle-box__val">Online</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final + Te puede interesar -->
+  <section class="section cta-section">
+    <div class="gutter">
+      <h2 class="cta-section__title">¿Quieres saber cómo se siente tu animal?</h2>
+      <Button variant="primary" label="Agendar una sesión" href={wa} showDot />
+
+      <div class="rel-block">
+        <div class="eyebrow-line" style="color: var(--amber);">Te puede interesar</div>
+        <a href="/servicios/canal" class="rel-card">
+          <div>
+            <div class="rel-card__title">Canalización y registros akáshicos</div>
+            <div class="rel-card__desc">Claridad y limpieza de los bloqueos que hoy te detienen.</div>
+          </div>
+          <span class="rel-card__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .eyebrow-line {
+    font-family: var(--font-ui);
+    font-size: var(--fs-eyebrow);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .hero {
+    /*
+      padding-block, NO el atajo `padding`: este elemento también lleva
+      .gutter, y el atajo reseteaba padding-inline a 0 (el estilo scoped
+      de Astro gana en especificidad), dejando el texto pegado al borde.
+    */
+    padding-block: clamp(50px, 7vh, 90px) clamp(40px, 5vh, 60px);
+    background: var(--sand);
+    text-align: center;
+  }
+
+  .hero__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(40px, 5.6vw, 80px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 22px 0 0;
+    color: var(--sage);
+  }
+
+  .hero__title-italic {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .hero__lede {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink-body);
+    margin: 28px auto 0;
+    max-width: var(--measure-lede);
+  }
+
+  .hero__cta {
+    margin-top: 34px;
+  }
+
+  .photo-band {
+    position: relative;
+    height: clamp(340px, 52vh, 540px);
+    overflow: hidden;
+    background: var(--sand);
+  }
+
+  .photo-strip {
+    /* Idem .hero: el atajo `padding` anulaba el .gutter y las fotos con
+       border-radius aterrizaban en el borde de la ventana (bug original). */
+    padding-block: clamp(24px, 4vh, 40px) 0;
+    background: var(--sand);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--grid-gap);
+  }
+
+  .photo-strip__img {
+    width: 100%;
+    height: clamp(180px, 26vh, 280px);
+    object-fit: cover;
+    border-radius: var(--r-content);
+  }
+
+  @media (max-width: 640px) {
+    .photo-strip {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .section {
+    padding: clamp(60px, 9vh, 110px) 0;
+    background: var(--sand);
+  }
+
+  .intro-box {
+    background: var(--sand-mid);
+    border-radius: var(--r-content);
+    padding: 38px 34px;
+  }
+
+  .intro-box__text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-body);
+    margin: 22px 0 0;
+  }
+
+  .para-quien-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+
+  .para-quien-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 22px;
+  }
+
+  .para-quien-list__item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-mid);
+  }
+
+  .para-quien-list__dot {
+    flex: none;
+    margin-top: 8px;
+    width: 7px;
+    height: 7px;
+    border-radius: var(--r-dot);
+    background: var(--amber);
+  }
+
+  .no-es-box {
+    background: var(--sand-mid);
+    border-radius: var(--r-content);
+    padding: 38px 34px;
+    align-self: start;
+  }
+
+  .no-es-box__text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-body);
+    margin: 18px 0 0;
+  }
+
+  @media (max-width: 720px) {
+    .para-quien-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  .transf-section {
+    background: var(--sage);
+  }
+
+  .transf-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .transf-header__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(30px, 4vw, 50px);
+    line-height: 1.05;
+    margin: 16px 0 0;
+    color: var(--cta);
+  }
+
+  .transf-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+  }
+
+  @media (max-width: 780px) {
+    .transf-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .transf-card {
+    border: 1px solid var(--overlay-cream-border);
+    border-radius: var(--r-content);
+    padding: 34px 30px;
+  }
+
+  .transf-card__n {
+    font-family: var(--font-display);
+    font-size: 44px;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .transf-card__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 25px;
+    color: var(--cream);
+    margin: 0 0 10px;
+  }
+
+  .transf-card__desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(var(--cream-rgb), 0.82);
+    margin: 0;
+  }
+
+  .doula-band {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    width: 100%;
+    text-align: left;
+    background: var(--sage-deep);
+    border-radius: var(--r-band);
+    padding: 36px 38px;
+  }
+
+  .doula-band__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.2;
+    color: var(--white);
+    margin: 0 0 10px;
+  }
+
+  .doula-band__subtitle {
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(var(--cream-rgb), 0.8);
+    margin: 0;
+    font-style: italic;
+  }
+
+  .doula-band__arrow {
+    flex: none;
+    margin-left: auto;
+    font-family: var(--font-display);
+    font-size: 34px;
+    color: var(--white);
+  }
+
+  .sessions-text {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink-mid);
+    margin: 0 0 18px;
+  }
+
+  .sessions-text strong {
+    color: var(--sage);
+    font-weight: 600;
+  }
+
+  .detalles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 640px) {
+    .detalles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .detalle-box {
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-box);
+    padding: 24px;
+  }
+
+  .detalle-box__label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+
+  .detalle-box__val {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--sage);
+  }
+
+  .cta-section {
+    background: var(--sage);
+    text-align: center;
+  }
+
+  .cta-section__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(30px, 4vw, 50px);
+    line-height: 1.08;
+    color: var(--sand);
+    margin: 0 0 28px;
+  }
+
+  .rel-block {
+    margin-top: 56px;
+    text-align: left;
+  }
+
+  .rel-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: var(--overlay-cream-soft);
+    border: 1px solid var(--overlay-cream-border);
+    border-radius: var(--r-box);
+    padding: 24px 28px;
+    text-align: left;
+    margin-top: 18px;
+  }
+
+  .rel-card__title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--white);
+  }
+
+  .rel-card__desc {
+    font-size: 14px;
+    color: rgba(var(--cream-rgb), 0.6);
+    margin-top: 4px;
+  }
+
+  .rel-card__arrow {
+    font-family: var(--font-display);
+    font-size: 30px;
+    color: var(--white);
+    flex: none;
+  }
+</style>

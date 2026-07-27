@@ -1,0 +1,177 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  italicWord?: string;
+  description: string;
+  buttonLabel?: string;
+  class?: string;
+}
+
+const {
+  eyebrow = 'Regalo · 100% gratuito',
+  title,
+  italicWord,
+  description,
+  buttonLabel = 'La necesito',
+  class: className,
+} = Astro.props;
+
+// NOTA: no hay backend conectado todavía. El submit se intercepta en
+// el cliente y simula un estado "enviado" (ver <script> abajo). Falta
+// integrar un proveedor real (Mailchimp / Resend / etc.) que reciba
+// el email y entregue el recurso.
+---
+
+<section class:list={['lead-magnet bleed', className]}>
+  <div class="lead-magnet__inner gutter">
+    <div class="lead-magnet__eyebrow">{eyebrow}</div>
+    <h2 class="lead-magnet__title">
+      {title}{italicWord ? ' ' : ''}
+      {italicWord && <span class="lead-magnet__italic">{italicWord}</span>}
+    </h2>
+    <p class="lead-magnet__desc">{description}</p>
+    <form class="lead-magnet__form" data-lead-form>
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="tu correo"
+        class="lead-magnet__input"
+        data-lead-input
+      />
+      <button type="submit" class="lead-magnet__submit" data-lead-submit>
+        {buttonLabel}
+        <span class="lead-magnet__dot" aria-hidden="true"></span>
+      </button>
+    </form>
+    <p class="lead-magnet__note" data-lead-note aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-lead-form]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const note = form.parentElement?.querySelector<HTMLParagraphElement>('[data-lead-note]');
+      const submit = form.querySelector<HTMLButtonElement>('[data-lead-submit]');
+      const input = form.querySelector<HTMLInputElement>('[data-lead-input]');
+
+      if (!input || !input.checkValidity()) {
+        input?.reportValidity();
+        return;
+      }
+
+      // Simulación de envío exitoso — sin backend real todavía.
+      if (submit) submit.disabled = true;
+      if (note) note.textContent = 'Gracias — revisa tu correo en unos minutos.';
+      input.value = '';
+      if (submit) submit.disabled = false;
+    });
+  });
+</script>
+
+<style>
+  .lead-magnet {
+    padding: clamp(80px, 11vh, 140px) 0;
+    background: var(--sage);
+  }
+
+  .lead-magnet__inner {
+    text-align: center;
+  }
+
+  .lead-magnet__eyebrow {
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 600;
+    margin-bottom: 26px;
+  }
+
+  .lead-magnet__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(32px, 4.6vw, 58px);
+    line-height: 1.08;
+    color: var(--amber-tint);
+    margin: 0 0 22px;
+  }
+
+  .lead-magnet__italic {
+    font-style: italic;
+    color: var(--cyan);
+  }
+
+  .lead-magnet__desc {
+    max-width: var(--measure-lede);
+    margin: 0 auto;
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    color: var(--cream);
+  }
+
+  .lead-magnet__form {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 520px;
+    margin: 32px auto 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .lead-magnet__input {
+    flex: 1;
+    min-width: 220px;
+    background: var(--overlay-cream-soft);
+    border: 1px solid var(--cta);
+    color: var(--cream);
+    padding: 16px 20px;
+    border-radius: var(--r-pill);
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+  }
+
+  .lead-magnet__input::placeholder {
+    color: var(--cyan);
+    opacity: 1;
+  }
+
+  .lead-magnet__submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--cta);
+    color: var(--cta-text);
+    padding: 16px 28px;
+    border-radius: var(--r-pill);
+    font-size: var(--fs-button);
+    letter-spacing: var(--ls-button);
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: filter var(--ease-standard);
+  }
+
+  .lead-magnet__submit:hover {
+    filter: brightness(0.94);
+  }
+
+  .lead-magnet__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--r-dot);
+    background: var(--amber);
+    flex: none;
+  }
+
+  .lead-magnet__note {
+    font-size: var(--fs-note);
+    color: rgba(var(--cream-rgb), 0.5);
+    margin-top: 16px;
+    min-height: 1.2em;
+  }
+</style>

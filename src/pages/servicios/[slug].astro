@@ -1,0 +1,545 @@
+---
+import Base from '../../layouts/Base.astro';
+import Button from '../../components/Button.astro';
+import { services, serviceSlugs } from '../../data/services';
+import type { Service } from '../../data/services';
+
+export function getStaticPaths() {
+  return serviceSlugs.map((slug) => ({
+    params: { slug },
+    props: { service: services[slug] },
+  }));
+}
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+const wa = 'https://wa.me/525532407194';
+const textoBloque = service.extra ?? service.sobre;
+---
+
+<Base title={service.nombre} description={service.frase}>
+  <!-- 1. Hero centrado -->
+  <section class="section hero">
+    <div class="gutter">
+      <div class="eyebrow-line" style="color: var(--amber);">TERAPIA · {service.eyebrow}</div>
+      <h1 class="hero__title">{service.nombre}</h1>
+      <p class="hero__lede">{service.frase}</p>
+      <Button variant="primary" label="AGENDAR UNA CITA" href={wa} showDot class="hero__cta" />
+    </div>
+  </section>
+
+  <!-- 2. Imagen a sangre (o placeholder degradado si no hay foto) -->
+  <section class="bleed hero-image">
+    {service.img ? (
+      <img
+        src={service.img}
+        alt={service.nombre}
+        style={{ objectPosition: service.imgPos || 'center' }}
+        class="hero-image__img"
+      />
+    ) : (
+      <div class="hero-image__placeholder" aria-hidden="true"></div>
+    )}
+  </section>
+
+  <!-- 3. extra / sobre -->
+  {textoBloque && (
+    <section class="section">
+      <div class="gutter">
+        <div class="text-block">
+          <h2 class="text-block__title">{textoBloque.titulo}</h2>
+          {textoBloque.desc.split('\n\n').map((p) => (
+            <p class="text-block__desc" set:html={p.replace(/\n/g, '<br />')} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 4 + 5. Para quién es / no es -->
+  {(service.paraQuien?.length || service.noEs) && (
+    <section class="section">
+      <div class="gutter para-quien-grid">
+        {service.paraQuien?.length > 0 && (
+          <div>
+            <div class="eyebrow-line" style="color: var(--amber);">Para quién es</div>
+            <ul class="para-quien-list">
+              {service.paraQuien.map((p) => (
+                <li class="para-quien-list__item">
+                  <span class="para-quien-list__dot" aria-hidden="true"></span>
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {service.noEs && (
+          <div class="no-es-box">
+            <div class="eyebrow-line" style="color: var(--sage);">Para quién no es</div>
+            <p class="no-es-box__text" set:html={service.noEs.replace(/\n/g, '<br />')} />
+            {service.noEsNota && <p class="no-es-box__nota">{service.noEsNota}</p>}
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- 6. Transformaciones -->
+  {service.transf?.length > 0 && (
+    <section class="section transf-section">
+      <div class="gutter">
+        <div class="transf-header">
+          <div class="eyebrow-line" style="color: var(--amber);">Las 3 transformaciones</div>
+          <h2 class="transf-header__title">Lo que te llevas de cada sesión.</h2>
+        </div>
+        <div class="transf-grid">
+          {service.transf.map((t) => (
+            <div class="transf-card">
+              <div class="transf-card__n">{t.n}</div>
+              <h3 class="transf-card__title" set:html={t.titulo.replace(/\n/g, '<br />')} />
+              <p class="transf-card__desc" set:html={t.desc.replace(/\n/g, '<br />')} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Primer encuentro -->
+  {service.primeraTitulo && (
+    <section class="section">
+      <div class="gutter">
+        <h2 class="primera-titulo">{service.primeraTitulo}</h2>
+        {service.primeraBody?.filter(Boolean).map((p) => (
+          <p class="primera-body" set:html={p.replace(/\n/g, '<br />')} />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- 7. Detalles -->
+  {service.detalles?.length > 0 && (
+    <section class="section">
+      <div class="gutter detalles-grid">
+        {service.detalles.map((d) => (
+          <div class="detalle-box">
+            <div class="detalle-box__label">{d.label}</div>
+            <div class="detalle-box__val" set:html={d.val.replace(/\n/g, '<br />')} />
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- 8. notaExtra (solo doula) -->
+  {service.notaExtra && (
+    <section class="section">
+      <div class="gutter">
+        <div class="intro-box">
+          {service.notaExtra.label && (
+            <div class="eyebrow-line" style="color: var(--amber); margin-bottom: 18px;">{service.notaExtra.label}</div>
+          )}
+          <p class="intro-box__text" set:html={service.notaExtra.val.replace(/\n/g, '<br />')} />
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 9. pack (solo especiales) -->
+  {service.pack && (
+    <section class="section pack-section">
+      <div class="gutter">
+        <div class="eyebrow-line" style="color: var(--amber);">{service.pack.eyebrow}</div>
+        <h2 class="pack-section__title">{service.pack.titulo}</h2>
+        <p class="pack-section__desc" set:html={service.pack.desc.replace(/\n/g, '<br />')} />
+        <div class="transf-grid pack-section__grid">
+          {service.pack.pasos.map((p) => (
+            <div class="transf-card pack-card">
+              <div class="transf-card__n">{p.n}</div>
+              <h3 class="transf-card__title" set:html={p.titulo.replace(/\n/g, '<br />')} />
+              <p class="transf-card__desc" set:html={p.desc.replace(/\n/g, '<br />')} />
+            </div>
+          ))}
+        </div>
+        <p class="pack-section__nota">{service.pack.nota}</p>
+      </div>
+    </section>
+  )}
+
+  <!-- 10. CTA de cierre + Relacionado -->
+  <section class="section cta-section">
+    <div class="gutter">
+      <h2 class="cta-section__title">¿Lista para ordenar tu momento presente?</h2>
+      <Button variant="primary" label="Agendar una cita" href={wa} showDot />
+
+      {service.rel && (
+        <div class="rel-block">
+          <div class="eyebrow-line" style="color: var(--amber);">Te puede interesar</div>
+          <a href={`/servicios/${service.rel.key}`} class="rel-card">
+            <div>
+              <div class="rel-card__title">{service.rel.nombre}</div>
+              <div class="rel-card__desc">{service.rel.desc}</div>
+            </div>
+            <span class="rel-card__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .eyebrow-line {
+    font-family: var(--font-ui);
+    font-size: var(--fs-eyebrow);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .section {
+    padding: clamp(60px, 9vh, 110px) 0;
+    background: var(--sand);
+  }
+
+  .hero {
+    text-align: center;
+    padding-bottom: clamp(40px, 6vh, 70px);
+  }
+
+  .hero__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-h2);
+    line-height: var(--lh-h2);
+    color: var(--sage);
+    margin: 20px 0 0;
+  }
+
+  .hero__lede {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-body);
+    margin: 22px auto 0;
+    max-width: var(--measure-lede);
+    text-align: center;
+  }
+
+  .hero__cta {
+    margin-top: 34px;
+  }
+
+  .hero-image {
+    position: relative;
+    height: clamp(320px, 46vh, 480px);
+    overflow: hidden;
+  }
+
+  .hero-image__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-image__placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--sage-light), var(--sage));
+  }
+
+  .text-block {
+    background: var(--sand-mid);
+    border-radius: var(--r-content);
+    padding: 38px 34px;
+  }
+
+  .text-block__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--fs-h3);
+    color: var(--sage);
+    margin: 0 0 18px;
+  }
+
+  .text-block__desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-body);
+    margin: 0 0 16px;
+  }
+
+  .para-quien-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+
+  @media (max-width: 720px) {
+    .para-quien-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  .para-quien-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 22px;
+  }
+
+  .para-quien-list__item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-mid);
+  }
+
+  .para-quien-list__dot {
+    flex: none;
+    margin-top: 8px;
+    width: 7px;
+    height: 7px;
+    border-radius: var(--r-dot);
+    background: var(--amber);
+  }
+
+  .no-es-box {
+    background: var(--sand-mid);
+    border-radius: var(--r-content);
+    padding: 38px 34px;
+    align-self: start;
+  }
+
+  .no-es-box__text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-body);
+    margin: 18px 0 0;
+  }
+
+  .no-es-box__nota {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--warm-gray);
+    margin: 14px 0 0;
+  }
+
+  .transf-section {
+    background: var(--sage);
+  }
+
+  .transf-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .transf-header__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(30px, 4vw, 50px);
+    line-height: 1.05;
+    margin: 16px 0 0;
+    color: var(--cta);
+  }
+
+  .transf-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+  }
+
+  @media (max-width: 780px) {
+    .transf-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .transf-card {
+    border: 1px solid var(--overlay-cream-border);
+    border-radius: var(--r-content);
+    padding: 34px 30px;
+  }
+
+  .transf-card__n {
+    font-family: var(--font-display);
+    font-size: 44px;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .transf-card__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 25px;
+    color: var(--cream);
+    margin: 0 0 10px;
+  }
+
+  .transf-card__desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(var(--cream-rgb), 0.82);
+    margin: 0;
+  }
+
+  .primera-titulo {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-h3);
+    color: var(--sage);
+    margin: 0 0 22px;
+    max-width: var(--measure-lede);
+  }
+
+  .primera-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-body);
+    margin: 0 0 16px;
+    max-width: var(--measure-lede);
+  }
+
+  .detalles-grid {
+    display: grid;
+    /* 1fr 2fr 1fr como el prototipo: la celda central ancha absorbe los
+       valores largos de "Frecuencia" en canal/rosas sin desbordar. */
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 780px) {
+    .detalles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .detalle-box {
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-box);
+    padding: 24px;
+  }
+
+  .detalle-box__label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+
+  .detalle-box__val {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--sage);
+    line-height: 1.3;
+  }
+
+  .intro-box {
+    background: var(--sand-mid);
+    border-radius: var(--r-content);
+    padding: 38px 34px;
+  }
+
+  .intro-box__text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-body);
+    margin: 0;
+  }
+
+  .pack-section {
+    background: var(--sage-deep);
+    border-radius: 0;
+  }
+
+  .pack-section__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-h3);
+    color: var(--white);
+    margin: 12px 0 18px;
+  }
+
+  .pack-section__desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(var(--cream-rgb), 0.85);
+    margin: 0 0 34px;
+    max-width: var(--measure-lede);
+  }
+
+  .pack-section__grid {
+    margin-bottom: 30px;
+  }
+
+  .pack-card {
+    background: rgba(var(--cream-rgb), 0.04);
+  }
+
+  .pack-section__nota {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: rgba(var(--cream-rgb), 0.6);
+    margin: 0;
+  }
+
+  .cta-section {
+    background: var(--sage);
+    text-align: center;
+  }
+
+  .cta-section__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(30px, 4vw, 50px);
+    line-height: 1.08;
+    color: var(--sand);
+    margin: 0 0 28px;
+  }
+
+  .rel-block {
+    margin-top: 56px;
+    text-align: left;
+  }
+
+  .rel-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: var(--overlay-cream-soft);
+    border: 1px solid var(--overlay-cream-border);
+    border-radius: var(--r-box);
+    padding: 24px 28px;
+    text-align: left;
+    margin-top: 18px;
+  }
+
+  .rel-card__title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--white);
+  }
+
+  .rel-card__desc {
+    font-size: 14px;
+    color: rgba(var(--cream-rgb), 0.6);
+    margin-top: 4px;
+  }
+
+  .rel-card__arrow {
+    font-family: var(--font-display);
+    font-size: 30px;
+    color: var(--white);
+    flex: none;
+  }
+</style>

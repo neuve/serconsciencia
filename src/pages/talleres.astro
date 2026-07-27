@@ -1,0 +1,335 @@
+---
+// Vista "Taller de péndulo terapéutico". Hardcodeada según el prototipo
+// `prototype/design_handoff_karen_silva/design/Karen Silva Sitio.dc.html` (líneas ~667-744).
+// Nota de diseño: el prototipo NO usa una fotografía en el hero (fondo sólido
+// `#5C7A70` + radial-gradient), pero la tarea pide un hero "sobre fotografía";
+// se eligió `/assets/mandala.jpg` (temática de energía/radiestesia) bajo el
+// mismo overlay radial para dar profundidad sin perder la lectura del texto.
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+import Faq from '../components/Faq.astro';
+import { tallerAprender } from '../data/taller';
+import { faqsTaller } from '../data/faqs';
+
+const wa = 'https://wa.me/525532407194';
+---
+
+<Base
+  title="Taller de péndulo terapéutico"
+  description="Curso intensivo para comprender y dominar el arte de la radiestesia, creado especialmente para apoyar procesos terapéuticos."
+>
+  <!-- Hero -->
+  <section class="bleed hero">
+    <div class="hero__bg" style="background-image: url('/assets/mandala.jpg');"></div>
+    <div class="hero__overlay"></div>
+    <div class="gutter hero__content">
+      <div class="eyebrow-line" style="color: var(--amber);">Taller · nivel básico</div>
+      <h1 class="hero__title">Taller de <span class="hero__title-italic">péndulo terapéutico.</span></h1>
+      <p class="hero__lede">
+        Curso intensivo para comprender y dominar el arte de la radiestesia, creado espacialmente para
+        apoyar procesos terapéuticos
+      </p>
+      <div class="hero__chips">
+        <div class="chip"><span class="chip__dot" style="background: var(--cta);"></span>Presencial, Col. Nápoles - CDMX</div>
+        <div class="chip"><span class="chip__dot" style="background: var(--sand-mid);"></span>5 y 12 de septiembre 2026</div>
+        <div class="chip"><span class="chip__dot" style="background: var(--amber);"></span>Cupo limitado</div>
+        <Button variant="primary" label="Reservar mi lugar" href={wa} showDot />
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="gutter">
+      <div class="intro-box">
+        <p class="intro-box__text">
+          Ten las bases que necesitas para trabajar con el péndulo de manera clara y certera. Aprende
+          desde cero a usarlo de forma práctica en tu vida diaria, con preguntas simples y diagnósticos
+          inmediatos. Integra herramientas de conexión energética para trabajar con mayor profundidad
+          tanto en ti como en otros.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué vas a aprender -->
+  <section class="section">
+    <div class="gutter">
+      <div class="eyebrow-line" style="color: var(--amber); margin-bottom: 30px;">¿Qué aprenderás?</div>
+      <div class="aprender-grid">
+        {tallerAprender.map((a) => (
+          <div class="aprender-item">
+            <span class="aprender-item__dot" aria-hidden="true"></span>
+            <div class="aprender-item__text">{a}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Facilitadora + Inversión -->
+  <section class="section">
+    <div class="gutter facilitadora-grid">
+      <div class="facilitadora-box">
+        <div class="eyebrow-line" style="color: var(--sage-light);">Quién lo facilita</div>
+        <h3 class="facilitadora-box__nombre">Karen Silva</h3>
+        <p class="facilitadora-box__desc">
+          Terapeuta energética formada en Terapia de Respuesta Espiritual, registros akáshicos,
+          comunicación animal y péndulo. Acompaña procesos de sanación en CDMX y online.
+        </p>
+        <a href="/sobre" class="facilitadora-box__link">Conocer más</a>
+      </div>
+      <div class="inversion-box">
+        <div class="eyebrow-line" style="color: var(--amber);">Inversión</div>
+        <div class="inversion-box__price">
+          $ <span class="inversion-box__price-note">por confirmar</span>
+        </div>
+        <p class="inversion-box__incluye">Incluye manual digital y físico</p>
+        <Button variant="primary" label="Reservar mi lugar" href={wa} showDot />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section">
+    <div class="gutter">
+      <div class="eyebrow-line" style="color: var(--sage-light); text-align: center; margin-bottom: 26px;">
+        Preguntas del taller
+      </div>
+      <Faq items={faqsTaller} />
+      <div class="faq-cta">
+        <Button variant="primary" label="Reservar mi lugar" href={wa} showDot />
+        <p class="faq-cta__note">fechas, precio y temario reales — por confirmar con Karen</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .eyebrow-line {
+    font-family: var(--font-ui);
+    font-size: var(--fs-eyebrow);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(56px, 8vh, 100px) 0;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 35%;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 80% at 80% 20%, rgba(var(--ink-rgb), 0.72), rgba(var(--ink-rgb), 0.42));
+  }
+
+  .hero__content {
+    position: relative;
+  }
+
+  .hero__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(40px, 6vw, 86px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 24px 0 0;
+    color: var(--sand);
+    max-width: 16ch;
+  }
+
+  .hero__title-italic {
+    font-style: italic;
+    color: var(--cta);
+  }
+
+  .hero__lede {
+    font-size: 19px;
+    line-height: 1.6;
+    color: rgba(var(--cream-rgb), 0.78);
+    margin: 28px 0 0;
+    max-width: var(--measure-lede);
+  }
+
+  .hero__chips {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 34px;
+    align-items: center;
+  }
+
+  .chip {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--overlay-cream-soft);
+    border: 1px solid var(--overlay-cream-border);
+    padding: 10px 18px;
+    border-radius: var(--r-pill);
+    font-size: 13px;
+    color: var(--sand);
+  }
+
+  .chip__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: var(--r-dot);
+  }
+
+  .section {
+    padding: clamp(60px, 9vh, 110px) 0;
+    background: var(--sand);
+  }
+
+  .intro-box {
+    background: var(--sand-mid);
+    border-radius: var(--r-content);
+    padding: clamp(34px, 5vw, 56px);
+  }
+
+  .intro-box__text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-body);
+    margin: 0;
+  }
+
+  .aprender-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 32px;
+  }
+
+  @media (max-width: 640px) {
+    .aprender-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .aprender-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+
+  .aprender-item__dot {
+    flex: none;
+    width: 7px;
+    height: 7px;
+    border-radius: var(--r-dot);
+    background: var(--amber);
+    margin-top: 8px;
+  }
+
+  .aprender-item__text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-mid);
+  }
+
+  .facilitadora-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  @media (max-width: 720px) {
+    .facilitadora-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .facilitadora-box {
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-band);
+    padding: 38px 36px;
+  }
+
+  .facilitadora-box__nombre {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--sage);
+    margin: 14px 0 14px;
+  }
+
+  .facilitadora-box__desc {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-body);
+    margin: 0;
+  }
+
+  .facilitadora-box__link {
+    display: inline-block;
+    margin-top: 22px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 600;
+    border-bottom: 1px solid var(--sage);
+    padding-bottom: 4px;
+  }
+
+  .inversion-box {
+    background: var(--sage);
+    border-radius: var(--r-band);
+    padding: 38px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .inversion-box__price {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    color: var(--white);
+    line-height: 1;
+    margin-top: 18px;
+  }
+
+  .inversion-box__price-note {
+    font-family: var(--font-mono);
+    font-size: 20px;
+    color: rgba(var(--cream-rgb), 0.5);
+  }
+
+  .inversion-box__incluye {
+    font-size: 14px;
+    color: var(--white);
+    margin: 14px 0 24px;
+  }
+
+  .faq-section {
+    padding-bottom: clamp(80px, 11vh, 130px);
+  }
+
+  .faq-cta {
+    text-align: center;
+    margin-top: 44px;
+  }
+
+  .faq-cta__note {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--warm-gray);
+    margin-top: 18px;
+  }
+</style>

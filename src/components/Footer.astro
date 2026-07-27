@@ -1,0 +1,176 @@
+---
+import { Image } from 'astro:assets';
+import logoFlama from '../assets/logo-flama.png';
+
+const navLinks = [
+  { href: '/', label: 'Inicio' },
+  { href: '/sobre', label: 'Sobre mí' },
+  { href: '/terapias', label: 'Terapias' },
+  { href: '/comunicacion-animal', label: 'Comunicación animal' },
+  { href: '/talleres', label: 'Talleres' },
+  { href: '/testimonios', label: 'Testimonios' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer bleed">
+  <div class="footer__inner gutter">
+    <div class="footer__grid">
+      <div class="footer__brand-col">
+        <a href="/" class="footer__brand" aria-label="Karen Silva — Ir al inicio">
+          <Image src={logoFlama} alt="" width={44} height={44} class="footer__logo" />
+          <span class="footer__wordmark">Karen <span class="footer__wordmark-italic">Silva</span></span>
+        </a>
+        <p class="footer__lede">
+          Terapias, cursos y acompañamiento para reconectar con la consciencia del amor. Online y
+          presencial en la Ciudad de México.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer__eyebrow">Navegación</div>
+        <div class="footer__links">
+          {navLinks.map((link) => (
+            <a href={link.href} class="footer__link">{link.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__eyebrow">Conversemos</div>
+        <p class="footer__lede footer__lede--tight">¿Tienes dudas antes de agendar? Escríbeme por WhatsApp.</p>
+        <a href="https://wa.me/525532407194" target="_blank" rel="noopener noreferrer" class="footer__cta">
+          WhatsApp
+          <span class="footer__dot" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__copyright">
+      <span>&copy; {year} Karen Silva · karensilva.mx</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--sage);
+    padding: clamp(60px, 8vh, 90px) 0 40px;
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid var(--overlay-cream-soft);
+  }
+
+  .footer__brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .footer__logo {
+    object-fit: contain;
+  }
+
+  .footer__wordmark {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--cream);
+  }
+
+  .footer__wordmark-italic {
+    font-style: italic;
+    color: var(--sage-tint);
+  }
+
+  .footer__lede {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--cream);
+    margin: 0;
+    max-width: 38ch;
+  }
+
+  .footer__lede--tight {
+    margin: 0 0 16px;
+  }
+
+  .footer__eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--amber);
+    margin-bottom: 18px;
+  }
+
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .footer__link {
+    text-align: left;
+    font-size: 15px;
+    color: var(--cream);
+    transition: opacity var(--ease-standard);
+    width: fit-content;
+  }
+
+  .footer__link:hover {
+    opacity: 0.8;
+  }
+
+  .footer__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    background: var(--cta);
+    color: var(--cta-text);
+    padding: 13px 22px;
+    border-radius: var(--r-pill);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: filter var(--ease-standard);
+  }
+
+  .footer__cta:hover {
+    filter: brightness(0.94);
+  }
+
+  .footer__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--r-dot);
+    background: var(--amber);
+    flex: none;
+  }
+
+  .footer__copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 26px;
+    font-size: 13px;
+    color: rgba(var(--cream-rgb), 0.4);
+  }
+
+  @media (max-width: 780px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+  }
+</style>

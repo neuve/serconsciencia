@@ -1,0 +1,66 @@
+---
+interface Props {
+  variant?: 'primary' | 'ghost';
+  href: string;
+  label: string;
+  showDot?: boolean;
+  class?: string;
+}
+
+const { variant = 'primary', href, label, showDot = variant === 'primary', class: className } = Astro.props;
+const isExternal = /^https?:\/\//.test(href);
+---
+
+<a
+  href={href}
+  class:list={['btn', `btn--${variant}`, className]}
+  target={isExternal ? '_blank' : undefined}
+  rel={isExternal ? 'noopener noreferrer' : undefined}
+>
+  {label}
+  {showDot && <span class="btn__dot" aria-hidden="true"></span>}
+</a>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 28px;
+    border-radius: var(--r-pill);
+    font-size: var(--fs-button);
+    letter-spacing: var(--ls-button);
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: filter var(--ease-standard), background var(--ease-standard),
+      opacity var(--ease-standard);
+  }
+
+  .btn--primary {
+    background: var(--cta);
+    color: var(--cta-text);
+  }
+
+  .btn--primary:hover {
+    filter: brightness(0.94);
+  }
+
+  .btn--ghost {
+    color: var(--sage);
+    border: 1px solid var(--hairline-strong);
+    background: transparent;
+  }
+
+  .btn--ghost:hover {
+    background: var(--overlay-cream-soft);
+    opacity: 0.9;
+  }
+
+  .btn__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--r-dot);
+    background: var(--amber);
+    flex: none;
+  }
+</style>
