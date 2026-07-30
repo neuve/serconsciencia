@@ -81,6 +81,16 @@
   */
   --gutter: clamp(20px, 5vw, 64px);
 
+  /*
+    Ritmo vertical dentro de un bloque de contenido. Normativa:
+    - --stack-text para el ritmo de texto (eyebrow → párrafo, párrafo → párrafo).
+    - --stack-cta para el salto al botón: un CTA abre una acción, necesita más
+      aire que una línea de texto más. Este margen SIEMPRE va en el envoltorio
+      .cta-row (ver global.css), nunca en una clase pasada a <Button>.
+  */
+  --stack-text: 20px;
+  --stack-cta: 28px;
+
   --grid-gap: 22px;
   --card-padding: 32px;
   --nav-height: 84px;

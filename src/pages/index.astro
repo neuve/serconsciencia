@@ -51,7 +51,9 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
               feliz de poder acompañarte en eso.
             </span>
           </p>
-          <Button variant="primary" label="Conoce a Karen" href="/sobre" showDot class="philosophy__cta" />
+          <div class="cta-row">
+            <Button variant="primary" label="Conoce a Karen" href="/sobre" showDot />
+          </div>
         </div>
       </div>
     </div>
@@ -301,7 +303,7 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     font-weight: 700;
     font-size: clamp(19px, 1.9vw, 23px);
     line-height: 1.4;
-    margin: 20px 0 0;
+    margin: var(--stack-text) 0 0;
   }
 
   .philosophy__quote-amber {
@@ -314,11 +316,6 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
 
   .philosophy__quote-amber::after {
     content: ' ';
-  }
-
-  .philosophy__cta {
-    margin-top: 24px;
-    align-self: flex-start;
   }
 
   @media (max-width: 900px) {

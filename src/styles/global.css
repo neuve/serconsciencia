@@ -93,6 +93,36 @@ a {
   color: var(--sage);
 }
 
+/*
+  Envoltorio de CTA: sirve igual para un botón solo o para un grupo.
+  Aporta el salto de --stack-cta respecto del último párrafo del bloque.
+
+  ¿Por qué un envoltorio y no un margen en el propio botón? Porque en Astro la
+  clase que se pasa a un componente (`<Button class="mi-cta" />`) NO recibe el
+  atributo de scope de la página que lo usa: el elemento renderizado solo lleva
+  el scope de Button.astro. Una regla `.mi-cta { margin-top: 28px }` dentro del
+  <style> de la página no aplica NUNCA — es CSS muerto y un bug silencioso.
+  Normativa: el espaciado de un CTA va en un envoltorio real del template
+  (.cta-row) o vía :global(), jamás en una clase pasada a <Button>.
+*/
+.cta-row {
+  margin-top: var(--stack-cta);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/*
+  En una sección centrada (`text-align: center`) el CTA se centraba solo,
+  porque el botón es inline-flex. Al pasar a .cta-row el envoltorio es flex y
+  `text-align` ya no lo alinea: hay que declararlo explícitamente con este
+  modificador. Sin él, el botón se va a la izquierda mientras el título y la
+  bajada siguen centrados.
+*/
+.cta-row--center {
+  justify-content: center;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

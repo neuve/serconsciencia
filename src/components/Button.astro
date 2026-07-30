@@ -24,6 +24,23 @@ const isExternal = /^https?:\/\//.test(href);
 <style>
   .btn {
     display: inline-flex;
+    /*
+      Un botón ajusta siempre al ancho de su texto. Sin esto, dentro de un
+      padre flex en columna (o un grid) el stretch por defecto lo estira a
+      todo el ancho del contenedor.
+
+      Se usa `width: fit-content` y NO `align-self: start`: el stretch del eje
+      transversal solo se aplica cuando ese eje es `auto`, así que un ancho
+      definido lo desactiva en un flex en columna sin tocar el eje vertical.
+      Con `align-self: start` se rompía el grupo del hero de inicio, donde dos
+      botones en un flex en fila se igualaban de alto (el ghost mide 2px más
+      por su borde) y quedaban desalineados abajo.
+
+      OJO: nunca añadir `margin` aquí — rompería los grupos de botones del
+      hero y del nav. El espaciado del CTA vive en .cta-row.
+    */
+    width: fit-content; /* padres flex en columna */
+    justify-self: start; /* padres grid */
     align-items: center;
     gap: 14px;
     padding: 16px 28px;

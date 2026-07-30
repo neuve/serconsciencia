@@ -54,6 +54,11 @@ const typeScale = [
   { token: '--fs-h3', sample: 'Lo que te llevas.', family: 'var(--font-display)' },
 ];
 
+const spacingTokens = [
+  { token: '--stack-text', label: 'Ritmo de texto: eyebrow → párrafo, párrafo → párrafo (20px)' },
+  { token: '--stack-cta', label: 'Último párrafo → botón, vía .cta-row (28px)' },
+];
+
 const radii = [
   { token: '--r-card', label: 'Tarjeta de servicio (6px)' },
   { token: '--r-box', label: 'Caja de contenido (8px)' },
@@ -240,6 +245,49 @@ const radii = [
       <div class="ds-bleed-demo gutter">
         <div class="ds-bleed-demo__box"></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ESPACIADO Y CTAs -->
+  <section class="ds-section">
+    <div class="gutter">
+      <h2 class="ds-section__title">Espaciado y CTAs</h2>
+
+      <div class="ds-spacing-list">
+        {spacingTokens.map((s) => (
+          <div class="ds-type-row">
+            <span class="ds-type-row__token">{s.token}</span>
+            <span class="ds-spacing-list__label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="ds-section__title ds-section__title--spaced">Ritmo de un bloque</h2>
+      <div class="ds-spacing-demo">
+        <Eyebrow text="Eyebrow del bloque" color="var(--cyan)" />
+        <p class="ds-spacing-demo__copy">
+          Párrafo del bloque, separado del eyebrow por <code>--stack-text</code>. Si hubiera un
+          segundo párrafo, usaría el mismo ritmo.
+        </p>
+        <div class="cta-row">
+          <Button variant="primary" label="Agenda tu sesión" href="#" />
+        </div>
+      </div>
+
+      <p class="ds-bleed-explainer ds-spacing-note">
+        <strong>Regla:</strong> el espaciado de un CTA va en un envoltorio (<code>.cta-row</code>),
+        nunca en una clase pasada a <code>&lt;Button&gt;</code>. En Astro esa clase no recibe el
+        scope de la página, así que la regla nunca aplica: es CSS muerto. <code>.cta-row</code>
+        también sirve como grupo de varios CTAs, y <code>.btn</code> lleva
+        <code>width: fit-content</code> para no estirarse en padres flex/grid — no
+        <code>align-self</code>, que en un grupo en fila desigualaría el alto de los botones.
+      </p>
+
+      <p class="ds-bleed-explainer ds-spacing-note">
+        <strong>En secciones centradas</strong> (<code>text-align: center</code>) hay que añadir
+        <code>.cta-row--center</code>: el envoltorio es flex, así que <code>text-align</code> ya no
+        alinea el botón y sin el modificador se va a la izquierda mientras el título sigue centrado.
+      </p>
     </div>
   </section>
 </Base>
@@ -461,6 +509,49 @@ const radii = [
     height: 40px;
     background: var(--sage);
     border-radius: var(--r-box);
+  }
+
+  .ds-spacing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .ds-spacing-list__label {
+    font-size: 15px;
+    color: var(--ink-body);
+  }
+
+  /* Demo con el ritmo real: eyebrow → párrafo (--stack-text) → CTA (.cta-row) */
+  .ds-spacing-demo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-content);
+    padding: var(--card-padding);
+    max-width: 560px;
+  }
+
+  .ds-spacing-demo__copy {
+    margin-top: var(--stack-text);
+    font-size: 15px;
+    line-height: var(--lh-body);
+    color: var(--ink-body);
+  }
+
+  .ds-spacing-demo code,
+  .ds-spacing-note code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: rgba(var(--line-rgb), 0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .ds-spacing-note {
+    margin: 28px 0 0;
   }
 
   @media (max-width: 780px) {

@@ -36,7 +36,9 @@ const doula = services.doula;
       Un puente con nuestros compañeros de otras especies, que facilita entender cómo se sienten, qué
       quieren o necesitan y cómo podemos acompañarlos.
     </p>
-    <Button variant="primary" label="Agendar una sesión" href={wa} showDot class="hero__cta" />
+    <div class="cta-row cta-row--center">
+      <Button variant="primary" label="Agendar una sesión" href={wa} showDot />
+    </div>
   </section>
 
   <!-- Foto a sangre con parallax -->
@@ -225,10 +227,6 @@ const doula = services.doula;
     color: var(--ink-body);
     margin: 28px auto 0;
     max-width: var(--measure-lede);
-  }
-
-  .hero__cta {
-    margin-top: 34px;
   }
 
   .photo-band {

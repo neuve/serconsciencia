@@ -27,7 +27,9 @@ const textoBloque = service.extra ?? service.sobre;
       <div class="eyebrow-line" style="color: var(--amber);">TERAPIA · {service.eyebrow}</div>
       <h1 class="hero__title">{service.nombre}</h1>
       <p class="hero__lede">{service.frase}</p>
-      <Button variant="primary" label="AGENDAR UNA CITA" href={wa} showDot class="hero__cta" />
+      <div class="cta-row cta-row--center">
+        <Button variant="primary" label="AGENDAR UNA CITA" href={wa} showDot />
+      </div>
     </div>
   </section>
 
@@ -226,10 +228,6 @@ const textoBloque = service.extra ?? service.sobre;
     margin: 22px auto 0;
     max-width: var(--measure-lede);
     text-align: center;
-  }
-
-  .hero__cta {
-    margin-top: 34px;
   }
 
   .hero-image {
