@@ -125,6 +125,7 @@ export const services: Record<string, Service> = {
   rosas: {
     eyebrow: 'Sesión individual',
     img: '/assets/guadalupe.jpg',
+    imgPos: '50% 11%',
     extra: {
       titulo: 'Sanación cuántica con rosas',
       desc: 'Canalizado por Elda Salvador (México), esta técnica es asistida energéticamente por la Madre Cósmica, cuya representación es la Virgen de Guadalupe, María Guadalupe Tonantzin.\n\nDebido a la cualidad energética que portan las rosas, estas son capaces de poder trabajar desde aspectos profundos del mundo sutil para manifestar un proceso de transformación y por consecuencia de sanación.\n\nSe trabaja en todos los cuerpos que constituyen al ser humano y en todos sus tiempos (pasado, presente y futuro).',
