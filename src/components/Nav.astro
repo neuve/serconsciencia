@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logoFlama from '../assets/logo-flama.png';
+import { terapias } from '../data/terapias';
 
 interface NavLink {
   href: string;
@@ -21,6 +22,8 @@ const isHome = currentPath === '/';
 function isActive(href: string) {
   return currentPath === href || currentPath.startsWith(href + '/');
 }
+
+const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servicios/');
 ---
 
 <nav class="nav gutter">
@@ -91,15 +94,46 @@ function isActive(href: string) {
   </div>
 
   <nav class="nav__mobile-links" aria-label="Menú principal">
-    {links.map((link) => (
-      <a
-        href={link.href}
-        class="nav__mobile-link"
-        aria-current={isActive(link.href) ? 'page' : undefined}
-      >
-        {link.label}
-      </a>
-    ))}
+    {links.map((link) =>
+      link.href === '/terapias' ? (
+        <div class="nav__mobile-item">
+          <button
+            type="button"
+            class="nav__mobile-link nav__mobile-toggle"
+            aria-expanded="false"
+            aria-controls="nav-terapias-sub"
+            aria-current={isTerapiasActive ? 'page' : undefined}
+          >
+            {link.label}
+            <span class="nav__mobile-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav__mobile-sub-wrap" id="nav-terapias-sub">
+            <ul class="nav__mobile-sub">
+              <li>
+                <a href="/terapias" class="nav__mobile-sub-link nav__mobile-sub-link--all">
+                  Ver todas las terapias
+                </a>
+              </li>
+              {terapias.map((t) => (
+                <li>
+                  <a href={`/servicios/${t.svc}`} class="nav__mobile-sub-link">
+                    {t.nombre}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ) : (
+        <a
+          href={link.href}
+          class="nav__mobile-link"
+          aria-current={isActive(link.href) ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      )
+    )}
   </nav>
 
   <div class="nav__mobile-bottom">
@@ -152,6 +186,15 @@ function isActive(href: string) {
 
     mobile.querySelectorAll('a').forEach((a) => {
       a.addEventListener('click', closeMenu);
+    });
+
+    const terapiasToggle = document.querySelector('.nav__mobile-toggle');
+    const terapiasSub = document.getElementById('nav-terapias-sub');
+
+    terapiasToggle?.addEventListener('click', () => {
+      const isOpen = terapiasSub?.classList.toggle('is-open');
+      terapiasToggle.classList.toggle('is-open', isOpen);
+      terapiasToggle.setAttribute('aria-expanded', String(!!isOpen));
     });
   }
 
@@ -425,6 +468,67 @@ function isActive(href: string) {
 
     .nav__mobile-link[aria-current='page'] {
       font-style: italic;
+      color: var(--cta);
+    }
+
+    .nav__mobile-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav__mobile-toggle {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .nav__mobile-chevron {
+      flex: none;
+      width: 12px;
+      height: 12px;
+      margin-top: 6px;
+      border-right: 1.5px solid var(--cta);
+      border-bottom: 1.5px solid var(--cta);
+      transform: rotate(45deg);
+      transition: transform var(--ease-standard);
+    }
+
+    .nav__mobile-toggle.is-open .nav__mobile-chevron {
+      transform: rotate(-135deg);
+      margin-top: 0;
+    }
+
+    .nav__mobile-sub-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease;
+    }
+
+    .nav__mobile-sub-wrap.is-open {
+      grid-template-rows: 1fr;
+    }
+
+    .nav__mobile-sub {
+      overflow: hidden;
+      min-height: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      padding-left: clamp(14px, 3vw, 22px);
+      border-left: 1px solid rgba(var(--cream-rgb), 0.18);
+      margin: 4px 0 4px 4px;
+    }
+
+    .nav__mobile-sub-link {
+      font-family: var(--font-ui);
+      font-size: 16px;
+      color: rgba(var(--cream-rgb), 0.85);
+      padding: 9px 0;
+    }
+
+    .nav__mobile-sub-link--all {
+      font-weight: 600;
       color: var(--cta);
     }
 
