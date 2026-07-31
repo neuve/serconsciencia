@@ -2,7 +2,7 @@
 interface Props {
   quote: string;
   name: string;
-  service: string;
+  service?: string;
   class?: string;
 }
 
@@ -12,7 +12,7 @@ const { quote, name, service, class: className } = Astro.props;
 <div class:list={['testimonial-card', className]}>
   <p class="testimonial-card__quote">{quote}</p>
   <div class="testimonial-card__name">{name}</div>
-  <div class="testimonial-card__service">{service}</div>
+  {service && <div class="testimonial-card__service">{service}</div>}
 </div>
 
 <style>

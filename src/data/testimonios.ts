@@ -78,6 +78,12 @@ export const testimoniosFull: Testimonio[] = [
     service: 'Terapias individuales',
     cat: 'sesiones',
   },
+  {
+    quote: '"Estaba en búsqueda de un espacio más transpersonal y espiritual para poder seguir trabajando de una manera aún más profunda y considero que he avanzado a niveles inimaginables y necesarios dentro de mi proceso integral. Karen me ha acompañado con paciencia, cercanía y fuerza.\nSi estás dudando en iniciar o continuar con tu proceso, yo te diría que necesitas conectar y profundizar de una manera más sutil y profunda de aquello que no logras ver pero que sabes que existe, que no dudes en acompañarte de Karen porque puedes sorprenderte del proceso."',
+    name: 'Maggie',
+    service: 'Canalización y TRE',
+    cat: 'sesiones',
+  },
   // Nota: en el prototipo la cita abría con `"` pero nunca se cerraba. Se agregó la comilla
   // de cierre tras "gatita." para dejar la cita bien formada, sin alterar el texto.
   {

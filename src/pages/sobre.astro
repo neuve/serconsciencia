@@ -52,7 +52,6 @@ const formacion = [
     <div class="gutter">
       <div class="philosophy">
         <div class="philosophy__text">
-          <div class="philosophy__icon" aria-hidden="true"><span></span></div>
           <Eyebrow text="Mi camino" color="var(--cyan)" />
           <p class="philosophy__body">
             Lo que comenzó como curiosidad y autoconocimiento se fue convirtiendo en mi camino: el
@@ -201,7 +200,7 @@ const formacion = [
   }
 
   .philosophy {
-    background: var(--white);
+    background: var(--sand-mid);
     border: 1px solid var(--hairline);
     border-radius: var(--r-split);
     box-shadow: var(--shadow-card);
@@ -217,28 +216,9 @@ const formacion = [
     margin-inline: auto;
   }
 
-  .philosophy__icon {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 24px;
-    border-radius: var(--r-dot);
-    border: 1.5px solid var(--cyan);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .philosophy__icon span {
-    width: 16px;
-    height: 16px;
-    border-radius: var(--r-dot);
-    background: var(--amber);
-    display: block;
-  }
-
   .philosophy__body {
-    font-size: 18px;
-    line-height: 1.75;
+    font-size: 14px;
+    line-height: 1.65;
     color: var(--ink-mid);
     margin: 20px 0 0;
   }

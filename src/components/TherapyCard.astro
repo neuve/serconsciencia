@@ -4,14 +4,15 @@ interface Props {
   eyebrow: string;
   summary: string;
   tone: string;
+  eyebrowColor?: string;
   href: string;
   class?: string;
 }
 
-const { title, eyebrow, summary, tone, href, class: className } = Astro.props;
+const { title, eyebrow, summary, tone, eyebrowColor = 'var(--cream)', href, class: className } = Astro.props;
 ---
 
-<a href={href} class:list={['therapy-card', className]} style={{ backgroundColor: tone }}>
+<a href={href} class:list={['therapy-card', className]} style={{ backgroundColor: tone, '--eyebrow-color': eyebrowColor }}>
   <div class="therapy-card__text">
     <div class="therapy-card__eyebrow">{eyebrow}</div>
     <h3 class="therapy-card__title">{title}</h3>
@@ -41,7 +42,7 @@ const { title, eyebrow, summary, tone, href, class: className } = Astro.props;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     font-weight: 600;
-    color: var(--amber);
+    color: var(--eyebrow-color, var(--amber));
     margin-bottom: 12px;
   }
 
@@ -65,7 +66,7 @@ const { title, eyebrow, summary, tone, href, class: className } = Astro.props;
   .therapy-card__arrow {
     font-family: var(--font-display);
     font-size: 34px;
-    color: var(--cream);
+    color: var(--cyan);
     flex: none;
   }
 </style>

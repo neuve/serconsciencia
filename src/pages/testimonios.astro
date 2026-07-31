@@ -31,7 +31,7 @@ const animal = testimoniosFull.filter((t) => t.cat === 'animal');
         </div>
         <div class="group__grid">
           {alumnos.map((t) => (
-            <TestimonialCard quote={t.quote} name={t.name} service={t.service} />
+            <TestimonialCard quote={t.quote} name={t.name} />
           ))}
         </div>
       </div>
@@ -43,7 +43,7 @@ const animal = testimoniosFull.filter((t) => t.cat === 'animal');
         </div>
         <div class="group__grid">
           {animal.map((t) => (
-            <TestimonialCard quote={t.quote} name={t.name} service={t.service} />
+            <TestimonialCard quote={t.quote} name={t.name} />
           ))}
         </div>
       </div>
@@ -55,7 +55,7 @@ const animal = testimoniosFull.filter((t) => t.cat === 'animal');
         </div>
         <div class="group__grid">
           {sesiones.map((t) => (
-            <TestimonialCard quote={t.quote} name={t.name} service={t.service} />
+            <TestimonialCard quote={t.quote} name={t.name} />
           ))}
         </div>
       </div>
