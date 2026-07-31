@@ -50,15 +50,6 @@ const doula = services.doula;
     />
   </section>
 
-  <!-- Galería complementaria (decisión de diseño: los tres assets de la vista
-       -gato-cama.jpg, gato-manta.jpg, caballo-cafe-blanco.jpg- se distribuyen
-       entre la banda parallax y esta tira de dos fotos, ya que el prototipo no
-       define un slot explícito para las tres dentro de esta sección). -->
-  <section class="gutter photo-strip">
-    <img src="/assets/gato-cama.jpg" alt="Gato descansando en su cama" class="photo-strip__img" loading="lazy" />
-    <img src="/assets/gato-manta.jpg" alt="Gato envuelto en una manta" class="photo-strip__img" loading="lazy" />
-  </section>
-
   <!-- Introducción -->
   <section class="section">
     <div class="gutter">
@@ -234,29 +225,6 @@ const doula = services.doula;
     height: clamp(340px, 52vh, 540px);
     overflow: hidden;
     background: var(--sand);
-  }
-
-  .photo-strip {
-    /* Idem .hero: el atajo `padding` anulaba el .gutter y las fotos con
-       border-radius aterrizaban en el borde de la ventana (bug original). */
-    padding-block: clamp(24px, 4vh, 40px) 0;
-    background: var(--sand);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--grid-gap);
-  }
-
-  .photo-strip__img {
-    width: 100%;
-    height: clamp(180px, 26vh, 280px);
-    object-fit: cover;
-    border-radius: var(--r-content);
-  }
-
-  @media (max-width: 640px) {
-    .photo-strip {
-      grid-template-columns: 1fr;
-    }
   }
 
   .section {

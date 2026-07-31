@@ -36,7 +36,7 @@ const textoBloque = service.extra ?? service.sobre;
       <img
         src={service.img}
         alt={service.nombre}
-        style={{ objectPosition: service.imgPos || 'center' }}
+        style={{ objectPosition: service.imgPos || 'center', objectFit: service.imgFit || 'cover' }}
         class="hero-image__img"
       />
     ) : (
@@ -111,9 +111,10 @@ const textoBloque = service.extra ?? service.sobre;
   {service.primeraTitulo && (
     <section class="section">
       <div class="gutter">
-        <h2 class="primera-titulo">{service.primeraTitulo}</h2>
+        <div class="eyebrow-line" style="color: var(--amber); margin-bottom: 22px;">CÓMO SON LAS SESIONES</div>
+        <p class="sessions-text"><strong>{service.primeraTitulo}</strong></p>
         {service.primeraBody?.filter(Boolean).map((p) => (
-          <p class="primera-body" set:html={p.replace(/\n/g, '<br />')} />
+          <p class="sessions-text" set:html={p.replace(/\n/g, '<br />')} />
         ))}
       </div>
     </section>
@@ -231,6 +232,10 @@ const textoBloque = service.extra ?? service.sobre;
     position: relative;
     height: clamp(320px, 46vh, 480px);
     overflow: hidden;
+    /* fondo visible en los márgenes cuando una imagen usa imgFit: 'contain'
+       (recorte apaisado tan panorámico que 'cover' desenfocaría fotos de
+       menor resolución o aspecto muy distinto al de este cajón). */
+    background: var(--sand);
   }
 
   .hero-image__img {
@@ -384,19 +389,16 @@ const textoBloque = service.extra ?? service.sobre;
     margin: 0;
   }
 
-  .primera-titulo {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: var(--fs-h3);
-    color: var(--sage);
-    margin: 0 0 22px;
+  .sessions-text {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink-mid);
+    margin: 0 0 18px;
   }
 
-  .primera-body {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--ink-body);
-    margin: 0 0 16px;
+  .sessions-text strong {
+    color: var(--sage);
+    font-weight: 600;
   }
 
   .detalles-grid {

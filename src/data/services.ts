@@ -41,6 +41,7 @@ export interface Service {
   eyebrow: string;
   img?: string;
   imgPos?: string;
+  imgFit?: 'cover' | 'contain';
   nombre: string;
   frase: string;
   extra?: ServiceTextoBloque;
@@ -95,6 +96,8 @@ export const services: Record<string, Service> = {
   },
   akashicos: {
     eyebrow: 'Sesión individual',
+    img: '/assets/metatron4.jpg',
+    imgPos: '50% 50%',
     nombre: 'Lectura de registros akáshicos',
     frase: 'Accede al registro energético de tu alma para ganar claridad y sabiduría sobre tu momento presente.',
     paraQuien: [
@@ -111,10 +114,8 @@ export const services: Record<string, Service> = {
       { n: '02', titulo: 'Sabiduría para decidir', desc: 'Eliges desde un lugar más consciente e informado.' },
       { n: '03', titulo: 'Paz con tu proceso', desc: 'Sueltas la resistencia y ordenas lo que pesa.' },
     ],
-    primeraTitulo: 'Abrimos tus registros para acceder a la información de tu alma sobre tu momento actual.',
-    primeraBody: [
-      'Conversamos sobre lo que quieres consultar y establecemos los objetivos de la sesión. Luego realizo la apertura y lectura, y limpiamos los bloqueos que aparecen para que entres en un estado de mayor claridad.',
-    ],
+    primeraTitulo: '',
+    primeraBody: [],
     detalles: [
       { label: 'Duración', val: '90 minutos' },
       { label: 'Frecuencia', val: 'Cada 3 semanas' },
@@ -195,6 +196,8 @@ export const services: Record<string, Service> = {
   },
   angelical: {
     eyebrow: 'Sesión individual',
+    img: '/assets/arcangel-1.jpg',
+    imgPos: '50% 30%',
     nombre: 'Canalización angelical',
     frase: 'Guía y mensajes claros a través de la conexión con tus ángeles, para acompañarte en tu momento presente.',
     paraQuien: [
