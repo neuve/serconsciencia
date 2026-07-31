@@ -81,7 +81,7 @@ export const services: Record<string, Service> = {
       { n: '02', titulo: 'Mayor paz y tranquilidad', desc: 'Un estado interno más sereno tras ordenar, soltar lo que pesa y tomar conciencia de lo ocurrido.\nEste trabajo también permite alinear tu energía en relación a tu propósito de vida.' },
       { n: '03', titulo: 'Claridad de lo que quieres', desc: 'Reconocer con nitidez, sabiduría y coherencia lo que necesitas y deseas para este momento de tu vida, elegir cómo quieres transitarlo.' },
     ],
-    primeraTitulo: 'Un encuentro de 90 minutos para resolver, ordenar y clarificar los bloqueos que hoy te dificultan vivir distinto.',
+    primeraTitulo: 'Un encuentro para resolver, ordenar y clarificar los bloqueos que hoy te dificultan vivir distinto.',
     primeraBody: [
       'Te explico cómo vamos a trabajar, conversamos sobre lo que te ocurre y te hago preguntas. Probablemente hablemos de la energía que transitas este año y revisaremos qué sientes como bloqueo en este periodo de tu vida.\nUna vez que definimos los objetivos de la sesión tu Yo superior (o supraconciencia) nos indica a través del péndulo cuales son los programas y bloqueos que se necesitan depurar. ',
       '',
@@ -89,7 +89,7 @@ export const services: Record<string, Service> = {
     detalles: [
       { label: 'Duración', val: '90 minutos' },
       { label: 'Frecuencia', val: 'Sugerido esperar 21 días entre sesiones, sin embargo puedes tomarlas cuando lo necesites' },
-      { label: 'Modalidad', val: 'Online · CDMX' },
+      { label: 'Modalidad', val: 'Online y presencial en CDMX' },
     ],
     rel: { nombre: 'Lectura de registros akáshicos', desc: 'Accede a la sabiduría de tu alma sobre tu momento presente.', key: 'akashicos' },
   },
@@ -250,10 +250,9 @@ export const services: Record<string, Service> = {
     primeraTitulo: 'Un trabajo que se realiza de manera asincrónica, con diagnóstico, limpieza y conclusiones.',
     primeraBody: [
       'La Cruz de Ankh, o cruz de la vida, es una herramienta de sanación egipcia que ayuda a eliminar interferencias energéticas que afectan tu campo, tu salud, tu economía y tus relaciones.',
-      'El diagnóstico, la limpieza, las conclusiones y las lecciones a aprender se te envían una vez concluido el trabajo.',
+      'El diagnóstico, la limpieza, las conclusiones y las lecciones a aprender se te envían por WhatsApp en un documento una vez concluido el trabajo. Si es necesario una video llamada para aclarar dudas lo realizaremos.',
     ],
     detalles: [
-      { label: 'Duración', val: 'Aprox. 40 minutos' },
       { label: 'Frecuencia', val: 'Según lo necesites' },
       { label: 'Modalidad', val: 'Asincrónico · online' },
     ],

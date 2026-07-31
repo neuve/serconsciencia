@@ -171,7 +171,7 @@ const textoBloque = service.extra ?? service.sobre;
   <!-- 10. CTA de cierre + Relacionado -->
   <section class="section cta-section">
     <div class="gutter">
-      <h2 class="cta-section__title">¿Lista para ordenar tu momento presente?</h2>
+      <h2 class="cta-section__title">¿Listo para ordenar tu momento presente?</h2>
       <Button variant="primary" label="Agendar una cita" href={wa} showDot />
 
       {service.rel && (
@@ -403,9 +403,9 @@ const textoBloque = service.extra ?? service.sobre;
 
   .detalles-grid {
     display: grid;
-    /* 1fr 2fr 1fr como el prototipo: la celda central ancha absorbe los
-       valores largos de "Frecuencia" en canal/rosas sin desbordar. */
-    grid-template-columns: 1fr 2fr 1fr;
+    /* auto-fit en vez de columnas fijas: se adapta a 2 o 3 detalles (no todos
+       los servicios traen Duración) sin dejar huecos vacíos en la cuadrícula. */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 16px;
   }
 
