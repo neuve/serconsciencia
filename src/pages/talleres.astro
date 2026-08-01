@@ -131,7 +131,13 @@ const wa = 'https://wa.me/525532407194';
   .hero__overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(60% 80% at 80% 20%, rgba(var(--ink-rgb), 0.72), rgba(var(--ink-rgb), 0.42));
+    /*
+      pendulo-rosa.jpg es una foto clara (fondo blanco); un overlay oscuro
+      la apagaba por completo y ya no se reconocía la foto original. Un
+      lavado claro (blanco→transparente) basta para separar el texto —
+      que ahora es oscuro, no crema — sin ensombrecer la imagen.
+    */
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.2) 45%, rgba(255, 255, 255, 0) 70%);
   }
 
   .hero__content {
@@ -145,19 +151,19 @@ const wa = 'https://wa.me/525532407194';
     line-height: 1;
     letter-spacing: -0.015em;
     margin: 24px 0 0;
-    color: var(--sand);
+    color: var(--ink);
     max-width: 16ch;
   }
 
   .hero__title-italic {
     font-style: italic;
-    color: var(--cta);
+    color: var(--sage);
   }
 
   .hero__lede {
     font-size: 19px;
     line-height: 1.6;
-    color: rgba(var(--cream-rgb), 0.78);
+    color: var(--ink-body);
     margin: 28px 0 0;
     max-width: var(--measure-lede);
   }
@@ -174,12 +180,12 @@ const wa = 'https://wa.me/525532407194';
     display: flex;
     align-items: center;
     gap: 9px;
-    background: var(--overlay-cream-soft);
-    border: 1px solid var(--overlay-cream-border);
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid var(--hairline);
     padding: 10px 18px;
     border-radius: var(--r-pill);
     font-size: 13px;
-    color: var(--sand);
+    color: var(--ink);
   }
 
   .chip__dot {
