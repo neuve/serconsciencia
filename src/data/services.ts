@@ -192,7 +192,7 @@ export const services: Record<string, Service> = {
       label: '',
       val: 'Cada sesión se estructura en dos partes:\n\nEnvío de información. Me compartes fotos de tu animal, tu motivo de consulta y las preguntas que deseas hacerle. En esta parte coordinamos sobre tus objetivos de la sesión, la historia del animal y la situación actual que te lleva a querer saber cómo está y qué necesita de ti.\n\nEncuentro de devolución. Nos reunimos online para conversar sobre lo que tu animal respondió y resolver tus dudas; este encuentro puede ser grabado para que puedas volver a integrar la información y los detalles que en vivo se pueden ir.',
     },
-    rel: { nombre: 'Talleres y cursos', desc: 'Un puente de corazón a corazón con tus compañeros de otras especies.', key: 'canal' },
+    rel: { nombre: 'Talleres y cursos', desc: 'Un puente de corazón a corazón con tus compañeros de otras especies.', key: 'talleres' },
   },
   angelical: {
     eyebrow: 'Sesión individual',
@@ -265,7 +265,7 @@ export const services: Record<string, Service> = {
   especiales: {
     eyebrow: 'Sesiones a medida',
     img: '/assets/especiales-shell.jpg',
-    imgPos: '66% 8%',
+    imgPos: '66% 18%',
     nombre: 'Sesiones especiales',
     frase: 'Encuentros diseñados a tu medida para momentos que se salen del catálogo regular: proyectos, cierres de ciclo, cumpleaños o el acompañamiento de una pareja.',
     sobre: {
@@ -278,6 +278,8 @@ export const services: Record<string, Service> = {
       'Quieres regalar (o regalarte) una sesión distinta en un cumpleaños o fecha especial.',
       'Tú y tu pareja desean trabajar juntos un tema que les afecta como vínculo.',
       'Tienes una necesidad específica que no encaja en las sesiones del catálogo.',
+      'Quieres potenciar un proyecto/empresa.',
+      'Deseas prepararte para un examen, tesis, entrevista o evento importante.',
     ],
     noEs: 'Para quien busca una fórmula fija o resultados garantizados. Estas sesiones se construyen contigo y requieren tu apertura y participación.',
     noEsNota: '',

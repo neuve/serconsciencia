@@ -83,10 +83,10 @@ const wa = 'https://wa.me/525532407194';
       <div class="inversion-box">
         <div class="eyebrow-line" style="color: var(--amber);">Inversión</div>
         <div class="inversion-box__price">
-          $ <span class="inversion-box__price-note">por confirmar</span>
+          $ <span class="inversion-box__price-value">1.000</span>
         </div>
         <p class="inversion-box__incluye">Incluye manual digital y físico</p>
-        <Button variant="primary" label="Reservar mi lugar" href={wa} showDot />
+        <Button variant="primary" label="Reservar mi lugar" href={wa} showDot class="inversion-box__cta" />
       </div>
     </div>
   </section>
@@ -94,12 +94,11 @@ const wa = 'https://wa.me/525532407194';
   <!-- FAQ -->
   <section class="section faq-section">
     <div class="gutter">
-      <div class="eyebrow-line" style="color: var(--sage-light); text-align: center; margin-bottom: 26px;">
+      <div class="eyebrow-line" style="color: var(--amber); text-align: center; margin-bottom: 26px;">
         Preguntas del taller
       </div>
       <Faq items={faqsTaller} />
       <div class="faq-cta">
-        <Button variant="primary" label="Reservar mi lugar" href={wa} showDot />
         <p class="faq-cta__note">fechas, precio y temario reales — por confirmar con Karen</p>
       </div>
     </div>
@@ -312,16 +311,20 @@ const wa = 'https://wa.me/525532407194';
     margin-top: 18px;
   }
 
-  .inversion-box__price-note {
+  .inversion-box__price-value {
     font-family: var(--font-mono);
-    font-size: 20px;
-    color: rgba(var(--cream-rgb), 0.5);
+    font-size: 36px;
+    color: var(--white);
   }
 
   .inversion-box__incluye {
     font-size: 14px;
     color: var(--white);
     margin: 14px 0 24px;
+  }
+
+  .inversion-box :global(.inversion-box__cta) {
+    margin-inline: auto;
   }
 
   .faq-section {
@@ -337,6 +340,6 @@ const wa = 'https://wa.me/525532407194';
     font-family: var(--font-mono);
     font-size: 12px;
     color: var(--warm-gray);
-    margin-top: 18px;
+    margin: 0;
   }
 </style>
