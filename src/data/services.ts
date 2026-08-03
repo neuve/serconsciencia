@@ -62,6 +62,7 @@ export const services: Record<string, Service> = {
   canal: {
     eyebrow: 'Sesión individual',
     img: '/assets/tre.jpg',
+    imgPos: '43% 35%',
     nombre: 'Canalización y TRE',
     extra: {
       titulo: 'Canalización y Terapia de Respuesta Espiritual',
@@ -96,7 +97,7 @@ export const services: Record<string, Service> = {
   },
   akashicos: {
     eyebrow: 'Sesión individual',
-    img: '/assets/metatron4.jpg',
+    img: '/assets/cubo.jpg',
     imgPos: '50% 50%',
     nombre: 'Lectura de registros akáshicos',
     frase: 'Accede al registro energético de tu alma para ganar claridad y sabiduría sobre tu momento presente.',
