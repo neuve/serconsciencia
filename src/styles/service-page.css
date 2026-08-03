@@ -239,9 +239,23 @@
   margin-top: 4px;
 }
 
-.service-page .rel-card__arrow {
-  font-family: var(--font-display);
-  font-size: 30px;
-  color: var(--white);
+/* Mismo círculo + punto que .philosophy__icon (index.astro), reescalado
+   al título de 24px de esta tarjeta. */
+.service-page .rel-card__icon {
   flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-dot);
+  border: 1.5px solid var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-page .rel-card__icon-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--r-dot);
+  background: var(--amber);
+  display: block;
 }
