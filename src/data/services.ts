@@ -62,8 +62,8 @@ export interface Service {
 export const services: Record<string, Service> = {
   canal: {
     eyebrow: 'Sesión individual',
-    img: '/assets/tre.jpg',
-    imgPos: '43% 35%',
+    img: '/assets/pendulo-tre.jpg',
+    imgPos: 'center',
     nombre: 'Canalización y TRE',
     extra: {
       titulo: 'Canalización y Terapia de Respuesta Espiritual',
