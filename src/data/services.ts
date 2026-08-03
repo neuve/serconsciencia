@@ -98,8 +98,8 @@ export const services: Record<string, Service> = {
   },
   akashicos: {
     eyebrow: 'Sesión individual',
-    img: '/assets/registros-1.jpg',
-    imgPos: '50% 50%',
+    img: '/assets/metatron-akashicos.jpg',
+    imgPos: 'center',
     nombre: 'Lectura de registros akáshicos',
     frase: 'Accede al registro energético de tu alma para ganar claridad y sabiduría sobre tu momento presente.',
     sobre: {
