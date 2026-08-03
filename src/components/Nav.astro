@@ -16,6 +16,12 @@ const links: NavLink[] = [
   { href: '/testimonios', label: 'Testimonios' },
 ];
 
+/* Barra de escritorio: solo los tres links fijos. El resto vive en el menú
+   hamburguesa (igual que en móvil), que ahora se usa en todos los anchos. */
+const primaryLinks = links.filter((link) =>
+  ['/terapias', '/comunicacion-animal', '/talleres'].includes(link.href)
+);
+
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === '/';
 
@@ -38,7 +44,7 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
   </a>
 
   <div class="nav__links">
-    {links.map((link) => (
+    {primaryLinks.map((link) => (
       <a
         href={link.href}
         class="nav__link"
@@ -47,15 +53,6 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
         {link.label}
       </a>
     ))}
-    <a
-      href="https://wa.me/525532407194"
-      class="nav__cta"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Agendar cita
-      <span class="nav__dot" aria-hidden="true"></span>
-    </a>
   </div>
 
   <button
@@ -252,9 +249,10 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
     left: 0;
     right: 0;
     z-index: 50;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
+    gap: 24px;
     padding-block: 22px;
     min-height: var(--nav-height);
     background: rgba(var(--cream-rgb), 0.82);
@@ -294,7 +292,8 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
   .nav__links {
     display: flex;
     align-items: center;
-    gap: clamp(14px, 2.4vw, 38px);
+    justify-content: center;
+    gap: clamp(28px, 4vw, 56px);
   }
 
   .nav__link {
@@ -339,7 +338,7 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
   }
 
   .nav__burger {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -366,193 +365,190 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
     pointer-events: none;
   }
 
+  /*
+    El panel de menú (hamburguesa) ahora es el mismo en cualquier ancho —
+    en escritorio complementa los tres links fijos, en móvil es la única
+    forma de navegar — así que su estética vive fuera del media query.
+  */
   .nav__mobile {
     display: none;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    background: var(--sage);
+    min-height: 100%;
+    overflow-y: auto;
+    animation: navMenuFade 0.45s both;
+  }
+
+  .nav__mobile.is-open {
+    display: flex;
+  }
+
+  .nav__mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: clamp(56px, 10vh, var(--nav-height));
+    padding: 22px clamp(20px, 5vw, 64px) 0;
+  }
+
+  .nav__mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .nav__mobile-logo {
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(84%) sepia(11%) saturate(541%)
+      hue-rotate(157deg) brightness(101%) contrast(93%);
+  }
+
+  .nav__mobile-wordmark {
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--cta);
+  }
+
+  .nav__mobile-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    flex: none;
+    position: relative;
+  }
+
+  .nav__mobile-close span {
+    position: absolute;
+    width: 26px;
+    height: 1.5px;
+    background: var(--cta);
+  }
+
+  .nav__mobile-close span:first-child {
+    transform: rotate(45deg);
+  }
+  .nav__mobile-close span:last-child {
+    transform: rotate(-45deg);
+  }
+
+  .nav__mobile-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: clamp(16px, 4vh, 40px);
+    gap: clamp(0px, 0.6vh, 6px);
+    padding-inline: clamp(20px, 5vw, 64px);
+  }
+
+  .nav__mobile-link {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(22px, 7vw, 42px);
+    line-height: 1.15;
+    color: var(--cream);
+    text-align: left;
+    padding: clamp(2px, 1.2vh, 8px) 0;
+    animation: navMenuFloat 0.65s both;
+  }
+
+  .nav__mobile-link[aria-current='page'] {
+    font-style: italic;
+    color: var(--cta);
+  }
+
+  .nav__mobile-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav__mobile-toggle {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .nav__mobile-chevron {
+    flex: none;
+    width: 12px;
+    height: 12px;
+    margin-top: 6px;
+    border-right: 1.5px solid var(--cta);
+    border-bottom: 1.5px solid var(--cta);
+    transform: rotate(45deg);
+    transition: transform var(--ease-standard);
+  }
+
+  .nav__mobile-toggle.is-open .nav__mobile-chevron {
+    transform: rotate(-135deg);
+    margin-top: 0;
+  }
+
+  .nav__mobile-sub-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+  }
+
+  .nav__mobile-sub-wrap.is-open {
+    grid-template-rows: 1fr;
+  }
+
+  .nav__mobile-sub {
+    overflow: hidden;
+    min-height: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: clamp(14px, 3vw, 22px);
+    border-left: 1px solid rgba(var(--cream-rgb), 0.18);
+    margin: 4px 0 4px 4px;
+  }
+
+  .nav__mobile-sub-link {
+    font-family: var(--font-ui);
+    font-size: 16px;
+    color: rgba(var(--cream-rgb), 0.85);
+    padding: 9px 0;
+  }
+
+  .nav__mobile-sub-link--all {
+    font-weight: 600;
+    color: var(--cta);
+  }
+
+  .nav__mobile-bottom {
+    margin-top: auto;
+    padding: clamp(14px, 3vh, 30px) clamp(20px, 5vw, 64px) clamp(20px, 4vh, 40px);
+    border-top: 1px solid rgba(var(--cream-rgb), 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(10px, 2.2vh, 22px);
+    animation: navMenuFloat 0.7s 0.15s both;
+  }
+
+  .nav__mobile-support {
+    font-size: clamp(13px, 2vh, 15px);
+    line-height: 1.4;
+    color: rgba(var(--cream-rgb), 0.85);
+    margin: 0;
+    max-width: 40ch;
+  }
+
+  .nav__cta--mobile {
+    width: fit-content;
   }
 
   @media (max-width: 880px) {
     .nav__links {
       display: none;
-    }
-
-    .nav__burger {
-      display: flex;
-    }
-
-    .nav__mobile {
-      display: none;
-      flex-direction: column;
-      position: fixed;
-      inset: 0;
-      z-index: 70;
-      background: var(--sage);
-      min-height: 100%;
-      overflow-y: auto;
-      animation: navMenuFade 0.45s both;
-    }
-
-    .nav__mobile.is-open {
-      display: flex;
-    }
-
-    .nav__mobile-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: clamp(56px, 10vh, var(--nav-height));
-      padding: 22px clamp(20px, 5vw, 64px) 0;
-    }
-
-    .nav__mobile-brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
-
-    .nav__mobile-logo {
-      object-fit: contain;
-      filter: brightness(0) saturate(100%) invert(84%) sepia(11%) saturate(541%)
-        hue-rotate(157deg) brightness(101%) contrast(93%);
-    }
-
-    .nav__mobile-wordmark {
-      font-family: var(--font-display);
-      font-size: 25px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: var(--cta);
-    }
-
-    .nav__mobile-close {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 44px;
-      height: 44px;
-      flex: none;
-      position: relative;
-    }
-
-    .nav__mobile-close span {
-      position: absolute;
-      width: 26px;
-      height: 1.5px;
-      background: var(--cta);
-    }
-
-    .nav__mobile-close span:first-child {
-      transform: rotate(45deg);
-    }
-    .nav__mobile-close span:last-child {
-      transform: rotate(-45deg);
-    }
-
-    .nav__mobile-links {
-      display: flex;
-      flex-direction: column;
-      margin-top: clamp(16px, 4vh, 40px);
-      gap: clamp(0px, 0.6vh, 6px);
-      padding-inline: clamp(20px, 5vw, 64px);
-    }
-
-    .nav__mobile-link {
-      font-family: var(--font-display);
-      font-weight: 500;
-      font-size: clamp(22px, 7vw, 42px);
-      line-height: 1.15;
-      color: var(--cream);
-      text-align: left;
-      padding: clamp(2px, 1.2vh, 8px) 0;
-      animation: navMenuFloat 0.65s both;
-    }
-
-    .nav__mobile-link[aria-current='page'] {
-      font-style: italic;
-      color: var(--cta);
-    }
-
-    .nav__mobile-item {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .nav__mobile-toggle {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      width: 100%;
-    }
-
-    .nav__mobile-chevron {
-      flex: none;
-      width: 12px;
-      height: 12px;
-      margin-top: 6px;
-      border-right: 1.5px solid var(--cta);
-      border-bottom: 1.5px solid var(--cta);
-      transform: rotate(45deg);
-      transition: transform var(--ease-standard);
-    }
-
-    .nav__mobile-toggle.is-open .nav__mobile-chevron {
-      transform: rotate(-135deg);
-      margin-top: 0;
-    }
-
-    .nav__mobile-sub-wrap {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.35s ease;
-    }
-
-    .nav__mobile-sub-wrap.is-open {
-      grid-template-rows: 1fr;
-    }
-
-    .nav__mobile-sub {
-      overflow: hidden;
-      min-height: 0;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      padding-left: clamp(14px, 3vw, 22px);
-      border-left: 1px solid rgba(var(--cream-rgb), 0.18);
-      margin: 4px 0 4px 4px;
-    }
-
-    .nav__mobile-sub-link {
-      font-family: var(--font-ui);
-      font-size: 16px;
-      color: rgba(var(--cream-rgb), 0.85);
-      padding: 9px 0;
-    }
-
-    .nav__mobile-sub-link--all {
-      font-weight: 600;
-      color: var(--cta);
-    }
-
-    .nav__mobile-bottom {
-      margin-top: auto;
-      padding: clamp(14px, 3vh, 30px) clamp(20px, 5vw, 64px) clamp(20px, 4vh, 40px);
-      border-top: 1px solid rgba(var(--cream-rgb), 0.18);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: clamp(10px, 2.2vh, 22px);
-      animation: navMenuFloat 0.7s 0.15s both;
-    }
-
-    .nav__mobile-support {
-      font-size: clamp(13px, 2vh, 15px);
-      line-height: 1.4;
-      color: rgba(var(--cream-rgb), 0.85);
-      margin: 0;
-      max-width: 40ch;
-    }
-
-    .nav__cta--mobile {
-      width: fit-content;
     }
   }
 
