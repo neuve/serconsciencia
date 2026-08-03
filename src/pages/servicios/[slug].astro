@@ -154,7 +154,7 @@ const textoBloque = service.extra ?? service.sobre;
     {service.pack && (
       <section class="section pack-section">
         <div class="gutter">
-          <div class="eyebrow-line" style="color: var(--amber);">{service.pack.eyebrow}</div>
+          <div class="eyebrow-line" style="color: var(--sage);">{service.pack.eyebrow}</div>
           <h2 class="pack-section__title">{service.pack.titulo}</h2>
           <p class="pack-section__desc" set:html={service.pack.desc.replace(/\n/g, '<br />')} />
           <div class="transf-grid pack-section__grid">
@@ -299,8 +299,9 @@ const textoBloque = service.extra ?? service.sobre;
     margin: 0;
   }
 
+  /* Mismo tono que "Talleres y formaciones realizadas" en /talleres. */
   .pack-section {
-    background: var(--sage-deep);
+    background: var(--sage-tone-3);
     border-radius: 0;
   }
 
@@ -308,14 +309,14 @@ const textoBloque = service.extra ?? service.sobre;
     font-family: var(--font-display);
     font-weight: 500;
     font-size: var(--fs-h3);
-    color: var(--white);
+    color: var(--sage);
     margin: 12px 0 18px;
   }
 
   .pack-section__desc {
     font-size: 16px;
     line-height: 1.7;
-    color: rgba(var(--cream-rgb), 0.85);
+    color: var(--ink-body);
     margin: 0 0 34px;
     max-width: var(--measure-lede);
   }
@@ -324,14 +325,28 @@ const textoBloque = service.extra ?? service.sobre;
     margin-bottom: 30px;
   }
 
+  /*
+    .transf-card viene del partial pensada para fondo oscuro (texto crema,
+    borde claro); sobre este tono hay que devolverla a tinta sobre blanco.
+  */
   .pack-card {
-    background: rgba(var(--cream-rgb), 0.04);
+    background: var(--white);
+    border-color: var(--hairline);
   }
 
+  .pack-section .transf-card__title {
+    color: var(--sage);
+  }
+
+  .pack-section .transf-card__desc {
+    color: var(--ink-body);
+  }
+
+  /* --warm-gray es para notas sobre --sand; sobre este tono baja a 1.96:1. */
   .pack-section__nota {
     font-family: var(--font-mono);
     font-size: 13px;
-    color: rgba(var(--cream-rgb), 0.6);
+    color: var(--ink-body);
     margin: 0;
   }
 </style>
