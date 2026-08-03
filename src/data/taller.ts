@@ -18,3 +18,15 @@ export const tallerAprender: string[] = [
   'Aplicación del péndulo al trabajo terapéutico: cómo potenciar mis sesiones',
   'Conexión con el otro: tipos y formas de relacionarnos',
 ];
+
+export const talleresRealizados: string[] = [
+  'Mi fecha de nacimiento, mi huella álmica',
+  'Formación herramientas de sanación egipcias: péndulo Isis y Karnak, Cruz de ankh',
+  'Formación péndulo: nivel básico, intermedio y avanzado',
+  'Sanación con péndulo',
+  'Péndulo evolutivo',
+  'Formación sanación angelical',
+  'Símbolos de sanación de las Arcangelinas',
+  'Pensar distinto, vivir distinto',
+  'Taller reserva energética',
+];

@@ -9,7 +9,7 @@
 import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
 import Faq from '../components/Faq.astro';
-import { tallerAprender } from '../data/taller';
+import { tallerAprender, talleresRealizados } from '../data/taller';
 import { faqsTaller } from '../data/faqs';
 
 const wa = 'https://wa.me/525532407194';
@@ -100,6 +100,23 @@ const wa = 'https://wa.me/525532407194';
       <Faq items={faqsTaller} />
       <div class="faq-cta">
         <p class="faq-cta__note">fechas, precio y temario reales — por confirmar con Karen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Talleres y formaciones ya realizados -->
+  <section class="section realizados-section">
+    <div class="gutter">
+      <div class="eyebrow-line" style="color: var(--sage); margin-bottom: 30px;">
+        Talleres y Formaciones realizadas
+      </div>
+      <div class="aprender-grid">
+        {talleresRealizados.map((t) => (
+          <div class="aprender-item realizados-item">
+            <span class="aprender-item__dot" aria-hidden="true"></span>
+            <div class="aprender-item__text">{t}</div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -244,6 +261,15 @@ const wa = 'https://wa.me/525532407194';
     font-size: 16px;
     line-height: 1.5;
     color: var(--ink-mid);
+  }
+
+  /* Mismo tono que la tarjeta de "Canalización angelical" en /terapias. */
+  .realizados-section {
+    background: var(--sage-tone-3);
+  }
+
+  .realizados-item {
+    border-bottom-color: rgba(var(--line-rgb), 0.14);
   }
 
   .facilitadora-grid {
