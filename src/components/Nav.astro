@@ -316,7 +316,7 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
     gap: 12px;
     background: var(--cta);
     color: var(--cta-text);
-    padding: 12px 22px;
+    padding: var(--btn-padding-sm);
     border-radius: var(--r-pill);
     font-size: 11px;
     letter-spacing: var(--ls-button);
@@ -391,7 +391,7 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
     align-items: center;
     justify-content: space-between;
     min-height: clamp(56px, 10vh, var(--nav-height));
-    padding: 22px clamp(20px, 5vw, 64px) 0;
+    padding: 22px var(--gutter) 0;
   }
 
   .nav__mobile-brand {
@@ -443,7 +443,7 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
     flex-direction: column;
     margin-top: clamp(16px, 4vh, 40px);
     gap: clamp(0px, 0.6vh, 6px);
-    padding-inline: clamp(20px, 5vw, 64px);
+    padding-inline: var(--gutter);
   }
 
   .nav__mobile-link {
@@ -525,7 +525,7 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
 
   .nav__mobile-bottom {
     margin-top: auto;
-    padding: clamp(14px, 3vh, 30px) clamp(20px, 5vw, 64px) clamp(20px, 4vh, 40px);
+    padding: clamp(14px, 3vh, 30px) var(--gutter) clamp(20px, 4vh, 40px);
     border-top: 1px solid rgba(var(--cream-rgb), 0.18);
     display: flex;
     flex-direction: column;

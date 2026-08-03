@@ -56,7 +56,7 @@ const wa = 'https://wa.me/525532407194';
   <!-- Qué vas a aprender -->
   <section class="section">
     <div class="gutter">
-      <div class="eyebrow-line" style="color: var(--amber); margin-bottom: 30px;">¿Qué aprenderás?</div>
+      <div class="eyebrow-line" style="color: var(--amber); margin-bottom: var(--stack-cta);">¿Qué aprenderás?</div>
       <div class="aprender-grid">
         {tallerAprender.map((a) => (
           <div class="aprender-item">
@@ -94,7 +94,7 @@ const wa = 'https://wa.me/525532407194';
   <!-- FAQ -->
   <section class="section faq-section">
     <div class="gutter">
-      <div class="eyebrow-line" style="color: var(--amber); text-align: center; margin-bottom: 26px;">
+      <div class="eyebrow-line" style="color: var(--amber); text-align: center; margin-bottom: var(--stack-cta);">
         Preguntas del taller
       </div>
       <Faq items={faqsTaller} />
@@ -107,7 +107,7 @@ const wa = 'https://wa.me/525532407194';
   <!-- Talleres y formaciones ya realizados -->
   <section class="section realizados-section">
     <div class="gutter">
-      <div class="eyebrow-line" style="color: var(--sage); margin-bottom: 30px;">
+      <div class="eyebrow-line" style="color: var(--sage); margin-bottom: var(--stack-cta);">
         Talleres y Formaciones realizadas
       </div>
       <div class="aprender-grid">
@@ -211,7 +211,7 @@ const wa = 'https://wa.me/525532407194';
   }
 
   .section {
-    padding: clamp(60px, 9vh, 110px) 0;
+    padding: var(--section-py) 0;
     background: var(--sand);
   }
 
@@ -275,7 +275,7 @@ const wa = 'https://wa.me/525532407194';
   .facilitadora-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: var(--grid-gap);
     align-items: stretch;
   }
 
@@ -289,7 +289,7 @@ const wa = 'https://wa.me/525532407194';
     background: var(--white);
     border: 1px solid var(--hairline);
     border-radius: var(--r-band);
-    padding: 38px 36px;
+    padding: var(--box-padding);
   }
 
   .facilitadora-box__nombre {
@@ -322,7 +322,7 @@ const wa = 'https://wa.me/525532407194';
   .inversion-box {
     background: var(--sage);
     border-radius: var(--r-band);
-    padding: 38px 36px;
+    padding: var(--box-padding);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -357,7 +357,7 @@ const wa = 'https://wa.me/525532407194';
 
   .faq-cta {
     text-align: center;
-    margin-top: 44px;
+    margin-top: var(--stack-section-head);
   }
 
   .faq-cta__note {

@@ -69,7 +69,20 @@
   --ls-button: 0.16em;
 
   /* ---------- Espaciado ---------- */
+  /*
+    El padding de una caja es SIMÉTRICO: no existe `34px 30px`.
+
+    Todo valor NUEVO sale de la escalera 4 / 8 / 12 / 16 / 20 / 22 / 24 /
+    28 / 32 / 36 / 44 / 56 — preferentemente vía token. Sobreviven valores
+    heredados fuera de ella (gaps de 14px, ritmos propios de hero, el 50px
+    de .transf-header); están pendientes de revisión de diseño, no son
+    precedente.
+
+    Ritmo vertical de sección: tres pasos, no más. `--section-py` es el
+    estándar; compact y wide son las excepciones deliberadas.
+  */
   --section-py-compact: clamp(40px, 7vh, 90px);
+  --section-py: clamp(60px, 9vh, 110px);
   --section-py-wide: clamp(80px, 11vh, 140px);
 
   /*
@@ -91,8 +104,27 @@
   --stack-text: 20px;
   --stack-cta: 28px;
 
+  /* Encabezado de sección → su grid de contenido. */
+  --stack-section-head: 44px;
+  /* Bloques distintos dentro de una misma sección. */
+  --stack-block: 56px;
+
   --grid-gap: 22px;
+  --gap-sm: 16px;
+
+  /*
+    Paddings de caja, todos simétricos (regla 1). --card-padding es la
+    tarjeta estándar; --box-padding la caja de contenido grande (tintada
+    o con borde); --box-padding-sm las cajas de dato compactas.
+  */
   --card-padding: 32px;
+  --box-padding: 36px;
+  --box-padding-sm: 24px;
+
+  /* Píldoras: solo dos tamaños en todo el sitio. */
+  --btn-padding: 16px 28px;
+  --btn-padding-sm: 12px 22px;
+
   --nav-height: 84px;
 
   --measure-lede: 62ch;

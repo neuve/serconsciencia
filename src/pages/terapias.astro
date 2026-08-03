@@ -9,7 +9,7 @@ import { terapias } from '../data/terapias';
   title="Terapias y sesiones"
   description="Elige tu camino: canalización, registros akáshicos, sanación con rosas, limpieza con cruz Ankh y más terapias energéticas con Karen Silva."
 >
-  <section style="padding: clamp(50px, 7vh, 90px) 0 clamp(60px, 9vh, 110px); background: var(--sand);">
+  <section class="therapies-section">
     <SectionHeader
       eyebrow="TERAPIAS Y SESIONES"
       eyebrowColor="var(--cyan)"
@@ -36,6 +36,11 @@ import { terapias } from '../data/terapias';
 </Base>
 
 <style>
+  .therapies-section {
+    padding: clamp(50px, 7vh, 90px) 0 var(--section-py);
+    background: var(--sand);
+  }
+
   .therapy-grid {
     margin-top: clamp(40px, 6vh, 64px);
     display: grid;

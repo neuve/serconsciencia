@@ -209,7 +209,7 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
 
   .hero__ctas {
     display: flex;
-    gap: 16px;
+    gap: var(--gap-sm);
     flex-wrap: wrap;
     margin-top: 34px;
   }
@@ -341,14 +341,14 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--grid-gap);
-    margin-top: 44px;
+    margin-top: var(--stack-section-head);
   }
 
   .secondary-services {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--grid-gap);
-    margin-top: 22px;
+    margin-top: var(--grid-gap);
   }
 
   .secondary-card {
@@ -357,7 +357,7 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     justify-content: space-between;
     gap: 20px;
     border-radius: var(--r-card);
-    padding: 30px 34px;
+    padding: var(--card-padding);
     text-align: left;
     background-color: var(--sage);
     transition: filter var(--ease-standard);
@@ -400,7 +400,7 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--grid-gap);
-    margin-top: 44px;
+    margin-top: var(--stack-section-head);
   }
 
   /* ---------- FAQ ---------- */
@@ -415,7 +415,7 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     900px y las hairlines del FAQ dejan de alinear con el resto del sitio.
   */
   .faq-section__wrap {
-    margin-top: 44px;
+    margin-top: var(--stack-section-head);
   }
 
   .faq-section__wrap :global(.faq) {

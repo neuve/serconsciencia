@@ -54,9 +54,33 @@ const typeScale = [
   { token: '--fs-h3', sample: 'Lo que te llevas.', family: 'var(--font-display)' },
 ];
 
+const sectionRhythm = [
+  { token: '--section-py-compact', label: 'Excepción: secciones cortas', min: '40px', max: '90px' },
+  { token: '--section-py', label: 'Estándar de todas las secciones', min: '60px', max: '110px' },
+  { token: '--section-py-wide', label: 'Excepción: secciones largas', min: '80px', max: '140px' },
+];
+
 const spacingTokens = [
   { token: '--stack-text', label: 'Ritmo de texto: eyebrow → párrafo, párrafo → párrafo (20px)' },
   { token: '--stack-cta', label: 'Último párrafo → botón, vía .cta-row (28px)' },
+  { token: '--stack-section-head', label: 'Encabezado de sección → su grid de contenido (44px)' },
+  { token: '--stack-block', label: 'Entre bloques distintos dentro de una misma sección (56px)' },
+];
+
+const gapTokens = [
+  { token: '--grid-gap', label: 'Gap estándar de grillas de tarjetas (22px)' },
+  { token: '--gap-sm', label: 'Gap de grupos compactos, ej. filas de botones (16px)' },
+];
+
+const paddingTokens = [
+  { token: '--card-padding', label: 'Tarjeta estándar (32px)' },
+  { token: '--box-padding', label: 'Caja de contenido grande, tintada o con borde (36px)' },
+  { token: '--box-padding-sm', label: 'Caja de dato compacta (24px)' },
+];
+
+const pillTokens = [
+  { token: '--btn-padding', label: 'Botón estándar (16px 28px)' },
+  { token: '--btn-padding-sm', label: 'Botón compacto (12px 22px)' },
 ];
 
 const radii = [
@@ -251,13 +275,78 @@ const radii = [
   <!-- ESPACIADO Y CTAs -->
   <section class="ds-section">
     <div class="gutter">
-      <h2 class="ds-section__title">Espaciado y CTAs</h2>
+      <h2 class="ds-section__title">Espaciado</h2>
 
+      <p class="ds-bleed-explainer">
+        El padding de una caja es <strong>siempre simétrico</strong>: no existe
+        <code>34px 30px</code>. Y todo valor nuevo sale de la escalera
+        <code>4 / 8 / 12 / 16 / 20 / 22 / 24 / 28 / 32 / 36 / 44 / 56</code> — si algo "pide"
+        34px, se elige 32 o 36. Sobreviven valores heredados fuera de la escalera (gaps de 14px,
+        ritmos propios de cada hero); están pendientes de revisión de diseño y no son precedente.
+      </p>
+
+      <h3 class="ds-color-group__label">Ritmo vertical de sección</h3>
+      <p class="ds-bleed-explainer">
+        Tres pasos, no más. <code>--section-py</code> es el estándar; compact y wide son las
+        excepciones deliberadas.
+      </p>
+      <div class="ds-rhythm-grid">
+        {sectionRhythm.map((s) => (
+          <div class="ds-rhythm-sample">
+            <div class="ds-rhythm-sample__bar" style={{ height: `var(${s.token})` }}></div>
+            <div class="ds-radius-sample__label">
+              <span class="ds-type-row__token">{s.token}</span>
+              <br />{s.label} ({s.min}–{s.max})
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="ds-color-group__label ds-section__title--spaced">Ritmo y stacks</h3>
       <div class="ds-spacing-list">
         {spacingTokens.map((s) => (
           <div class="ds-type-row">
             <span class="ds-type-row__token">{s.token}</span>
             <span class="ds-spacing-list__label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="ds-color-group__label ds-section__title--spaced">Gaps</h3>
+      <div class="ds-spacing-list">
+        {gapTokens.map((s) => (
+          <div class="ds-type-row">
+            <span class="ds-type-row__token">{s.token}</span>
+            <span class="ds-spacing-list__label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="ds-color-group__label ds-section__title--spaced">Paddings de caja</h3>
+      <div class="ds-radii-grid">
+        {paddingTokens.map((p) => (
+          <div class="ds-radius-sample">
+            <div class="ds-padding-sample__box" style={{ padding: `var(${p.token})` }}>
+              <div class="ds-padding-sample__fill"></div>
+            </div>
+            <div class="ds-radius-sample__label">
+              <span class="ds-type-row__token">{p.token}</span>
+              <br />{p.label}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="ds-color-group__label ds-section__title--spaced">Píldoras</h3>
+      <p class="ds-bleed-explainer">Solo dos tamaños en todo el sitio.</p>
+      <div class="ds-row">
+        {pillTokens.map((p) => (
+          <div class="ds-pill-sample">
+            <span class="ds-pill-sample__pill" style={{ padding: `var(${p.token})` }}>Botón</span>
+            <div class="ds-radius-sample__label">
+              <span class="ds-type-row__token">{p.token}</span>
+              <br />{p.label}
+            </div>
           </div>
         ))}
       </div>
@@ -273,6 +362,10 @@ const radii = [
           <Button variant="primary" label="Agenda tu sesión" href="#" />
         </div>
       </div>
+      <p class="ds-radius-sample__label ds-spacing-note">
+        Esta tarjeta usa <span class="ds-type-row__token">--card-padding</span>, el padding
+        simétrico estándar de toda tarjeta del sitio.
+      </p>
 
       <p class="ds-bleed-explainer ds-spacing-note">
         <strong>Regla:</strong> el espaciado de un CTA va en un envoltorio (<code>.cta-row</code>),
@@ -457,7 +550,7 @@ const radii = [
   .ds-radius-sample__label {
     font-size: 13px;
     color: var(--ink-body);
-    margin-top: 10px;
+    margin-top: 12px;
   }
 
   .ds-shadow-sample {
@@ -552,6 +645,54 @@ const radii = [
 
   .ds-spacing-note {
     margin: 28px 0 0;
+  }
+
+  .ds-rhythm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--box-padding-sm);
+    margin: var(--stack-text) 0 var(--stack-section-head);
+  }
+
+  .ds-rhythm-sample {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ds-rhythm-sample__bar {
+    width: 100%;
+    background: var(--sage-light);
+    border-radius: var(--r-box);
+  }
+
+  .ds-padding-sample__box {
+    background: var(--sand-mid);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-box);
+  }
+
+  .ds-padding-sample__fill {
+    height: 44px;
+    background: var(--sage-light);
+    border-radius: var(--r-card);
+  }
+
+  .ds-pill-sample {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ds-pill-sample__pill {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: var(--fs-button);
+    letter-spacing: var(--ls-button);
+    text-transform: uppercase;
+    color: var(--cta-text);
+    background: var(--cta);
+    border-radius: var(--r-pill);
   }
 
   @media (max-width: 780px) {
