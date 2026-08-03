@@ -60,7 +60,7 @@ export const terapias: Terapia[] = [
     nombre: 'Canalización angelical',
     tag: 'Sesión individual — Próximamente',
     resumen: 'Guía y mensajes claros a través de la conexión con tus ángeles.',
-    tone: '#c8ddd0',
+    tone: '#aecabb',
     svc: 'angelical',
     proximamente: true,
   },
