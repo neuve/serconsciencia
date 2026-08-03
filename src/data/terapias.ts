@@ -1,6 +1,10 @@
-// Índice de terapias para la vista "Terapias". Copiado literal desde el prototipo
+// Índice de terapias para la vista "Terapias". El contenido viene del prototipo
 // `prototype/design_handoff_karen_silva/design/Karen Silva Sitio.dc.html` (array `terapiasList`,
-// líneas ~1090-1097), en el mismo orden.
+// líneas ~1090-1097).
+//
+// El orden importa: la rejilla es de dos columnas, así que cada par de entradas
+// consecutivas forma una fila y comparte tono. Los tonos bajan de intensidad fila
+// a fila, y las sesiones "próximamente" cierran con el más claro.
 //
 // Se agrega el campo `proximamente`, derivado del tag "— Próximamente" que traían
 // `akashicos` y `angelical`, para poder ocultarlas desde el CMS sin tocar código (ver README,
@@ -25,6 +29,14 @@ export const terapias: Terapia[] = [
     proximamente: false,
   },
   {
+    nombre: 'Especiales',
+    tag: 'Sesiones a medida',
+    resumen: 'Sesiones especiales fuera del catálogo regular — consulta disponibilidad.',
+    tone: '#3f5449',
+    svc: 'especiales',
+    proximamente: false,
+  },
+  {
     nombre: 'Limpieza con Cruz Ankh',
     tag: 'Trabajo asincrónico',
     resumen: 'Limpieza minuciosa de ataques y energías mal calificadas.',
@@ -36,23 +48,15 @@ export const terapias: Terapia[] = [
     nombre: 'Sanación cuántica con Rosas',
     tag: 'Sesión individual',
     resumen: 'Una técnica psico-espiritual profunda para abrir el corazón.',
-    tone: '#92ADA4',
+    tone: '#5C7A70',
     svc: 'rosas',
-    proximamente: false,
-  },
-  {
-    nombre: 'Especiales',
-    tag: 'Sesiones a medida',
-    resumen: 'Sesiones especiales fuera del catálogo regular — consulta disponibilidad.',
-    tone: '#92ADA4',
-    svc: 'especiales',
     proximamente: false,
   },
   {
     nombre: 'Lectura de registros akáshicos',
     tag: 'Sesión individual — Próximamente',
     resumen: 'Accede a la sabiduría de tu alma sobre tu momento presente.',
-    tone: '#aecabb',
+    tone: '#92ADA4',
     svc: 'akashicos',
     proximamente: true,
   },
@@ -60,7 +64,7 @@ export const terapias: Terapia[] = [
     nombre: 'Canalización angelical',
     tag: 'Sesión individual — Próximamente',
     resumen: 'Guía y mensajes claros a través de la conexión con tus ángeles.',
-    tone: '#aecabb',
+    tone: '#92ADA4',
     svc: 'angelical',
     proximamente: true,
   },
