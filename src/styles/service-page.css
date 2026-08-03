@@ -29,8 +29,25 @@
   padding-bottom: 0;
 }
 
-.service-page .section--flush-top {
+/*
+  El grid de detalles (duración / frecuencia / modalidad) es el pie del
+  bloque que lo precede, no una sección nueva: va en su propio <section>
+  solo porque se renderiza condicionalmente. Sin esta regla se suman el
+  padding inferior de la sección anterior y el superior de esta, y el
+  bloque queda separado de su propio texto por hasta 220px.
+*/
+.service-page .section--detalles {
   padding-top: 0;
+}
+
+.service-page .section:has(+ .section--detalles) {
+  padding-bottom: var(--stack-section-head);
+}
+
+/* El margen de cierre del último párrafo se sumaría al padding de arriba
+   y la separación dejaría de ser la misma en cada página. */
+.service-page .section:has(+ .section--detalles) > * > :last-child {
+  margin-bottom: 0;
 }
 
 .service-page .intro-box {
