@@ -20,8 +20,8 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     <div class="hero__scrim" aria-hidden="true"></div>
 
     <div class="hero__bottom gutter">
-      <p class="hero__lede anim-fade">Acompaño a humanos y animales en sus procesos de sanación.</p>
       <Eyebrow text="Karen Silva · Terapias y Talleres" color="var(--sage)" class="anim-float" />
+      <p class="hero__lede anim-fade">Acompaño a humanos y animales<br />en sus procesos de sanación.</p>
       <h1 class="hero__title anim-float-delay-1">reconectando<br />con la <em>consciencia del amor</em></h1>
       <div class="hero__ctas anim-float-delay-2">
         <Button variant="primary" label="Comienza tu camino" href="/terapias" showDot />
@@ -177,11 +177,14 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
   }
 
   .hero__lede {
+    /* El quiebre lo fuerza un <br /> en el markup: la ventana de anchos que
+       lo lograría es de solo ~22px y no sobrevive a cambios de fuente. */
     max-width: 420px;
     font-size: 16px;
     line-height: 1.7;
-    color: var(--amber);
-    margin: 0 0 18px;
+    font-weight: 600;
+    color: var(--cream);
+    margin: 14px 0 0;
   }
 
   .hero__bottom {

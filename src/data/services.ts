@@ -206,10 +206,14 @@ export const services: Record<string, Service> = {
   },
   angelical: {
     eyebrow: 'Sesión individual',
-    img: '/assets/angel-3.jpg',
+    img: '/assets/angel-4.jpg',
     imgPos: '50% 50%',
     nombre: 'Canalización angelical',
     frase: 'Guía y mensajes claros a través de la conexión con tus ángeles, para acompañarte en tu momento presente.',
+    sobre: {
+      titulo: 'Canalización Angelical, comunicación con tus ángeles',
+      desc: 'Una sesión de canalización angelical es un espacio de conexión y guía espiritual donde recibes mensajes orientados a aportar claridad, paz y comprensión sobre los desafíos que estás viviendo. A través de la conexión con la energía de los ángeles, se entrega orientación para ayudarte a reconocer nuevas perspectivas, fortalecer la confianza en tu camino y tomar decisiones más alineadas con tu bienestar y propósito de vida.',
+    },
     paraQuien: [
       'Te sientes confundido y necesitas guía.',
       'Buscas orientación amorosa para tomar una decisión.',
@@ -220,9 +224,9 @@ export const services: Record<string, Service> = {
     noEs: 'Para quien busca respuestas absolutas o predicciones cerradas; este trabajo abre guía y posibilidades, no destinos fijos.',
     noEsNota: '',
     transf: [
-      { n: '01', titulo: 'Claridad y calma', desc: 'Recibes mensajes que ordenan lo que hoy te confunde.' },
-      { n: '02', titulo: 'Sensación de acompañamiento', desc: 'Sientes el sostén de tu guía espiritual.' },
-      { n: '03', titulo: 'Dirección para tu momento', desc: 'Reconoces el siguiente paso con más confianza.' },
+      { n: '01', titulo: 'Transformación del miedo al amor', desc: 'La mayoría de los bloqueos que experimentamos como seres humanos nacen desde la ausencia de amor. La energía compasiva de los ángeles nos ayudan a ver con mayor aceptación y menor resistencia lo que nos ocurre.' },
+      { n: '02', titulo: 'Sensación de acompañamiento', desc: 'Sientes el sostén de tu guía espiritual.\n\nPercibes que existe una presencia amorosa que te sostiene incluso en los momentos más difíciles, esto no cambia la situación, sino que transforma la forma de atravesarlos.' },
+      { n: '03', titulo: 'Confianza en la vida', desc: 'Cuando sientes que estás acompañado espiritualmente, suele disminuir la necesidad de controlar cada resultado.\n\nTe conectas con una mayor capacidad de aceptación, paciencia y confianza frente a la incertidumbre.' },
     ],
     primeraTitulo: 'Un espacio para escuchar los mensajes que tus ángeles tienen para tu momento presente.',
     primeraBody: [

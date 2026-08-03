@@ -42,6 +42,18 @@ export const testimoniosFull: Testimonio[] = [
     cat: 'alumnos',
   },
   {
+    quote: '"Participar de los cursos o talleres impartidos por mi profesora Karencita, han sido maravillosas experiencias de transformación, de energía lumínica, de toma de consciencia, de amor y apoyo en el incremento de mi fe en lo intangible, en lo Divino. Realizar formaciones con la maestra Karen, es una experiencia donde te sientes acompañado en todo momento, disfrutas de su sabiduría, amor, simpleza, humildad, orientación constante, alegría y compromiso con lo que entrega. Si te decides a participar de sus cursos, contarás con una acompañante de LUZ."',
+    name: 'Marlene Morales Cartagena',
+    service: 'Talleres y Cursos',
+    cat: 'alumnos',
+  },
+  {
+    quote: '"Las formaciones de Karen son Transformadoras. Cada una de sus clases te permite incorporar conocimientos, herramientas, meditaciones y procesos de cambio, siempre acompañada y sostenida por una energía que empapa tu vida de una forma sutil y amorosa.\nKaren es muy cercana, cálida y profesional. Se ha formado una linda comunidad, que se apoya en cada momento.\nAgradezco profundamente cada clase, formación y espacio que he compartido con ella a lo largo de los años.\nEs una de esas personas que son una luz que iluminan procesos de crecimiento y te acompañan para que también puedas brillar con tu luz."',
+    name: 'Tami B.',
+    service: 'Talleres y Cursos',
+    cat: 'alumnos',
+  },
+  {
     quote: '"Mi sesión con Karen me ha ayudado más allá de lo que pensaba. Poder acceder a mis registros akáshicos y preguntar me ha desbloqueado cuando no sé por dónde ir, me ha dado rutas para continuar. Lo he recomendado a personas queridas y sin duda seguiría recomendándola."',
     name: 'Perla Vázquez',
     service: 'Registros akáshicos',
@@ -95,6 +107,12 @@ export const testimoniosFull: Testimonio[] = [
   {
     quote: '"Desde nuestra sesión las cosas dieron un giro muy inesperado: comenzó a comer mejor, se mueve muchísimo y hasta corre y hace travesuras de nuevo. Platicar contigo me ayudó mucho a entenderla y a entenderme, tengo una mejor conexión con ella y siento que eso la ha hecho sanar y también a mí me ha hecho más fuerte."',
     name: 'Andrea — estudiante',
+    service: 'Comunicación animal',
+    cat: 'animal',
+  },
+  {
+    quote: '"La comunicación de Karen con mis 3 gatitas fue una experiencia profundamente amorosa que me dio muchísima paz.\nSentí que se abrió un puente real de entendimiento con mis mininas: pude explicarles por qué me iba a filmar, lo que ese proceso significaba para mí y, al mismo tiempo, comprender cómo ellas lo estaban viviendo. Más que una conversación, fue una conexión muy profunda que nos permitió atravesar esa etapa juntitas desde mucho amor. Me fui tranquila a mi viaje. Ese espacio de comunicación para mí fue un regalo inmenso (:"',
+    name: 'Paula',
     service: 'Comunicación animal',
     cat: 'animal',
   },
