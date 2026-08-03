@@ -155,7 +155,7 @@ const formacion = [
 <style>
   /* ---------- Hero ---------- */
   .about-hero {
-    padding-block: var(--stack-text) var(--section-py-compact);
+    padding-block: var(--stack-text) var(--stack-block);
     background: var(--sand);
   }
 
@@ -183,8 +183,13 @@ const formacion = [
   }
 
   /* ---------- Filosofía / bloque split con borde ---------- */
+  /*
+    Sin padding propio: hero (abajo) y training (arriba) ya aportan el
+    respiro de este bloque — es la misma sección .sand sin borde visible
+    entre ellas, así que sumar padding aquí duplicaría el hueco.
+  */
   .philosophy-section {
-    padding: var(--section-py-compact) 0;
+    padding: 0;
     background: var(--sand);
   }
 
@@ -212,7 +217,7 @@ const formacion = [
 
   /* ---------- Formación ---------- */
   .training {
-    padding: var(--section-py-wide) 0;
+    padding-block: var(--stack-block) var(--section-py-wide);
     background: var(--sand);
   }
 
