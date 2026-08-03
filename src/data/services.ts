@@ -52,6 +52,7 @@ export interface Service {
   transf: ServiceStep[];
   primeraTitulo: string;
   primeraBody: string[];
+  primeraEyebrow?: string;
   detalles: ServiceDetalle[];
   pack?: ServicePack;
   notaExtra?: ServiceNotaExtra;
@@ -97,10 +98,14 @@ export const services: Record<string, Service> = {
   },
   akashicos: {
     eyebrow: 'Sesión individual',
-    img: '/assets/cubo.jpg',
+    img: '/assets/registros-1.jpg',
     imgPos: '50% 50%',
     nombre: 'Lectura de registros akáshicos',
     frase: 'Accede al registro energético de tu alma para ganar claridad y sabiduría sobre tu momento presente.',
+    sobre: {
+      titulo: 'Lectura de registros akáshicos',
+      desc: 'Los Registros Akáshicos son una memoria universal de la existencia, y representan un espacio multidimensional dónde se archivan todas las experiencias del alma, incluyendo todos los conocimientos y las experiencias de las vidas pasadas, la vida presente y las potencialidades futuras.\n\nLos Registros nos brindan una ventana para poder observar sin alterar el pasado, y ver simplemente como meros espectadores de las posibilidades que tenemos en el presente o futuro, sabiendo que la elección ultima esta en nosotros. Nos han otorgado la vida para que crezcamos para acertar o equivocarnos, aunque ya debemos empezar a hablar de aprendizaje en lugar de equivocaciones, porque a estas alturas ya deberíamos saber que la vida no es otra cosa que contemplación y validación de nuestro propio caminar.',
+    },
     paraQuien: [
       'Necesitas tomar decisiones importantes en cualquier área de tu vida.',
       'Quieres entender qué lección hay detrás de una situación (el "para qué me pasa").',
@@ -111,16 +116,20 @@ export const services: Record<string, Service> = {
     noEs: 'Para quien no cree que existan propósitos mayores detrás de lo que ocurre, o no desea asumir responsabilidad sobre sus procesos.',
     noEsNota: 'Esto no es una terapia psicológica.',
     transf: [
-      { n: '01', titulo: 'Claridad sobre tu presente', desc: 'Comprendes con nitidez lo que hoy estás viviendo.' },
-      { n: '02', titulo: 'Sabiduría para decidir', desc: 'Eliges desde un lugar más consciente e informado.' },
-      { n: '03', titulo: 'Paz con tu proceso', desc: 'Sueltas la resistencia y ordenas lo que pesa.' },
+      { n: '01', titulo: 'Cambia la percepción sobre ti mismo', desc: 'Dejas de definirte por tus errores, heridas o limitaciones y comienzas a reconocerte desde una identidad más amplia y compasiva.' },
+      { n: '02', titulo: 'Comprender el propósito de las experiencias difíciles', desc: 'En lugar de preguntarte "¿por qué me pasó esto?", comienzas a preguntarte "¿para qué está ocurriendo esto?"' },
+      { n: '03', titulo: 'Asumir un nuevo rol en tu vida', desc: 'Los Registros no "arreglan" la vida de una persona. Lo que hacen es ofrecer una nueva comprensión que le permite actuar con mayor conciencia.' },
     ],
-    primeraTitulo: '',
-    primeraBody: [],
+    primeraTitulo: 'Abrimos tus registros para acceder a la información de tu alma sobre tu momento actual.',
+    primeraBody: [
+      'Conversamos sobre lo que quieres consultar y establecemos los objetivos de la sesión. Luego realizo la apertura y lectura, y limpiamos los bloqueos que aparecen para que entres en un estado de mayor claridad.',
+      'Algunas preguntas posibles:\n1. ¿Cuál es mi misión de vida?\n2. ¿Hay algún tipo de bloqueo que me esté impidiendo…?\n3. ¿Cómo puedo mejorar…?\n4. ¿Qué no estoy entendiendo de esta situación?\n5. ¿Hay algo que aún debo ver para mejorar mi…?\n6. ¿Cuántas vidas pasadas he tenido y quién fui en la última?\n7. ¿Hay algún karma de mis vidas pasadas que me esté afectando en mi vida actual?\n8. ¿Tengo algún bloqueo que esté deteniendo mi evolución?\n9. ¿Hay algo de una vida anterior que necesite sanar en esta?\n10. ¿Hay algún mensaje para mí en el día de hoy?',
+    ],
+    primeraEyebrow: 'CÓMO ES UNA SESIÓN',
     detalles: [
-      { label: 'Duración', val: '90 minutos' },
-      { label: 'Frecuencia', val: 'Cada 3 semanas' },
-      { label: 'Modalidad', val: 'Online · CDMX' },
+      { label: 'Duración', val: '60 minutos' },
+      { label: 'Frecuencia', val: 'Cuando lo necesites' },
+      { label: 'Modalidad', val: 'Online' },
     ],
     rel: { nombre: 'Canalización y TRE', desc: 'Limpia los bloqueos que hoy te detienen.', key: 'canal' },
   },
@@ -197,8 +206,8 @@ export const services: Record<string, Service> = {
   },
   angelical: {
     eyebrow: 'Sesión individual',
-    img: '/assets/arcangel-1.jpg',
-    imgPos: '50% 30%',
+    img: '/assets/angel-3.jpg',
+    imgPos: '50% 50%',
     nombre: 'Canalización angelical',
     frase: 'Guía y mensajes claros a través de la conexión con tus ángeles, para acompañarte en tu momento presente.',
     paraQuien: [

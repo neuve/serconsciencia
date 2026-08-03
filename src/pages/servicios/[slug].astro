@@ -111,7 +111,7 @@ const textoBloque = service.extra ?? service.sobre;
   {service.primeraTitulo && (
     <section class="section">
       <div class="gutter">
-        <div class="eyebrow-line" style="color: var(--amber); margin-bottom: 22px;">CÓMO SON LAS SESIONES</div>
+        <div class="eyebrow-line" style="color: var(--amber); margin-bottom: 22px;">{service.primeraEyebrow ?? 'CÓMO SON LAS SESIONES'}</div>
         <p class="sessions-text"><strong>{service.primeraTitulo}</strong></p>
         {service.primeraBody?.filter(Boolean).map((p) => (
           <p class="sessions-text" set:html={p.replace(/\n/g, '<br />')} />
