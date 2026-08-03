@@ -103,7 +103,7 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
             corazón y, desde la energía del amor, transformar patrones de raíz.
           </p>
         </div>
-        <span class="secondary-card__arrow" aria-hidden="true">&rarr;</span>
+        <span class="secondary-card__icon" aria-hidden="true"><span class="secondary-card__icon-dot"></span></span>
       </a>
       <a href="/servicios/ankh" class="secondary-card">
         <div class="secondary-card__text">
@@ -113,7 +113,7 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
             ataques energéticos y bloqueos — envidias, mal de ojo, trabajos dirigidos.
           </p>
         </div>
-        <span class="secondary-card__arrow" aria-hidden="true">&rarr;</span>
+        <span class="secondary-card__icon" aria-hidden="true"><span class="secondary-card__icon-dot"></span></span>
       </a>
     </div>
   </section>
@@ -387,11 +387,25 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     max-width: 44ch;
   }
 
-  .secondary-card__arrow {
-    font-family: var(--font-display);
-    font-size: 34px;
-    color: var(--cream);
+  /* Mismo círculo + punto que .philosophy__icon, reescalado al título de
+     24px de esta tarjeta (vs. 23px de la cita de filosofía). */
+  .secondary-card__icon {
     flex: none;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--r-dot);
+    border: 1.5px solid var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .secondary-card__icon-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--r-dot);
+    background: var(--amber);
+    display: block;
   }
 
   /* ---------- Testimonios ---------- */
