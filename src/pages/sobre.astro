@@ -23,12 +23,15 @@ const formacion = [
 
 <Base title="Sobre mí" description="Conoce a Karen Silva: su camino, su formación y su forma de acompañar procesos de sanación en humanos y animales.">
   <!-- HERO -->
-  <section class="bleed about-hero">
-    <div class="about-hero__bg" style="background-image: url('/assets/cisne.jpg');"></div>
-    <div class="about-hero__overlay" aria-hidden="true"></div>
-    <div class="gutter about-hero__content">
-      <Eyebrow text="Sobre mí" color="var(--sage)" />
-      <h1 class="about-hero__title">Karen <span class="about-hero__title-italic">Silva.</span></h1>
+  <section class="about-hero">
+    <div class="gutter">
+      <Eyebrow text="Sobre mí" color="var(--cyan)" />
+      <h1 class="visually-hidden">Karen Silva</h1>
+    </div>
+
+    <img src="/assets/cisne-sobre.jpg" alt="" class="bleed about-hero__image" />
+
+    <div class="gutter">
       <p class="about-hero__lede">
         Acompaño a personas y a animales en sus propios procesos de sanación. Tengo la certeza
         absoluta que desde la consciencia, la coherencia y la verdad podemos crear una vida más
@@ -155,57 +158,22 @@ const formacion = [
 <style>
   /* ---------- Hero ---------- */
   .about-hero {
-    position: relative;
-    overflow: hidden;
-    padding-block: clamp(56px, 8vh, 100px);
+    padding-block: clamp(50px, 7vh, 90px) var(--section-py-compact);
+    background: var(--sand);
   }
 
-  .about-hero__bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    /* cisne.jpg es vertical; recortada en banda, este punto deja al cisne
-       principal dentro del encuadre en cualquier proporción. */
-    background-position: 50% 55%;
-  }
-
-  .about-hero__overlay {
-    position: absolute;
-    inset: 0;
-    /* La acuarela es muy clara: un overlay oscuro la apagaría. Un lavado
-       blanco desde la izquierda sostiene el texto —que va en tinta, no en
-       crema— sin ensombrecer la imagen. */
-    background: linear-gradient(
-      100deg,
-      rgba(255, 255, 255, 0.72) 0%,
-      rgba(255, 255, 255, 0.26) 52%,
-      rgba(255, 255, 255, 0) 80%
-    );
-  }
-
-  .about-hero__content {
-    position: relative;
-  }
-
-  .about-hero__title {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(40px, 5.6vw, 80px);
-    line-height: 1;
-    letter-spacing: -0.015em;
-    color: var(--sage);
-    margin: 22px 0 0;
-  }
-
-  .about-hero__title-italic {
-    font-style: italic;
+  .about-hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-block: var(--stack-section-head);
   }
 
   .about-hero__lede {
     font-size: 19px;
     line-height: 1.6;
     color: var(--ink-body);
-    margin: 28px 0 0;
+    margin: 0;
     max-width: var(--measure-lede);
   }
 
@@ -377,15 +345,12 @@ const formacion = [
       grid-column: 1;
     }
 
-    /* En vertical el lavado lateral no cubre el texto: pasa a ser de arriba
-       abajo para que la columna angosta siga legible sobre la acuarela. */
-    .about-hero__overlay {
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.88) 0%,
-        rgba(255, 255, 255, 0.7) 60%,
-        rgba(255, 255, 255, 0.5) 100%
-      );
+    /* La acuarela es de 3:1: a este ancho su alto natural cae a ~120px y
+       queda como una franja. Se recorta manteniendo al cisne en cuadro. */
+    .about-hero__image {
+      height: 38vh;
+      object-fit: cover;
+      object-position: 28% center;
     }
   }
 </style>
