@@ -29,7 +29,7 @@ const formacion = [
       <h1 class="visually-hidden">Karen Silva</h1>
     </div>
 
-    <img src="/assets/cisne-sobre.jpg" alt="" class="bleed about-hero__image" />
+    <img src="/assets/sobre-mi-hero.png" alt="" class="bleed about-hero__image" />
 
     <div class="gutter">
       <p class="about-hero__lede">
@@ -355,12 +355,12 @@ const formacion = [
       grid-column: 1;
     }
 
-    /* La acuarela es de 3:1: a este ancho su alto natural cae a ~120px y
-       queda como una franja. Se recorta manteniendo al cisne en cuadro. */
+    /* A este ancho el alto natural de la foto cae a una franja angosta;
+       se recorta a una altura fija manteniendo la foto centrada. */
     .about-hero__image {
       height: 38vh;
       object-fit: cover;
-      object-position: 28% center;
+      object-position: center;
     }
   }
 </style>
