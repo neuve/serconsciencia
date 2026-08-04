@@ -40,3 +40,18 @@ export const faqsTaller: Faq[] = [
     a: 'Es ideal tenerlo. Te comparto recomendaciones al inscribirte; también podemos trabajar con uno improvisado.',
   },
 ];
+
+export const faqsClub: Faq[] = [
+  {
+    q: '¿Dónde y cuándo se realiza?',
+    a: 'Online, cada martes de 20 a 21:30 horas (horario Chile). Sólo para Chile.',
+  },
+  {
+    q: '¿Cómo reservo mi cupo?',
+    a: 'La inversión es de 38 mil CLP por los 4 encuentros, vía transferencia a la cuenta Santander. Envía tu comprobante de pago a s3rconsciencia@gmail.com para confirmar tu asistencia.',
+  },
+  {
+    q: '¿Hay cupo limitado?',
+    a: 'Sí, es modalidad VIP con sólo 17 cupos disponibles.',
+  },
+];

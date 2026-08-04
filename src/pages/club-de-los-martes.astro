@@ -1,65 +1,79 @@
 ---
-// Vista "Taller de péndulo terapéutico". Hardcodeada según el prototipo
-// `prototype/design_handoff_karen_silva/design/Karen Silva Sitio.dc.html` (líneas ~667-744).
-// Nota de diseño: el prototipo NO usa una fotografía en el hero (fondo sólido
-// `#5C7A70` + radial-gradient), pero la tarea pide un hero "sobre fotografía";
-// se usa `/assets/pendulo-rosa.jpg` (péndulos de cuarzo rosa, temática del
-// taller) bajo el mismo overlay radial para dar profundidad sin perder la
-// lectura del texto.
+// Vista "El club de los martes". Nuevo taller (encuentros online semanales),
+// construida siguiendo el mismo esquema de /talleres (hero con foto + overlay,
+// intro, grid de temas, facilitadora + inversión, FAQ).
 import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
 import Faq from '../components/Faq.astro';
-import { tallerAprender, talleresRealizados } from '../data/taller';
-import { faqsTaller } from '../data/faqs';
+import { faqsClub } from '../data/faqs';
 
 const wa = 'https://wa.me/525532407194';
+
+const temas: string[] = [
+  'Radiestesia',
+  'Meditaciones',
+  'Arcángeles',
+  'Ejercicios prácticos',
+  'Tips de brujis',
+  'Conversaciones que aparecen porque el grupo las necesita',
+];
 ---
 
 <Base
-  title="Taller de péndulo terapéutico"
-  description="Curso intensivo para comprender y dominar el arte de la radiestesia, creado especialmente para apoyar procesos terapéuticos."
+  title="El club de los martes"
+  description="Péndulo, meditaciones, arcángeles, conversaciones, experimentos... y todo lo que vaya apareciendo. Encuentros online cada martes."
 >
   <!-- Hero -->
   <section class="bleed hero">
-    <div class="hero__bg" style="background-image: url('/assets/pendulo-rosa.jpg');"></div>
+    <div class="hero__bg" style="background-image: url('/assets/club-martes-33.jpg'); background-position: center;"></div>
     <div class="hero__overlay"></div>
     <div class="gutter hero__content">
-      <div class="eyebrow-line" style="color: var(--amber);">Taller · nivel básico</div>
-      <h1 class="hero__title">Taller de <span class="hero__title-italic">péndulo terapéutico.</span></h1>
+      <div class="eyebrow-line" style="color: var(--amber);">Club online · Sólo Chile</div>
+      <h1 class="hero__title">El club de <span class="hero__title-italic">los martes.</span></h1>
       <p class="hero__lede">
-        Curso intensivo para comprender y dominar el arte de la radiestesia, creado espacialmente para
-        apoyar procesos terapéuticos
+        Péndulo, meditaciones, arcángeles, conversaciones, experimentos… y todo lo que vaya
+        apareciendo.
       </p>
       <div class="hero__chips">
-        <div class="chip"><span class="chip__dot" style="background: var(--cta);"></span>Presencial, Col. Nápoles - CDMX</div>
-        <div class="chip"><span class="chip__dot" style="background: var(--sand-mid);"></span>5 y 12 de septiembre 2026</div>
-        <div class="chip"><span class="chip__dot" style="background: var(--amber);"></span>Cupo limitado</div>
+        <div class="chip"><span class="chip__dot" style="background: var(--cta);"></span>Online, sólo Chile</div>
+        <div class="chip"><span class="chip__dot" style="background: var(--sand-mid);"></span>18 y 25 de agosto + 1 y 7 de septiembre</div>
+        <div class="chip"><span class="chip__dot" style="background: var(--amber);"></span>20 a 21:30 hrs Chile</div>
+        <div class="chip"><span class="chip__dot" style="background: var(--sage-light);"></span>Modalidad VIP, sólo 17 cupos</div>
         <Button variant="primary" label="Reservar mi lugar" href={wa} showDot />
       </div>
     </div>
   </section>
 
-  <!-- Intro + qué aprenderás + facilitadora + FAQ: mismo fondo (--sand), un
-       solo section con bloques separados por --stack-block en vez de padding
-       de section duplicado, para no dejar huecos vacíos entre bloques. -->
+  <!-- Intro + temas + facilitadora + FAQ: mismo fondo (--sand), un solo
+       section con bloques separados por --stack-block en vez de padding de
+       section duplicado, para no dejar huecos vacíos entre bloques. -->
   <section class="section faq-section">
     <div class="gutter">
       <div class="intro-box">
         <p class="intro-box__text">
-          Ten las bases que necesitas para trabajar con el péndulo de manera clara y certera. Aprende
-          desde cero a usarlo de forma práctica en tu vida diaria, con preguntas simples y diagnósticos
-          inmediatos. Integra herramientas de conexión energética para trabajar con mayor profundidad
-          tanto en ti como en otros.
+          No hay un programa rígido ni un temario interminable. Cada encuentro es una oportunidad
+          para explorar herramientas, hacer preguntas, experimentar con distintas técnicas y
+          compartir aquello que nos despierta curiosidad. A veces habrá radiestesia, otras
+          meditaciones, arcángeles, ejercicios prácticos, tips de brujis o conversaciones que
+          simplemente aparecen porque el grupo las necesita.
+        </p>
+        <p class="intro-box__text intro-box__text--stack">
+          Lo único que sí está garantizado es que cada martes nos iremos con una idea nueva, una
+          experiencia distinta… y probablemente más de alguna risa.
+        </p>
+        <p class="intro-box__text intro-box__text--stack">
+          Desde la compañía y la guía de lo sutil nos permitiremos soltar las cargas y avanzar más
+          livianos en este inicio de semestre. Bienvenid@s!
         </p>
       </div>
 
       <div class="block-stack">
-        <div class="eyebrow-line" style="color: var(--amber); margin-bottom: var(--stack-cta);">¿Qué aprenderás?</div>
+        <div class="eyebrow-line" style="color: var(--amber); margin-bottom: var(--stack-cta);">¿Qué puede aparecer cada martes?</div>
         <div class="aprender-grid">
-          {tallerAprender.map((a) => (
+          {temas.map((t) => (
             <div class="aprender-item">
               <span class="aprender-item__dot" aria-hidden="true"></span>
-              <div class="aprender-item__text">{a}</div>
+              <div class="aprender-item__text">{t}</div>
             </div>
           ))}
         </div>
@@ -78,50 +92,21 @@ const wa = 'https://wa.me/525532407194';
         <div class="inversion-box">
           <div class="eyebrow-line" style="color: var(--amber);">Inversión</div>
           <div class="inversion-box__price">
-            $ <span class="inversion-box__price-value">1,100</span>
+            $ <span class="inversion-box__price-value">38.000</span> CLP
           </div>
-          <p class="inversion-box__incluye">Incluye manual digital y físico</p>
+          <p class="inversion-box__incluye">
+            Total por los 4 encuentros. Transferencia a la cuenta Santander — envía tu comprobante
+            a s3rconsciencia@gmail.com para confirmar tu asistencia.
+          </p>
           <Button variant="primary" label="Reservar mi lugar" href={wa} showDot class="inversion-box__cta" />
         </div>
       </div>
 
       <div class="block-stack">
         <div class="eyebrow-line" style="color: var(--amber); text-align: center; margin-bottom: var(--stack-cta);">
-          Preguntas del taller
+          Preguntas del club
         </div>
-        <Faq items={faqsTaller} />
-      </div>
-    </div>
-  </section>
-
-  <!-- Próximo taller: El club de los martes -->
-  <section class="section">
-    <div class="gutter">
-      <div class="proximo-box">
-        <div class="eyebrow-line" style="color: var(--amber);">Próximo taller · Online</div>
-        <h3 class="proximo-box__titulo">El club de <span class="proximo-box__titulo-italic">los martes.</span></h3>
-        <p class="proximo-box__desc">
-          Péndulo, meditaciones, arcángeles, conversaciones, experimentos… encuentros semanales
-          online, sólo para Chile.
-        </p>
-        <Button variant="primary" label="Conocer el club" href="/club-de-los-martes" showDot class="proximo-box__cta" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Talleres y formaciones ya realizados -->
-  <section class="section realizados-section">
-    <div class="gutter">
-      <div class="eyebrow-line" style="color: var(--sage); margin-bottom: var(--stack-cta);">
-        Talleres y Formaciones realizadas
-      </div>
-      <div class="aprender-grid">
-        {talleresRealizados.map((t) => (
-          <div class="aprender-item realizados-item">
-            <span class="aprender-item__dot" aria-hidden="true"></span>
-            <div class="aprender-item__text">{t}</div>
-          </div>
-        ))}
+        <Faq items={faqsClub} />
       </div>
     </div>
   </section>
@@ -152,12 +137,6 @@ const wa = 'https://wa.me/525532407194';
   .hero__overlay {
     position: absolute;
     inset: 0;
-    /*
-      pendulo-rosa.jpg es una foto clara (fondo blanco); un overlay oscuro
-      la apagaba por completo y ya no se reconocía la foto original. Un
-      lavado claro (blanco→transparente) basta para separar el texto —
-      que ahora es oscuro, no crema — sin ensombrecer la imagen.
-    */
     background: linear-gradient(100deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.2) 45%, rgba(255, 255, 255, 0) 70%);
   }
 
@@ -178,7 +157,6 @@ const wa = 'https://wa.me/525532407194';
 
   .hero__title-italic {
     font-style: italic;
-    color: var(--sage);
   }
 
   .hero__lede {
@@ -233,6 +211,10 @@ const wa = 'https://wa.me/525532407194';
     margin: 0;
   }
 
+  .intro-box__text--stack {
+    margin-top: var(--stack-text);
+  }
+
   .block-stack {
     margin-top: var(--stack-block);
   }
@@ -270,15 +252,6 @@ const wa = 'https://wa.me/525532407194';
     font-size: 16px;
     line-height: 1.5;
     color: var(--ink-mid);
-  }
-
-  /* Mismo tono que la tarjeta de "Canalización angelical" en /terapias. */
-  .realizados-section {
-    background: var(--sage-tone-3);
-  }
-
-  .realizados-item {
-    border-bottom-color: rgba(var(--line-rgb), 0.14);
   }
 
   .facilitadora-grid {
@@ -352,6 +325,7 @@ const wa = 'https://wa.me/525532407194';
 
   .inversion-box__incluye {
     font-size: 14px;
+    line-height: 1.5;
     color: var(--white);
     margin: 14px 0 24px;
   }
@@ -363,38 +337,4 @@ const wa = 'https://wa.me/525532407194';
   .faq-section {
     padding-bottom: clamp(80px, 11vh, 130px);
   }
-
-  .proximo-box {
-    background: var(--white);
-    border: 1px solid var(--hairline);
-    border-radius: var(--r-band);
-    padding: var(--box-padding);
-    text-align: center;
-  }
-
-  .proximo-box__titulo {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: var(--fs-h3);
-    color: var(--ink);
-    margin: 14px 0 0;
-  }
-
-  .proximo-box__titulo-italic {
-    font-style: italic;
-    color: var(--sage);
-  }
-
-  .proximo-box__desc {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--ink-body);
-    max-width: var(--measure-copy);
-    margin: 14px auto 0;
-  }
-
-  .proximo-box :global(.proximo-box__cta) {
-    margin: 28px auto 0;
-  }
-
 </style>
