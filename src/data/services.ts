@@ -62,8 +62,8 @@ export interface Service {
 export const services: Record<string, Service> = {
   canal: {
     eyebrow: 'Sesión individual',
-    img: '/assets/pendulo-tre.jpg',
-    imgPos: 'center',
+    img: '/assets/tre-hero-pendulo11.png',
+    imgPos: '50% 65%',
     nombre: 'Canalización y TRE',
     extra: {
       titulo: 'Canalización y Terapia de Respuesta Espiritual',
@@ -135,7 +135,7 @@ export const services: Record<string, Service> = {
   },
   rosas: {
     eyebrow: 'Sesión individual',
-    img: '/assets/hero-rosas-3.jpg',
+    img: '/assets/petalos-hero-rosas-55.jpg',
     imgPos: '50% 50%',
     extra: {
       titulo: 'Sanación cuántica con rosas',
@@ -206,8 +206,8 @@ export const services: Record<string, Service> = {
   },
   angelical: {
     eyebrow: 'Sesión individual',
-    img: '/assets/angel-hero.png',
-    imgPos: '50% 50%',
+    img: '/assets/pluma-55.jpg',
+    imgPos: '35% 65%',
     nombre: 'Canalización angelical',
     frase: 'Guía y mensajes claros a través de la conexión con tus ángeles, para acompañarte en tu momento presente.',
     sobre: {

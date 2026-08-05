@@ -54,6 +54,12 @@ export const testimoniosFull: Testimonio[] = [
     cat: 'alumnos',
   },
   {
+    quote: '"Desde el 2023, he realizado varios cursos con Karen y todos han sido una experiencia enriquecedora, tanto en lo personal como en lo profesional. Sus clases son dinámicas, cercanas y muy bien integradas: combinan práctica, teoría y espacios de reflexión que hacen del aprendizaje una experiencia profunda y significativa. Cada curso invita a conectar con una misma y con los demás. Me siento profundamente agradecida de haber sido parte de estos espacios y, seguramente, seguiré formándome con ella."',
+    name: 'Francisca J.',
+    service: 'Talleres y Cursos',
+    cat: 'alumnos',
+  },
+  {
     quote: '"Mi sesión con Karen me ha ayudado más allá de lo que pensaba. Poder acceder a mis registros akáshicos y preguntar me ha desbloqueado cuando no sé por dónde ir, me ha dado rutas para continuar. Lo he recomendado a personas queridas y sin duda seguiría recomendándola."',
     name: 'Perla Vázquez',
     service: 'Registros akáshicos',
