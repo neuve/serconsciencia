@@ -62,8 +62,8 @@ export interface Service {
 export const services: Record<string, Service> = {
   canal: {
     eyebrow: 'Sesión individual',
-    img: '/assets/tre-hero-pendulo11.png',
-    imgPos: '50% 65%',
+    img: '/assets/hero-tre-11.jpg',
+    imgPos: '50% 50%',
     nombre: 'Canalización y TRE',
     extra: {
       titulo: 'Canalización y Terapia de Respuesta Espiritual',
@@ -98,7 +98,7 @@ export const services: Record<string, Service> = {
   },
   akashicos: {
     eyebrow: 'Sesión individual',
-    img: '/assets/metatron-akashicos.jpg',
+    img: '/assets/hero-registros-lectura.jpg',
     imgPos: 'center',
     nombre: 'Lectura de registros akáshicos',
     frase: 'Accede al registro energético de tu alma para ganar claridad y sabiduría sobre tu momento presente.',
@@ -206,8 +206,8 @@ export const services: Record<string, Service> = {
   },
   angelical: {
     eyebrow: 'Sesión individual',
-    img: '/assets/pluma-55.jpg',
-    imgPos: '35% 65%',
+    img: '/assets/pluma-102.jpg',
+    imgPos: '50% 48%',
     nombre: 'Canalización angelical',
     frase: 'Guía y mensajes claros a través de la conexión con tus ángeles, para acompañarte en tu momento presente.',
     sobre: {
@@ -241,8 +241,8 @@ export const services: Record<string, Service> = {
   },
   ankh: {
     eyebrow: 'Trabajo asincrónico',
-    img: '/assets/ankh-rostros.webp',
-    imgPos: 'center 45%',
+    img: '/assets/hero-ankh-escarabajo-11.jpg',
+    imgPos: '90% 55%',
     sobre: {
       titulo: 'Sobre la cruz de ankh',
       desc: 'La cruz de ankh es un símbolo egipcio milenario de vida, protección y equilibrio energético. En este trabajo la utilizo como herramienta para limpiar y sellar tu campo, devolviéndote fuerza vital y claridad. \nTécnica creada por José Dekovic, prestigioso radiestesista chileno. Se dedicó a la investigación de la cultura egipcia, enfocándose en la aplicación de la \ntecnología Ankh.\nGracias a su investigación hoy podemos contar una herramienta eficaz y altamente eficiente de detección y limpieza de energías discordantes.',
