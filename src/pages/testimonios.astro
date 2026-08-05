@@ -4,9 +4,10 @@ import SectionHeader from '../components/SectionHeader.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import { testimoniosFull } from '../data/testimonios';
 
-const alumnos = testimoniosFull.filter((t) => t.cat === 'alumnos');
-const sesiones = testimoniosFull.filter((t) => t.cat === 'sesiones');
-const animal = testimoniosFull.filter((t) => t.cat === 'animal');
+const listados = testimoniosFull.filter((t) => !t.soloInicio);
+const alumnos = listados.filter((t) => t.cat === 'alumnos');
+const sesiones = listados.filter((t) => t.cat === 'sesiones');
+const animal = listados.filter((t) => t.cat === 'animal');
 ---
 
 <Base
@@ -16,8 +17,10 @@ const animal = testimoniosFull.filter((t) => t.cat === 'animal');
   <section class="testimonios-hero">
     <SectionHeader
       eyebrow="Testimonios"
-      title="Cómo cambian los"
-      italicWord="relatos."
+      eyebrowColor="var(--amber)"
+      title="Cómo cambian"
+      italicWord="los relatos."
+      italicColor="var(--cyan)"
       lede="Palabras de quienes han caminado sus procesos de sanación en compañía. Cada historia es única — estas son algunas que se compartieron con permiso."
     />
   </section>

@@ -62,7 +62,7 @@ export interface Service {
 export const services: Record<string, Service> = {
   canal: {
     eyebrow: 'Sesión individual',
-    img: '/assets/hero-tre-11.jpg',
+    img: '/assets/tre-hero-arbol.jpg',
     imgPos: '50% 50%',
     nombre: 'Canalización y TRE',
     extra: {
@@ -302,7 +302,7 @@ export const services: Record<string, Service> = {
       { n: '02', titulo: 'Las herramientas adecuadas', desc: 'Combino las técnicas que mejor sirvan a tu momento y a tu intención.' },
       { n: '03', titulo: 'Claridad para avanzar', desc: 'Sales con una lectura de tu situación y pasos concretos para tu proceso.' },
     ],
-    primeraTitulo: 'Antes de agendar conversamos para diseñar juntas el encuentro que necesitas.',
+    primeraTitulo: 'Antes de agendar conversamos para diseñar juntos el encuentro que necesitas.',
     primeraBody: [
       'Escríbeme contándome tu situación y lo que buscas. A partir de ahí definimos el enfoque, las herramientas y la duración de la sesión.',
       'Cada sesión especial es única, por eso los detalles de tiempo y modalidad los acordamos según tu caso.',

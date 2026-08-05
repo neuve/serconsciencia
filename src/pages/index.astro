@@ -25,7 +25,7 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
       <h1 class="hero__title anim-float-delay-1">reconectando<br />con la <em>consciencia del amor</em></h1>
       <div class="hero__ctas anim-float-delay-2">
         <Button variant="primary" label="Comienza tu camino" href="/terapias" showDot />
-        <Button variant="ghost" label="Talleres" href="/talleres" />
+        <Button variant="ghost" label="Talleres" href="/talleres" showDot />
       </div>
     </div>
   </section>
@@ -219,8 +219,9 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
   }
 
   .hero__ctas :global(.btn--ghost) {
-    color: var(--cream);
-    border-color: var(--overlay-cream-border);
+    color: var(--ink);
+    background: var(--sage-tone-3);
+    border-color: var(--sage-tone-3);
   }
 
   /* ---------- Filosofía ---------- */

@@ -30,6 +30,28 @@
 }
 
 /*
+  El bloque "Para quién es/no es" suele venir justo después del texto
+  "extra/sobre" — mismo fondo (--sand), sin nada que los separe
+  visualmente. Sin esto se suman el padding inferior de la sección
+  anterior y el superior de esta, dejando un hueco vacío de hasta 220px.
+  Solo aplica cuando el hermano anterior es OTRA `.section` (p. ej. el
+  texto "sobre"): si en cambio viene justo después de la imagen de hero
+  (como en Doula, que no tiene texto "sobre"), debe conservar su padding
+  superior normal.
+*/
+.service-page .section + .section--tight-top {
+  padding-top: 0;
+}
+
+.service-page .section:has(+ .section--tight-top) {
+  padding-bottom: var(--stack-section-head);
+}
+
+.service-page .section:has(+ .section--tight-top) > * > :last-child {
+  margin-bottom: 0;
+}
+
+/*
   El grid de detalles (duración / frecuencia / modalidad) es el pie del
   bloque que lo precede, no una sección nueva: va en su propio <section>
   solo porque se renderiza condicionalmente. Sin esta regla se suman el

@@ -19,6 +19,9 @@ export interface Testimonio {
   service: string;
   cat: TestimonioCategoria;
   destacado?: boolean;
+  // Solo se muestra en el extracto de /inicio (vía `destacado`); se oculta
+  // del listado completo de /testimonios para no repetirlo.
+  soloInicio?: boolean;
 }
 
 export const testimoniosFull: Testimonio[] = [
@@ -28,6 +31,7 @@ export const testimoniosFull: Testimonio[] = [
     service: 'Talleres y Cursos',
     cat: 'alumnos',
     destacado: true,
+    soloInicio: true,
   },
   {
     quote: '"El encontrar los distintos cursos de Karen ha tenido un impacto transformador en mi vida. Sus enseñanzas, sabiduría, conocimiento y cariño han trascendido más allá de \'las clases\', impulsando una búsqueda de crecer tanto intelectual como espiritualmente. Su dedicación, pasión y empatía forman siempre un ambiente de aprendizaje enriquecedor que me ha permitido descubrir mis fortalezas y superar mis debilidades, al mismo tiempo que formar una red linda con compañeros de otros lugares. He desarrollado una mayor confianza en mí misma y una visión más amplia del mundo y estoy muy agradecida por la oportunidad y el honor de haberla encontrado en mi camino."',
@@ -60,9 +64,9 @@ export const testimoniosFull: Testimonio[] = [
     cat: 'alumnos',
   },
   {
-    quote: '"Mi sesión con Karen me ha ayudado más allá de lo que pensaba. Poder acceder a mis registros akáshicos y preguntar me ha desbloqueado cuando no sé por dónde ir, me ha dado rutas para continuar. Lo he recomendado a personas queridas y sin duda seguiría recomendándola."',
-    name: 'Perla Vázquez',
-    service: 'Registros akáshicos',
+    quote: '"Es muy sensible y delicada a la hora de abordar tus experiencias, a la vez honesta y clara para comunicar cómo están las situaciones y qué se puede equilibrar en cada una de ellas.\nKaren construye un espacio de confianza amable y seguro en el que me siento cómoda para compartir lo que siento, intuyo, opino y/o me duele, por lo que posibilita el acceso a sanar mis memorias. Realiza un acompañamiento cuidadoso lleno de honestidad; agradezco la escucha y generosidad que entrega en cada sesión. Recomiendo su trabajo ampliamente. Es excelente."',
+    name: 'Yolanda',
+    service: 'Terapias individuales',
     cat: 'sesiones',
   },
   {
@@ -89,11 +93,12 @@ export const testimoniosFull: Testimonio[] = [
     service: 'Sesiones',
     cat: 'sesiones',
     destacado: true,
+    soloInicio: true,
   },
   {
-    quote: '"Es muy sensible y delicada a la hora de abordar tus experiencias, a la vez honesta y clara para comunicar cómo están las situaciones y qué se puede equilibrar en cada una de ellas.\nKaren construye un espacio de confianza amable y seguro en el que me siento cómoda para compartir lo que siento, intuyo, opino y/o me duele, por lo que posibilita el acceso a sanar mis memorias. Realiza un acompañamiento cuidadoso lleno de honestidad; agradezco la escucha y generosidad que entrega en cada sesión. Recomiendo su trabajo ampliamente. Es excelente."',
-    name: 'Yolanda',
-    service: 'Terapias individuales',
+    quote: '"Mi sesión con Karen me ha ayudado más allá de lo que pensaba. Poder acceder a mis registros akáshicos y preguntar me ha desbloqueado cuando no sé por dónde ir, me ha dado rutas para continuar. Lo he recomendado a personas queridas y sin duda seguiría recomendándola."',
+    name: 'Perla Vázquez',
+    service: 'Registros akáshicos',
     cat: 'sesiones',
   },
   {
@@ -133,5 +138,6 @@ export const testimoniosFull: Testimonio[] = [
     // `service` es 'Sesiones'), así que caía en la pestaña equivocada.
     cat: 'sesiones',
     destacado: true,
+    soloInicio: true,
   },
 ];

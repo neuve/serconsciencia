@@ -27,8 +27,8 @@ const wa = 'https://wa.me/525532407194';
       <div class="eyebrow-line" style="color: var(--amber);">Taller · nivel básico</div>
       <h1 class="hero__title">Taller de <span class="hero__title-italic">péndulo terapéutico.</span></h1>
       <p class="hero__lede">
-        Curso intensivo para comprender y dominar el arte de la radiestesia, creado espacialmente para
-        apoyar procesos terapéuticos
+        Curso intensivo para comprender y dominar el arte de la radiestesia,<br />
+        creado espacialmente para apoyar procesos terapéuticos
       </p>
       <div class="hero__chips">
         <div class="chip"><span class="chip__dot" style="background: var(--cta);"></span>Presencial, Col. Nápoles - CDMX</div>
@@ -375,7 +375,9 @@ const wa = 'https://wa.me/525532407194';
   .proximo-box__titulo {
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: var(--fs-h3);
+    font-size: clamp(40px, 6vw, 86px);
+    line-height: 1;
+    letter-spacing: -0.015em;
     color: var(--ink);
     margin: 14px 0 0;
   }

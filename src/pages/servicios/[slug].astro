@@ -62,7 +62,7 @@ const textoBloque = service.extra ?? service.sobre;
 
     <!-- 4 + 5. Para quién es / no es -->
     {(service.paraQuien?.length || service.noEs) && (
-      <section class="section">
+      <section class="section section--tight-top">
         <div class="gutter para-quien-grid">
           {service.paraQuien?.length > 0 && (
             <div>
@@ -318,7 +318,6 @@ const textoBloque = service.extra ?? service.sobre;
     line-height: 1.7;
     color: var(--ink-body);
     margin: 0 0 34px;
-    max-width: var(--measure-lede);
   }
 
   .pack-section__grid {
