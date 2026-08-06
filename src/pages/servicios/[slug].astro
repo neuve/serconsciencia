@@ -60,6 +60,17 @@ const textoBloque = service.extra ?? service.sobre;
       </section>
     )}
 
+    <!-- Dedicatoria (solo doula) -->
+    {service.dedicatoria && (
+      <section class="section">
+        <div class="gutter">
+          <div class="intro-box">
+            <p class="intro-box__text">{service.dedicatoria}</p>
+          </div>
+        </div>
+      </section>
+    )}
+
     <!-- 4 + 5. Para quién es / no es -->
     {(service.paraQuien?.length || service.noEs) && (
       <section class="section section--tight-top">

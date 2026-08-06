@@ -56,6 +56,7 @@ export interface Service {
   detalles: ServiceDetalle[];
   pack?: ServicePack;
   notaExtra?: ServiceNotaExtra;
+  dedicatoria?: string;
   rel: ServiceRelacionado;
 }
 
@@ -183,6 +184,7 @@ export const services: Record<string, Service> = {
     ],
     noEs: 'No sustituye la atención veterinaria ni el manejo médico del dolor; es un acompañamiento energético y emocional en paralelo.',
     noEsNota: null,
+    dedicatoria: 'Este espacio está dedicado a todos los animales que han compartido su vida junto a mí, a quienes les agradezco haberme mostrado lo que es el amor incondicional: Mellenta, Pon, Baco y Cicuta, Gorda, Queeny, Loki (foto) y Temístocles que aunque no fui su tutora me enseñó lo que es el acompañamiento en el proceso de muerte.',
     transf: [
       { n: '01', titulo: 'Presencia ', desc: 'Acompañas a tu animal con más calma, sabiendo que estás haciendo lo correcto.' },
       { n: '02', titulo: 'Comunicación clara', desc: 'Entiendes qué siente y qué necesita tu animal en su proceso final.' },
@@ -195,12 +197,12 @@ export const services: Record<string, Service> = {
     ],
     detalles: [
       { label: 'Duración por sesión', val: 'Aprox. 45 minutos' },
-      { label: 'Frecuencia', val: 'Cada vez que sea necesario/seguimiento por whatsapp o video llamada durante el proceso' },
+      { label: 'Frecuencia', val: 'Cada vez que sea necesario/seguimiento por whatsapp por 3 semanas una vez realizada la sesión' },
       { label: 'Modalidad', val: 'Online' },
     ],
     notaExtra: {
       label: '',
-      val: 'Cada sesión se estructura en dos partes:\n\nEnvío de información. Me compartes fotos de tu animal, tu motivo de consulta y las preguntas que deseas hacerle. En esta parte coordinamos sobre tus objetivos de la sesión, la historia del animal y la situación actual que te lleva a querer saber cómo está y qué necesita de ti.\n\nEncuentro de devolución. Nos reunimos online para conversar sobre lo que tu animal respondió y resolver tus dudas; este encuentro puede ser grabado para que puedas volver a integrar la información y los detalles que en vivo se pueden ir.',
+      val: 'Cada sesión se estructura en dos partes:\n\nEnvío de información. Me compartes fotos de tu animal, tu motivo de consulta y las preguntas que deseas hacerle. En esta parte coordinamos sobre tus objetivos de la sesión, la historia del animal y la situación actual que te lleva a querer saber cómo está y qué necesita de ti.\n\nEncuentro de devolución. Nos reunimos online para conversar sobre lo que tu animal respondió y resolver tus dudas; este encuentro puede ser grabado para que puedas volver a integrar la información y los detalles que en vivo se pueden ir.\n\n<strong>Nota importante: para la sesión te haré llegar un link para que tengas una guía del desarrollo de las preguntas y todos los detalles que necesitas saber para el día de nuestro encuentro.</strong>',
     },
     rel: { nombre: 'Talleres y cursos', desc: 'Un puente de corazón a corazón con tus compañeros de otras especies.', key: 'talleres' },
   },
