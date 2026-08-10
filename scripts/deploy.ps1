@@ -36,12 +36,16 @@ npm run build
 if ($LASTEXITCODE -ne 0) { throw "El build fallo. Revisa los errores de arriba." }
 
 # 3. Verificar sesion de Netlify
-Write-Host "==> Verificando sesion de Netlify..." -ForegroundColor Cyan
-npx --yes netlify-cli@latest status | Out-Null
-if ($LASTEXITCODE -ne 0) {
-  Write-Host "No hay sesion activa. Se abrira el navegador para iniciar sesion." -ForegroundColor Yellow
-  npx --yes netlify-cli@latest login
-  if ($LASTEXITCODE -ne 0) { throw "No se pudo iniciar sesion en Netlify." }
+# Nota: "netlify status" devuelve exito aunque no haya sesion, asi que hay que
+# mirar el texto de salida en vez del codigo de salida.
+if (-not $env:NETLIFY_AUTH_TOKEN) {
+  Write-Host "==> Verificando sesion de Netlify..." -ForegroundColor Cyan
+  $estado = (npx --yes netlify-cli@latest status | Out-String)
+  if ($estado -match "Not logged in|You are not logged in") {
+    Write-Host "No hay sesion activa. Se abrira el navegador para iniciar sesion." -ForegroundColor Yellow
+    npx --yes netlify-cli@latest login
+    if ($LASTEXITCODE -ne 0) { throw "No se pudo iniciar sesion en Netlify." }
+  }
 }
 
 # 4. Deploy
