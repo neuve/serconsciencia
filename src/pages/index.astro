@@ -18,10 +18,9 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
   <section class="hero bleed">
     <img src="/assets/hero-yo-11.jpg" alt="" class="hero__bg anim-zoom" />
     <div class="hero__scrim" aria-hidden="true"></div>
-    <div class="hero__scrim-top" aria-hidden="true"></div>
 
     <div class="hero__bottom gutter">
-      <Eyebrow text="Karen Silva · Terapias y Talleres" color="var(--white)" class="anim-float hero__eyebrow" />
+      <Eyebrow text="Karen Silva · Terapias y Talleres" color="#EBD9A8" class="anim-float hero__eyebrow" />
       <p class="hero__lede anim-fade">Acompaño a humanos y animales<br />en sus procesos de sanación.</p>
       <h1 class="hero__title anim-float-delay-1">reconectando<br />con la <em>consciencia del amor</em></h1>
       <div class="hero__ctas anim-float-delay-2">
@@ -154,6 +153,7 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    padding-top: clamp(32px, 8vh, 96px);
     background: var(--sand);
   }
 
@@ -170,26 +170,12 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      0deg,
-      rgba(var(--line-rgb), 0.4) 0%,
-      rgba(var(--line-rgb), 0.08) 42%,
-      transparent 62%
-    );
-  }
-
-  /*
-    Sombra a todo el ancho de la foto: densa desde arriba hasta la mitad
-    del hero, para que el eyebrow + lede (que caen en esa zona) queden
-    legibles, y se aligera hacia el 65% para no oscurecer el título.
-  */
-  .hero__scrim-top {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(var(--line-rgb), 0.55) 0%,
-      rgba(var(--line-rgb), 0.55) 30%,
-      transparent 50%
+      97deg,
+      rgba(12, 34, 40, 0.75) 0%,
+      rgba(12, 34, 40, 0.75) 40%,
+      rgba(12, 34, 40, 0.51) 65%,
+      rgba(12, 34, 40, 0.1) 88%,
+      rgba(12, 34, 40, 0) 100%
     );
   }
 
@@ -204,13 +190,14 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     font-size: 16px;
     line-height: 1.7;
     font-weight: 600;
-    color: var(--white);
+    color: #ffffff;
     margin: 14px 0 0;
   }
 
   .hero__bottom {
     position: relative;
     z-index: 1;
+    max-width: 680px;
     padding-bottom: clamp(44px, 7vh, 92px);
   }
 
@@ -220,7 +207,7 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     font-size: var(--fs-h1);
     line-height: var(--lh-h1);
     letter-spacing: -0.02em;
-    color: var(--white);
+    color: #ffffff;
     margin: 18px 0 0;
   }
 
@@ -364,6 +351,16 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     grid-template-columns: repeat(3, 1fr);
     gap: var(--grid-gap);
     margin-top: var(--stack-section-head);
+  }
+
+  /*
+    Velo solo donde caen las letras (título arriba, resumen abajo): dos
+    degradados independientes que se apagan hacia el centro de la tarjeta,
+    dejando la foto intacta en la franja media.
+  */
+  .services__grid :global(.service-card__overlay) {
+    background: linear-gradient(180deg, rgba(12, 34, 40, 0.6) 0%, rgba(12, 34, 40, 0) 24%),
+      linear-gradient(0deg, rgba(12, 34, 40, 0.55) 0%, rgba(12, 34, 40, 0) 30%);
   }
 
   .secondary-services {

@@ -64,6 +64,13 @@ export const testimoniosFull: Testimonio[] = [
     cat: 'alumnos',
   },
   {
+    quote:
+      '"Los Tiempos de Dios son Perfectos"\nLa primera vez que escuché esa frase fue en clases de radiestesia con Karen, por supuesto que en ese tiempo no la entendí, hace ya unos 4 años.\nCreo que esto resume el tiempo que he estado en sus clases aprendiendo del estudio de energías, el autoconocimiento, las emociones y lo espiritual...\nAprenderlo e integrarlo de manera Amorosa, Alegre y Confiando ( tal como es ella), en la vida, y en el día a día para uno mismo y para las demás personas, hizo que pudiera hacer cambios profundos y sutiles mi vida!\nLe agradezco profundamente como profe, guía, terapeuta, mujer y amiga.\nRecomiendo sus clases y sus terapias...y si llegas a leer este cortito testimonio es porque es el momento perfecto.\nGracias Querida Karen\n¡La mejor!',
+    name: 'Caro Osorio',
+    service: 'Talleres y Cursos',
+    cat: 'alumnos',
+  },
+  {
     quote: '"Es muy sensible y delicada a la hora de abordar tus experiencias, a la vez honesta y clara para comunicar cómo están las situaciones y qué se puede equilibrar en cada una de ellas.\nKaren construye un espacio de confianza amable y seguro en el que me siento cómoda para compartir lo que siento, intuyo, opino y/o me duele, por lo que posibilita el acceso a sanar mis memorias. Realiza un acompañamiento cuidadoso lleno de honestidad; agradezco la escucha y generosidad que entrega en cada sesión. Recomiendo su trabajo ampliamente. Es excelente."',
     name: 'Yolanda',
     service: 'Terapias individuales',
