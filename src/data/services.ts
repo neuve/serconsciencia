@@ -184,7 +184,7 @@ export const services: Record<string, Service> = {
     ],
     noEs: 'No sustituye la atención veterinaria ni el manejo médico del dolor; es un acompañamiento energético y emocional en paralelo.',
     noEsNota: null,
-    dedicatoria: 'Este espacio está dedicado a todos los animales que han compartido su vida junto a mí, a quienes les agradezco haberme mostrado lo que es el amor incondicional: Mellenta, Pon, Baco y Cicuta, Gorda, Queeny, Loki (foto) y Temístocles que aunque no fui su tutora me enseñó lo que es el acompañamiento en el proceso de muerte.',
+    dedicatoria: 'Este espacio está dedicado a todos los animales que han compartido su vida junto a mí, a quienes les agradezco haberme mostrado lo que es el amor incondicional: Mellenta, Pon, Baco y Cicuta, Gorda, Queeny, Loki (foto) y Temístocles, que sin ser su tutora, me enseñó lo que es el acompañamiento en el proceso de muerte.',
     transf: [
       { n: '01', titulo: 'Presencia ', desc: 'Acompañas a tu animal con más calma, sabiendo que estás haciendo lo correcto.' },
       { n: '02', titulo: 'Comunicación clara', desc: 'Entiendes qué siente y qué necesita tu animal en su proceso final.' },
