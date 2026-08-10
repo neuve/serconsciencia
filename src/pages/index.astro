@@ -22,7 +22,10 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     <div class="hero__bottom gutter">
       <Eyebrow text="Karen Silva · Terapias y Talleres" color="#EBD9A8" class="anim-float hero__eyebrow" />
       <p class="hero__lede anim-fade">Acompaño a humanos y animales<br />en sus procesos de sanación.</p>
-      <h1 class="hero__title anim-float-delay-1">reconectando<br />con la <em>consciencia del amor</em></h1>
+      <h1 class="hero__title anim-float-delay-1"
+        ><span class="hero__title-line">reconectando</span
+        ><span class="hero__title-line">con la <em>consciencia del amor</em></span></h1
+      >
       <div class="hero__ctas anim-float-delay-2">
         <Button variant="primary" label="Comienza tu camino" href="/terapias" showDot />
         <Button variant="ghost" label="Talleres" href="/talleres" showDot />
@@ -199,16 +202,33 @@ const destacados = testimoniosFull.filter((t) => t.destacado);
     z-index: 1;
     max-width: 680px;
     padding-bottom: clamp(44px, 7vh, 92px);
+    /* habilita cqw: el título mide su tamaño en % de ESTE ancho, no del
+       viewport, así que crece/encoge en la misma proporción que el gutter
+       (que también depende del ancho disponible) y nunca desborda. */
+    container-type: inline-size;
   }
 
   .hero__title {
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: var(--fs-h1);
+    /*
+      En vw puro, el tope mínimo de --fs-h1 (52px) queda fijo por debajo de
+      722px de viewport mientras el gutter (padding lateral) sigue
+      encogiendo, así que la proporción texto/contenedor cambia y
+      "con la consciencia del amor" puede no entrar en una sola línea.
+      Con cqw el tamaño es siempre el mismo % del ancho REAL disponible,
+      así que la frase más larga entra en todos los tamaños de pantalla.
+    */
+    font-size: clamp(26px, 10.6cqw, 104px);
     line-height: var(--lh-h1);
     letter-spacing: -0.02em;
     color: #ffffff;
     margin: 18px 0 0;
+  }
+
+  .hero__title-line {
+    display: block;
+    white-space: nowrap;
   }
 
   .hero__title em {
