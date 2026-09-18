@@ -9,9 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "deploy": "powershell -ExecutionPolicy Bypass -File scripts/deploy.ps1",
-    "deploy:preview": "powershell -ExecutionPolicy Bypass -File scripts/deploy.ps1 -Preview"
+    "astro": "astro"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.3.0",
