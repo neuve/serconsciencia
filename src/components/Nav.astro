@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import logoFlama from '../assets/logo-flama.png';
+import logoKarenSilva from '../assets/logo-karen-silva.png';
+import logoKarenSilvaCrema from '../assets/logo-karen-silva-crema.png';
 import { terapias } from '../data/terapias';
 
 interface NavLink {
@@ -39,8 +40,7 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
     aria-label="Karen Silva — Ir al inicio"
     aria-current={isHome ? 'page' : undefined}
   >
-    <Image src={logoFlama} alt="" width={38} height={38} class="nav__logo" />
-    <span class="nav__wordmark">Karen <span class="nav__wordmark-italic">Silva</span></span>
+    <Image src={logoKarenSilva} alt="" width={124} height={40} class="nav__logo" />
   </a>
 
   <div class="nav__links">
@@ -76,8 +76,7 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
       class="nav__mobile-brand"
       aria-label="Karen Silva — Ir al inicio"
     >
-      <Image src={logoFlama} alt="" width={38} height={38} class="nav__mobile-logo" />
-      <span class="nav__mobile-wordmark">Karen <span class="nav__wordmark-italic">Silva</span></span>
+      <Image src={logoKarenSilvaCrema} alt="" width={124} height={40} class="nav__mobile-logo" />
     </a>
     <button
       type="button"
@@ -269,24 +268,14 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
   .nav__brand {
     display: flex;
     align-items: center;
-    gap: 11px;
   }
 
+  /* El logo del estudio ya trae el nombre: no lleva wordmark tipográfico al
+     lado. Se fija la altura y el ancho se deja libre para no deformarlo. */
   .nav__logo {
+    height: 40px;
+    width: auto;
     object-fit: contain;
-  }
-
-  .nav__wordmark {
-    font-family: var(--font-display);
-    font-size: 25px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: var(--sage);
-  }
-
-  .nav__wordmark-italic {
-    font-style: italic;
-    color: var(--sage);
   }
 
   .nav__links {
@@ -397,21 +386,14 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
   .nav__mobile-brand {
     display: flex;
     align-items: center;
-    gap: 11px;
   }
 
+  /* Sobre el verde del panel va la variante de una tinta crema, que el estudio
+     entregó para fondo oscuro. Antes se teñía la flama con un filtro. */
   .nav__mobile-logo {
+    height: 40px;
+    width: auto;
     object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(11%) saturate(541%)
-      hue-rotate(157deg) brightness(101%) contrast(93%);
-  }
-
-  .nav__mobile-wordmark {
-    font-family: var(--font-display);
-    font-size: 25px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: var(--cta);
   }
 
   .nav__mobile-close {

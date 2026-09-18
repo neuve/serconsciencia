@@ -2,11 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "astro-dev",
-      "runtimeExecutable": "C:\\Program Files\\nodejs\\node.exe",
-      "runtimeArgs": ["node_modules/astro/bin/astro.mjs", "dev"],
-      "port": 4321,
-      "autoPort": true
+      "name": "karen-preview",
+      "runtimeExecutable": "./node_modules/.bin/astro",
+      "runtimeArgs": ["preview", "--port", "4331"],
+      "port": 4331
     }
   ]
 }

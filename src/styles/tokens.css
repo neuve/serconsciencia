@@ -19,10 +19,10 @@
   --sage-deep: #3f5449; /* tono de tarjeta de terapia (verde profundo) */
   --sage-tone-2: #aecabb; /* paso de la escala salvia; hoy sin uso */
   --sage-tone-3: #c8ddd0; /* fondo de sección: talleres realizados, pack */
-  --sage-tint: #b7cac3; /* "Silva" en itálica del wordmark del footer */
+  --sage-tint: #b7cac3; /* paso claro de la escala salvia; hoy sin uso */
 
   /* ---------- Color: acción ---------- */
-  --cta: #b3d9e0; /* todos los botones primarios */
+  --cta: #a4d6d6; /* todos los botones primarios; homologado al aqua del logo */
   --cta-text: #2a3b44; /* texto dentro de botones azules */
   --cyan: #4dc3d6; /* bordes de iconos, placeholders de input, eyebrows */
   --amber: #f1a805; /* dots decorativos en botones y listas, eyebrows */
