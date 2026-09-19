@@ -40,7 +40,7 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
     aria-label="Karen Silva — Ir al inicio"
     aria-current={isHome ? 'page' : undefined}
   >
-    <Image src={logoKarenSilva} alt="" width={124} height={40} class="nav__logo" />
+    <Image src={logoKarenSilva} alt="" width={124} height={40} class="nav__logo" loading="eager" fetchpriority="high" />
   </a>
 
   <div class="nav__links">
