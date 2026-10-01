@@ -27,10 +27,10 @@ Este repositorio se trabaja desde varias sesiones de Claude a la vez —locales 
 sobre el mismo sitio. Con más de una sesión suelta, alguien tiene que ser el sitio donde las
 ramas se juntan sin pisarse: ésa es **S1**, y **sólo hay una a la vez**.
 
-**La rama de integración es `main`.** Es a la que apunta `origin/HEAD`. Hoy el remoto tiene
-además `master`, en el mismo commit que `main` (medido el 2026-09-18: ambas en `9ed65d2`);
-**`master` queda obsoleta y nadie empuja ahí.** No la borres tú: si hay que retirarla, lo
-decide Patricio.
+**La rama de integración es `main`.** Es a la que apunta `origin/HEAD`, y es la única rama
+larga que hay. Hubo una `master` gemela que se retiró el 2026-09-18 tras comprobar que su
+contenido ya estaba en `main`; si vuelve a aparecer, es un empuje de alguien que no leyó esto.
+No des por buena esta frase: `git branch -r` te dice en un segundo qué hay hoy.
 
 **Lo que S1 hace:** verifica, integra, coordina, cierra. **Lo que NO hace:** diseñar por otra
 sesión, decidir el contenido del sitio, ni decidir cuándo se para el trabajo — eso es de
@@ -125,8 +125,9 @@ git fetch origin && git rev-parse --short origin/main   # comprueba que se movi�
   "404-page"`. Las `routes` a `karensilva.mx` y `www.karensilva.mx` son dominios
   personalizados, y **`wrangler deploy` falla mientras los nameservers no apunten a Cloudflare**
   — eso es un paso de DNS, o sea de Patricio, no tuyo (§13.e).
-- **`netlify.toml` sigue en el árbol y ya no sirve a nada**: es residuo de la migración, y hay
-  otra rama encargada de retirarlo. No lo borres de paso en la tuya.
+- **Ya no queda nada de Netlify en el árbol** (`netlify.toml` y los guiones de PowerShell se
+  retiraron el 2026-09-18, commit `ffebfb7`). Si te topas con una referencia a Netlify en algún
+  archivo, es residuo que se quedó atrás, no una segunda vía de despliegue.
 - **Aun así, mira qué archivo de configuración hay en el árbol que vas a publicar** en vez de dar
   por buena una frase de este documento. Esta viñeta se escribió primero al revés —«no hay
   `wrangler.jsonc`, la migración está pendiente»—, y era cierto cuando se midió y falso una hora
@@ -293,3 +294,91 @@ S1—. Avisarle a S1 del plan entero es contexto útil, no un atajo para saltars
 **No te asciendas a Sightseer porque el encargo se sienta grande.** Si sólo tienes UNA rama que
 escribir, eres Drone, aunque te tome un día entero. La frontera es si TÚ estás decidiendo cómo
 se reparte el trabajo entre varias piezas, no cuánto dura ni cuánto pesa.
+
+### 14.c El número lo reparte S1, y la serie no se recicla
+
+Los Drones y los Sightseers de este repo llevan numeración propia —**A1, A2, S2…**, separada de la
+de `inessentia-clientes` y de `agenda`—, y **el único que la reparte es S1**. Si tu encargo dice que
+eres Drone o Sightseer y no trae número, pídeselo a S1 por `SendMessage` y ponte mientras tanto
+`👾 A?` o `👀 S?`. **No elijas uno por tu cuenta.**
+
+No es burocracia: en `agenda`, el 2026-09-20, salieron números repetidos dos veces el mismo día
+—un A44 autoasignado, y un A45 y un A46 acuñados a la vez desde dos sesiones que no se veían—.
+Dos sesiones con el mismo número es justo la confusión que esto quita, porque **de quién es una
+rama no es un dato del repositorio** (§13.a): si el número miente, no queda ninguna prueba.
+
+**La serie no se reinicia.** Un número gastado no se reusa aunque la sesión haya cerrado hace
+semanas: el histórico de reportes y de ramas sigue hablando de «A2», y un segundo A2 convierte ese
+histórico en una trampa. Para saber por dónde va la serie, cuenta las sesiones **archivadas
+incluidas** (`list_sessions` con `include_archived`), no sólo las vivas — una serie leída de
+`ListAgents` empieza a repetir en cuanto alguien archiva.
+
+Aquí **no hay reina (`🫅 QX`) ni sesión de dirección (`🧭 S0`)**, y el hook de arranque sí las
+menciona porque es compartido con repos más grandes. En serconsciencia esas dos funciones las hace
+S1: asignar el número y decidir qué se engendra. Si algún día este sitio tiene varias piezas en
+paralelo o dinero de por medio, se reconsidera; con un cliente y quince páginas, una capa más de
+coordinación cuesta más de lo que ahorra (dicho por el S0 de `agenda` el 2026-10-01, preguntado
+expresamente, y coincide con lo que se vio aquí: el cuello de botella de A1 y A2 nunca fue decidir
+qué hacer, fue rehacer la verificación de cada rama).
+
+### 14.d El encargo nombra el modelo, y el barato es el valor por omisión
+
+**Una sesión engendrada sin decir nada hereda el modelo de quien la engendra.** Nadie lo elige, y
+el caro gana por omisión. En `agenda`, el 2026-09-20, eso agotó el límite de cinco horas de la
+cuenta: **29 de 30 sesiones habían nacido en Opus por herencia.** Ninguna lo pidió.
+
+Así que antes de engendrar, el filtro, que se hace SIEMPRE y no se salta:
+
+> ¿La tarea tiene una decisión difícil adentro —qué significa una medición ambigua, si un hallazgo
+> contradice lo que dice este documento, cómo se reparte un plan, qué preguntarle a Patricio?
+>
+> · **SÍ** → el modelo caro, **con la razón escrita en el encargo**.
+> · **NO** → el criterio ya está escrito y sólo falta ejecutarlo con cuidado: **Sonnet**.
+
+«Con cuidado» no es una pista de dificultad: casi todo el trabajo de este repo —escribir una
+página cuyo texto ya está decidido, homologar un color, vectorizar un icono, retirar archivos
+huérfanos— es ejecución cuidadosa, y sale igual de bien barato. Lo que pide el modelo caro es la
+**ambigüedad**, no el tamaño ni el detalle.
+
+**El modelo se elige al nacer.** Cambiarlo a media tarea se paga: el 2026-10-01, en `agenda`, un
+cambio de modelo sobre una sesión con ~250k de contexto costó la reescritura entera de la caché.
+Si una sesión barata se topa con una decisión que no le toca, **no se asciende**: pregunta —a S1 o
+a Patricio— y sigue barata. El esfuerzo sí se mueve turno por turno; el modelo, no.
+
+### 14.e Quién engendra
+
+**Sólo S1 engendra** en este repo —con un chip (`spawn_task`) o pidiéndole a Patricio que abra la
+sesión—, y siempre tras el filtro de §14.d. Un Drone que necesita ayuda **no engendra otro Drone**:
+se lo pide a S1. Un Sightseer reparte las piezas de su plan, pero las pide a S1 igual que el
+número (§14.c).
+
+El motivo es el mismo de §14.d visto un paso antes: una sesión que engendra por su cuenta hereda
+su propio modelo sin que nadie lo elija, y el árbol crece en una dirección que nadie decidió. Y
+hay un motivo más barato de explicar: si cualquiera engendra, **nadie sabe cuántas hay** — y ésa
+es la cuenta de la que depende §14.f.
+
+### 14.f Tope de siete sesiones a la vez
+
+**Con siete Drones o Sightseers vivos de este repo, no se engendra más.** El tope existe porque
+cada sesión abierta consume cuota aunque esté quieta: una sesión `idle` no es una sesión gratis,
+es una sesión que va a despertar.
+
+Cómo se cuenta, que es donde está la trampa:
+
+- Cuentan los **AX y SX de este repo, en cualquier estado**, `idle` incluido. **No** cuentan S1 ni
+  las sesiones de otros repositorios — y en `ListAgents` la mayoría serán de otros repos, así que
+  leer el número de filas es contar mal.
+- **Cuenta también el chip ya picado que todavía no arrancó.** La ranura la reserva el ENCARGO, no
+  el arranque, y ese chip no aparece en ningún listado de sesiones todavía.
+- **La cuenta se lee justo antes de picar**, nunca al recibir el encargo. Entre las dos cosas puede
+  haber media hora.
+- **Es un trinquete en una sola dirección: una cuenta baja NO abre ranura.** Ningún instrumento ve
+  todas las sesiones a la vez —`ListAgents` y `list_sessions` contestan sobre mundos distintos y
+  ninguno ve todo (§3 del CLAUDE.md global: el instrumento que contesta sobre OTRO mundo)—, así que
+  sólo una cuenta que SÍ llegue a siete cierra la puerta. Un cinco puede ser un nueve mal medido.
+  **Ante duda, no se engendra y se pregunta.**
+
+Y el fallo que esto previene no es el tope por sí mismo, es la cadena: en `agenda` una fila de
+seis Drones caros sobre el mismo flujo casi se llevó el crédito del día, y **nadie había mirado el
+flujo entero una sola vez antes de empezar**. Si vas a encadenar sesiones sobre la misma zona del
+sitio —el mismo componente, el mismo estilo global—, mapéala tú primero y reparte después.
