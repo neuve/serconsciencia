@@ -1,0 +1,33 @@
+---
+import { analitica, medirEnDev } from '../config/analitica';
+
+const activa = !import.meta.env.DEV || medirEnDev;
+const ga4Id = activa ? analitica.ga4MeasurementId.trim() : '';
+---
+
+{ga4Id && (
+  <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
+    <script is:inline define:vars={{ ga4Id }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      window.gtag = gtag;
+      // Opt-out del aviso de privacidad: interruptor oficial de GA.
+      try { if (localStorage.getItem('analitica-optout') === '1') window['ga-disable-' + ga4Id] = true; } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', ga4Id);
+
+      // Un solo manejador delegado para todo enlace a WhatsApp.
+      document.addEventListener('click', function (e) {
+        var a = e.target instanceof Element ? e.target.closest('a[href*="wa.me/"]') : null;
+        if (!a) return;
+        var ubicacion = a.getAttribute('data-ubicacion') ||
+          (a.closest('nav, .nav, .nav__mobile') ? 'nav' : a.closest('footer') ? 'footer' : 'cuerpo');
+        gtag('event', 'clic_whatsapp', {
+          pagina_origen: location.pathname,
+          ubicacion: ubicacion,
+        });
+      });
+    </script>
+  </>
+)}

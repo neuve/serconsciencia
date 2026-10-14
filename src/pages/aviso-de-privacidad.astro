@@ -1,0 +1,168 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+// Texto normativo aprobado por Patricio el 2026-10-14 (sesión A4), con el domicilio que dio y
+// los añadidos tomados del aviso de inessentia.mx (LFPDPPP, plazo de 20 días, opt-out).
+const responsable = 'Karen Silva';
+const correo = 's3rconsciencia@gmail.com';
+const domicilio = 'Georgia 114, depto. 303, Ciudad de México';
+const actualizacion = '14 de octubre de 2026';
+---
+
+<Base
+  title="Aviso de privacidad"
+  description="Cómo se usan los datos de navegación en karensilva.mx, qué cookies se emplean y cómo ejercer tus derechos."
+>
+  <section class="aviso-hero">
+    <SectionHeader
+      eyebrow="Aviso de privacidad"
+      eyebrowColor="var(--amber)"
+      title="Tu privacidad,"
+      italicWord="con claridad."
+      italicColor="var(--cyan)"
+      lede={`Última actualización: ${actualizacion}.`}
+    />
+  </section>
+
+  <section class="aviso">
+    <div class="gutter">
+      <div class="aviso__texto">
+        <h2>Responsable</h2>
+        <p>
+          {responsable} es la responsable del tratamiento de los datos descritos en este aviso, a
+          través del sitio karensilva.mx, conforme a la Ley Federal de Protección de Datos Personales
+          en Posesión de los Particulares (LFPDPPP). Domicilio: {domicilio}. Contacto: <a href={`mailto:${correo}`}>{correo}</a>.
+        </p>
+
+        <h2>Qué datos se recaban</h2>
+        <p>
+          Este sitio no tiene formularios ni cuentas: no te pide nombre, correo ni teléfono. Para
+          entender cómo se usa, mide la navegación de forma estadística: páginas visitadas, tipo de
+          dispositivo y navegador, ubicación aproximada (país y ciudad), origen de la visita y si
+          tocas un enlace de WhatsApp. No se te identifica por nombre.
+        </p>
+
+        <h2>Cookies y herramientas de medición</h2>
+        <p>
+          Se usan dos herramientas: <strong>Cloudflare Web Analytics</strong>, que mide el tráfico
+          sin cookies ni seguimiento individual, y <strong>Google Analytics 4</strong>, que sí
+          instala cookies (por ejemplo, <code>_ga</code> y <code>_ga_*</code>) para distinguir
+          visitas y conocer los recorridos dentro del sitio.
+        </p>
+
+        <h2>Para qué se usan</h2>
+        <p>
+          Únicamente para conocer qué contenidos se visitan y mejorar el sitio. Los datos no se
+          venden ni se usan para publicidad.
+        </p>
+
+        <h2>Con quién se comparten</h2>
+        <p>
+          Con Google LLC y Cloudflare, Inc., que procesan los datos de medición como proveedores
+          y pueden hacerlo fuera de México, conforme a sus propias políticas de privacidad.
+        </p>
+
+        <h2>Contacto por WhatsApp</h2>
+        <p>
+          Si me escribes por WhatsApp, esa conversación se rige además por los términos y el aviso
+          de privacidad de WhatsApp. Lo que me compartas se usa solo para responderte y agendar tu
+          cita.
+        </p>
+
+        <h2>Cómo evitar la medición</h2>
+        <p>
+          Puedes bloquear o borrar las cookies desde la configuración de tu navegador, o instalar el
+          complemento de inhabilitación de Google Analytics. El sitio funciona igual sin ellas.
+          También puedes <button type="button" id="analitica-optout" class="aviso__optout">desactivar Google Analytics en este navegador</button>.
+        </p>
+        <p id="analitica-optout-msg" role="status" hidden>
+          Google Analytics quedó desactivado en este navegador.
+        </p>
+
+        <h2>Tus derechos</h2>
+        <p>
+          Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición escribiendo
+          a <a href={`mailto:${correo}`}>{correo}</a>, indicando tu nombre completo y el derecho que deseas
+          ejercer. Responderé en un plazo máximo de 20 días hábiles, conforme a la LFPDPPP.
+        </p>
+
+        <h2>Cambios a este aviso</h2>
+        <p>
+          Si este aviso cambia, se publicará aquí con su nueva fecha de actualización.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const btn = document.getElementById('analitica-optout');
+  const msg = document.getElementById('analitica-optout-msg');
+  const mostrar = () => {
+    if (msg) msg.hidden = false;
+    if (btn instanceof HTMLButtonElement) btn.disabled = true;
+  };
+  try {
+    if (localStorage.getItem('analitica-optout') === '1') mostrar();
+  } catch (e) {}
+  btn?.addEventListener('click', () => {
+    try { localStorage.setItem('analitica-optout', '1'); } catch (e) {}
+    // Borra las cookies _ga* ya escritas; el interruptor ga-disable lo aplica Analitica.astro al cargar.
+    document.cookie.split(';').forEach((raw) => {
+      const nombre = raw.split('=')[0].trim();
+      if (!nombre.startsWith('_ga')) return;
+      ['', location.hostname, '.' + location.hostname].forEach((d) => {
+        document.cookie = `${nombre}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/` + (d ? `; domain=${d}` : '');
+      });
+    });
+    mostrar();
+  });
+</script>
+
+<style>
+  .aviso-hero {
+    padding-block: clamp(50px, 8vh, 90px) 0;
+  }
+
+  .aviso {
+    padding-block: clamp(30px, 5vh, 60px) clamp(70px, 10vh, 120px);
+  }
+
+  .aviso__texto {
+    max-width: 68ch;
+  }
+
+  .aviso__texto h2 {
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: clamp(24px, 3vw, 30px);
+    font-weight: 500;
+    margin: 2em 0 0.5em;
+  }
+
+  .aviso__texto h2:first-child {
+    margin-top: 0;
+  }
+
+  .aviso__texto p {
+    font-size: 16px;
+    line-height: 1.75;
+    margin: 0 0 1em;
+  }
+
+  .aviso__optout {
+    font: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .aviso__texto a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>
