@@ -48,7 +48,7 @@ const year = new Date().getFullYear();
 
     <div class="footer__copyright">
       <span>&copy; {year} Karen Silva · karensilva.mx</span>
-      <a href="/aviso-de-privacidad" class="footer__link">Aviso de privacidad</a>
+      <a href="/aviso-de-privacidad" class="footer__legal">Aviso de privacidad</a>
     </div>
   </div>
 </footer>
@@ -155,6 +155,17 @@ const year = new Date().getFullYear();
     padding-top: 26px;
     font-size: 13px;
     color: rgba(var(--cream-rgb), 0.4);
+  }
+
+  .footer__legal {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--ease-standard);
+  }
+
+  .footer__legal:hover {
+    color: var(--cream);
   }
 
   @media (max-width: 780px) {
