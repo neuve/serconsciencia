@@ -313,13 +313,14 @@ histórico en una trampa. Para saber por dónde va la serie, cuenta las sesiones
 incluidas** (`list_sessions` con `include_archived`), no sólo las vivas — una serie leída de
 `ListAgents` empieza a repetir en cuanto alguien archiva.
 
-Aquí **no hay reina (`🫅 QX`) ni sesión de dirección (`🧭 S0`)**, y el hook de arranque sí las
-menciona porque es compartido con repos más grandes. En serconsciencia esas dos funciones las hace
-S1: asignar el número y decidir qué se engendra. Si algún día este sitio tiene varias piezas en
-paralelo o dinero de por medio, se reconsidera; con un cliente y quince páginas, una capa más de
-coordinación cuesta más de lo que ahorra (dicho por el S0 de `agenda` el 2026-10-01, preguntado
-expresamente, y coincide con lo que se vio aquí: el cuello de botella de A1 y A2 nunca fue decidir
-qué hacer, fue rehacer la verificación de cada rama).
+Aquí **hay S0 (`🧭 S0 Lokinet`) desde el 2026-10-14**, a pedido de Patricio: decide producto (qué
+se hace y qué se le pregunta a Patricio) y engendra, igual que S1. **No hay reina (`🫅 QX`)**: el
+número lo da `numero-de-flota.mjs` con el padrón de este repo (`~/.claude/flota/serconsciencia.tsv`),
+y lo pide quien engendra (`~/.claude/flota.md` §14.b′). S1 sigue integrando y moviendo `main`. Del
+2026-10-01 al 2026-10-14 las dos funciones las hacía S1, porque con un cliente y quince páginas una
+capa más costaba más de lo que ahorraba (dicho por el S0 de `agenda`, y coincidía con lo visto aquí:
+el cuello de botella de A1 y A2 fue rehacer la verificación de cada rama). Cambió porque quedó una
+decisión de producto sin dueño durante un mes: el titular del dominio.
 
 ### 14.d El encargo nombra el modelo, y el barato es el valor por omisión
 
