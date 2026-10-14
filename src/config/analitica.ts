@@ -9,7 +9,7 @@
 // exista el valor real. Nunca pongas uno inventado ni de ejemplo.
 export const analitica = {
   // Google Analytics 4 → Administrar → Flujos de datos → «ID de medición» (G-XXXXXXXXXX).
-  ga4MeasurementId: '',
+  ga4MeasurementId: 'G-WH48HV57HY',
 };
 
 // En `astro dev` no se mide nada, salvo que se fuerce: PUBLIC_ANALITICA_FORZAR=1 astro dev
