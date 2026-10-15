@@ -16,12 +16,15 @@ import Analitica from '../components/Analitica.astro';
 interface Props {
   title: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   description = 'Karen Silva — Terapias energéticas, comunicación animal y talleres para acompañar procesos de sanación en humanos y animales.',
+  noindex = false,
 } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <html lang="es">
@@ -34,6 +37,8 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <title>{title} · Karen Silva</title>
     <Analitica />
   </head>
