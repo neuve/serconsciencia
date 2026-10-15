@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /design-system/
+Disallow: /preview/
 
 Sitemap: https://karensilva.mx/sitemap-index.xml
