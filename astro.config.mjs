@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://karensilva.mx',
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       // Páginas internas o de error: fuera del sitemap.

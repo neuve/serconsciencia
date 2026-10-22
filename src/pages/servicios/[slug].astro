@@ -192,7 +192,7 @@ const textoBloque = service.extra ?? service.sobre;
           <div class="rel-block">
             <div class="eyebrow-line" style="color: var(--amber);">Te puede interesar</div>
             <a
-              href={service.rel.key === 'talleres' ? '/talleres' : `/servicios/${service.rel.key}`}
+              href={service.rel.key === 'talleres' ? '/talleres/' : `/servicios/${service.rel.key}/`}
               class="rel-card"
             >
               <div>

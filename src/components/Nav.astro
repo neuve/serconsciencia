@@ -10,27 +10,27 @@ interface NavLink {
 }
 
 const links: NavLink[] = [
-  { href: '/sobre', label: 'Sobre mí' },
-  { href: '/terapias', label: 'Terapias' },
-  { href: '/comunicacion-animal', label: 'Comunicación animal' },
-  { href: '/talleres', label: 'Talleres' },
-  { href: '/testimonios', label: 'Testimonios' },
+  { href: '/sobre/', label: 'Sobre mí' },
+  { href: '/terapias/', label: 'Terapias' },
+  { href: '/comunicacion-animal/', label: 'Comunicación animal' },
+  { href: '/talleres/', label: 'Talleres' },
+  { href: '/testimonios/', label: 'Testimonios' },
 ];
 
 /* Barra de escritorio: solo los tres links fijos. El resto vive en el menú
    hamburguesa (igual que en móvil), que ahora se usa en todos los anchos. */
 const primaryLinks = links.filter((link) =>
-  ['/terapias', '/comunicacion-animal', '/talleres'].includes(link.href)
+  ['/terapias/', '/comunicacion-animal/', '/talleres/'].includes(link.href)
 );
 
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === '/';
 
 function isActive(href: string) {
-  return currentPath === href || currentPath.startsWith(href + '/');
+  return currentPath.startsWith(href);
 }
 
-const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servicios/');
+const isTerapiasActive = isActive('/terapias/') || currentPath.startsWith('/servicios/');
 ---
 
 <nav class="nav gutter">
@@ -91,7 +91,7 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
 
   <nav class="nav__mobile-links" aria-label="Menú principal">
     {links.map((link) =>
-      link.href === '/terapias' ? (
+      link.href === '/terapias/' ? (
         <div class="nav__mobile-item">
           <button
             type="button"
@@ -106,13 +106,13 @@ const isTerapiasActive = isActive('/terapias') || currentPath.startsWith('/servi
           <div class="nav__mobile-sub-wrap" id="nav-terapias-sub">
             <ul class="nav__mobile-sub">
               <li>
-                <a href="/terapias" class="nav__mobile-sub-link nav__mobile-sub-link--all">
+                <a href="/terapias/" class="nav__mobile-sub-link nav__mobile-sub-link--all">
                   Ver todas las terapias
                 </a>
               </li>
               {terapias.map((t) => (
                 <li>
-                  <a href={`/servicios/${t.svc}`} class="nav__mobile-sub-link">
+                  <a href={`/servicios/${t.svc}/`} class="nav__mobile-sub-link">
                     {t.nombre}
                   </a>
                 </li>
