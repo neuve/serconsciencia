@@ -32,3 +32,6 @@ Thumbs.db
 
 # originales de imagenes (no se publican)
 _originales/
+
+# wrangler local state
+.wrangler/
