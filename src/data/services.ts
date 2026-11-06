@@ -128,7 +128,7 @@ export const services: Record<string, Service> = {
     ],
     primeraEyebrow: 'CÓMO ES UNA SESIÓN',
     detalles: [
-      { label: 'Duración', val: '60 minutos' },
+      { label: 'Duración', val: '90 minutos' },
       { label: 'Frecuencia', val: 'Cuando lo necesites' },
       { label: 'Modalidad', val: 'Online' },
     ],
@@ -164,7 +164,7 @@ export const services: Record<string, Service> = {
       'Para cada sesión es necesario que dispongas de las rosas que se te indican según el tipo de trabajo a realizar. La sesión será acostad@ o sentad@ dependiendo del trabajo a realizar.\nLa primera sesión de armonización es un requisito fundamental para cualquier tipo de proceso terapéutico con rosas que desees realizar.',
     ],
     detalles: [
-      { label: 'Duración', val: 'Aprox. 1 hora y media' },
+      { label: 'Duración', val: '60 minutos' },
       { label: 'Frecuencia', val: 'Si deseas tomar sesiones con temas específicos debes tener en cuenta que podríamos necesitar más de un encuentro, deben espaciarse por una semana idealmente.\n\nTambién puedes tomarlo como un proceso terapéutico con encuentros semanales.' },
       { label: 'Modalidad', val: 'Online para armonizaciones · Presencial para procesos completos en CDMX' },
     ],
