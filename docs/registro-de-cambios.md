@@ -5,7 +5,8 @@ Console y GA4: 📊 SStats Karen Silva cruza estas fechas con sus lecturas.
 
 **Quién la llena:** quien despliega, en el mismo momento y en un commit propio. La fila lleva la
 versión del Worker que imprime `npx wrangler deploy` («Current Version ID») y las páginas cuyo HTML
-cambió (`wrangler` las lista como «new or modified static assets»).
+cambió (`wrangler` las lista como «new or modified static assets»). Después de desplegar,
+se avisa a Bing con `node bin/indexnow.mjs <esas rutas>`.
 
 **Reglas** (lista SEO de Patricio, 2026-11-06):
 
