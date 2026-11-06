@@ -40,3 +40,16 @@ salir de un árbol con cambios sin comitear, y eso no queda en ningún registro.
 
 La línea base 2026-11-06 de SStats se tomó contra `2416de9`, antes de la fila del 2026-11-06.
 Search Console seguía mostrando casi todas las URLs sin barra final, a 11 días del 301.
+
+## Lecturas de SStats
+
+Una cada 15 días. La hace 📊 SStats Karen Silva con `linea-base.mjs`, en ventanas de 28 días, y la
+compara contra la anterior y contra las filas de arriba que caen en la ventana.
+
+| Lectura | Fecha | Ventanas | Archivo | Notas |
+|---|---|---|---|---|
+| línea base | 2026-11-06 | GSC 2026-10-07 a 2026-11-03 · GA4 2026-10-09 a 2026-11-05 | `base-2026-11-06.json` | Tomada contra `2416de9`, antes de `9d24bd9` |
+| lectura 1 | 2026-11-12 (programada) | GSC 2026-10-13 a 2026-11-09 · GA4 2026-10-15 a 2026-11-11 | `base-2026-11-12.json` | Toda la ventana es posterior al 301. `9d24bd9` cae dentro, así que es un cambio chico en la ventana, no un antes y después |
+
+El recordatorio de la lectura no vive en ningún programador. Si la sesión de SStats se cerró, la
+reactiva Patricio o 🧭 S0 Lokinet con esta tabla.
