@@ -1,4 +1,4 @@
-// Precios publicados de los servicios. Decididos por Patricio el 2026-11-06.
+// Precios publicados de los servicios. Decididos por Patricio el 2026-11-06; Rosas corregido por Karen el 2026-11-07.
 //
 // Única fuente: ninguna página escribe una cifra a mano. `services.ts` enlaza
 // cada servicio con una llave de aquí (`precio`), y comunicacion-animal.astro
@@ -19,7 +19,7 @@ export const precios = {
   canal: { mxn: 1000, clp: 45000, usd: 60 },
   animal: { mxn: 800, clp: 35000, usd: 50 },
   ankh: { mxn: 888, clp: 35000, usd: 45 },
-  rosas: { mxn: 900 },
+  rosas: { mxn: 800, clp: 40000, usd: 50 },
   especial333: { mxn: 2366, clp: 123000, usd: 133 },
 } satisfies Record<string, Precio>;
 

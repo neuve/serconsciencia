@@ -171,7 +171,7 @@ export const services: Record<string, Service> = {
     detalles: [
       { label: 'Duración', val: '60 minutos' },
       { label: 'Frecuencia', val: 'Si deseas tomar sesiones con temas específicos debes tener en cuenta que podríamos necesitar más de un encuentro, deben espaciarse por una semana idealmente.\n\nTambién puedes tomarlo como un proceso terapéutico con encuentros semanales.' },
-      { label: 'Modalidad', val: 'Online para armonizaciones · Presencial para procesos completos en CDMX' },
+      { label: 'Modalidad', val: 'Online y presencial en CDMX' },
     ],
     precio: 'rosas',
     rel: { nombre: 'Limpieza con Cruz Ankh', desc: 'Limpieza minuciosa de energías densas e interferencias.', key: 'ankh' },
@@ -202,7 +202,7 @@ export const services: Record<string, Service> = {
       '',
     ],
     detalles: [
-      { label: 'Duración por sesión', val: '90 minutos' },
+      { label: 'Duración por sesión', val: 'Aprox. 45 minutos' },
       { label: 'Frecuencia', val: 'Cada vez que sea necesario/seguimiento por whatsapp por 3 semanas una vez realizada la sesión' },
       { label: 'Modalidad', val: 'Online' },
     ],
@@ -331,7 +331,7 @@ export const services: Record<string, Service> = {
         { n: '02', titulo: 'Segunda sesión:\nCanalización y TRE', desc: 'Limpiamos bloqueos específicos y trabajamos a fondo el tema central que desees trabajar. Poniendo foco en la lección que estás transitando.' },
         { n: '03', titulo: 'Tercera sesión:\nSanación con Rosas', desc: 'Integramos la información recibida y armonizamos tus cuerpos para que el proceso se sienta sostenido en el tiempo.' },
       ],
-      nota: 'Las tres sesiones se agendan con la frecuencia que mejor acompañe tu proceso. Escríbeme para conocer la inversión del pack.',
+      nota: 'Las tres sesiones se agendan con la frecuencia que mejor acompañe tu proceso.',
       precio: 'especial333',
     },
     rel: { nombre: 'Canalización y TRE', desc: 'Limpia los bloqueos que hoy te detienen.', key: 'canal' },
