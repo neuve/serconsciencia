@@ -323,7 +323,7 @@ export const services: Record<string, Service> = {
       { label: 'Modalidad', val: 'Online · CDMX' },
     ],
     pack: {
-      eyebrow: 'especial 333',
+      eyebrow: 'sanación integral',
       titulo: 'Un camino de tres sesiones',
       desc: 'Para quienes buscan un acompañamiento intensivo y profundo, este pack integra  encuentros pensados como un proceso continuo.  Las sesiones se realizarán con una semana de diferencia en cada encuentro.\n\nPuedes tomar esta metodología cada vez que necesites, puedes tener un motivo especial o sólo un deseo de reorganizar y depurar tu  campo energético.',
       pasos: [
