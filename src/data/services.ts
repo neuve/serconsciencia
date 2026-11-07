@@ -2,6 +2,8 @@
 // `prototype/design_handoff_karen_silva/design/Karen Silva Sitio.dc.html` (objeto `services`, líneas ~839-1045).
 // No editar, acortar ni "mejorar" la redacción de estos textos.
 
+import type { PrecioKey } from './precios';
+
 export interface ServiceStep {
   n: string;
   titulo: string;
@@ -30,6 +32,7 @@ export interface ServicePack {
   desc: string;
   pasos: ServiceStep[];
   nota: string;
+  precio?: PrecioKey; // llave en precios.ts; la página lo pinta junto a `nota`
 }
 
 export interface ServiceNotaExtra {
@@ -54,6 +57,7 @@ export interface Service {
   primeraBody: string[];
   primeraEyebrow?: string;
   detalles: ServiceDetalle[];
+  precio?: PrecioKey; // llave en precios.ts; la página lo pinta como detalle «Inversión»
   pack?: ServicePack;
   notaExtra?: ServiceNotaExtra;
   dedicatoria?: string;
@@ -95,6 +99,7 @@ export const services: Record<string, Service> = {
       { label: 'Frecuencia', val: 'Sugerido esperar 21 días entre sesiones, sin embargo puedes tomarlas cuando lo necesites' },
       { label: 'Modalidad', val: 'Online y presencial en CDMX' },
     ],
+    precio: 'canal',
     rel: { nombre: 'Lectura de registros akáshicos', desc: 'Accede a la sabiduría de tu alma sobre tu momento presente.', key: 'akashicos' },
   },
   akashicos: {
@@ -168,6 +173,7 @@ export const services: Record<string, Service> = {
       { label: 'Frecuencia', val: 'Si deseas tomar sesiones con temas específicos debes tener en cuenta que podríamos necesitar más de un encuentro, deben espaciarse por una semana idealmente.\n\nTambién puedes tomarlo como un proceso terapéutico con encuentros semanales.' },
       { label: 'Modalidad', val: 'Online para armonizaciones · Presencial para procesos completos en CDMX' },
     ],
+    precio: 'rosas',
     rel: { nombre: 'Limpieza con Cruz Ankh', desc: 'Limpieza minuciosa de energías densas e interferencias.', key: 'ankh' },
   },
   doula: {
@@ -196,10 +202,11 @@ export const services: Record<string, Service> = {
       '',
     ],
     detalles: [
-      { label: 'Duración por sesión', val: 'Aprox. 45 minutos' },
+      { label: 'Duración por sesión', val: '90 minutos' },
       { label: 'Frecuencia', val: 'Cada vez que sea necesario/seguimiento por whatsapp por 3 semanas una vez realizada la sesión' },
       { label: 'Modalidad', val: 'Online' },
     ],
+    precio: 'animal',
     notaExtra: {
       label: '',
       val: 'Cada sesión se estructura en dos partes:\n\nEnvío de información. Me compartes fotos de tu animal, tu motivo de consulta y las preguntas que deseas hacerle. En esta parte coordinamos sobre tus objetivos de la sesión, la historia del animal y la situación actual que te lleva a querer saber cómo está y qué necesita de ti.\n\nEncuentro de devolución. Nos reunimos online para conversar sobre lo que tu animal respondió y resolver tus dudas; este encuentro puede ser grabado para que puedas volver a integrar la información y los detalles que en vivo se pueden ir.\n\n<strong>Nota importante: para la sesión te haré llegar un link para que tengas una guía del desarrollo de las preguntas y todos los detalles que necesitas saber para el día de nuestro encuentro.</strong>',
@@ -276,6 +283,7 @@ export const services: Record<string, Service> = {
       { label: 'Frecuencia', val: 'Según lo necesites' },
       { label: 'Modalidad', val: 'Asincrónico · online' },
     ],
+    precio: 'ankh',
     rel: { nombre: 'Sanación cuántica con Rosas', desc: 'Abre el corazón y transforma patrones de raíz.', key: 'rosas' },
   },
   especiales: {
@@ -324,6 +332,7 @@ export const services: Record<string, Service> = {
         { n: '03', titulo: 'Tercera sesión:\nSanación con Rosas', desc: 'Integramos la información recibida y armonizamos tus cuerpos para que el proceso se sienta sostenido en el tiempo.' },
       ],
       nota: 'Las tres sesiones se agendan con la frecuencia que mejor acompañe tu proceso. Escríbeme para conocer la inversión del pack.',
+      precio: 'especial333',
     },
     rel: { nombre: 'Canalización y TRE', desc: 'Limpia los bloqueos que hoy te detienen.', key: 'canal' },
   },

@@ -2,7 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import Button from '../../components/Button.astro';
 import { services, serviceSlugs } from '../../data/services';
-import type { Service } from '../../data/services';
+import type { Service, ServiceDetalle } from '../../data/services';
+import { precios, lineasInversion, notaMonedas, tieneVariasMonedas } from '../../data/precios';
 import '../../styles/service-page.css';
 
 export function getStaticPaths() {
@@ -19,6 +20,16 @@ interface Props {
 const { service } = Astro.props;
 const wa = 'https://wa.me/525532407194';
 const textoBloque = service.extra ?? service.sobre;
+
+// «Inversión» entra como un detalle más (misma caja que Duración, Frecuencia,
+// Modalidad), con una línea por moneda. La cifra viene de precios.ts; aquí no
+// se escribe ninguna.
+const precioServicio = service.precio ? precios[service.precio] : undefined;
+const detalles: ServiceDetalle[] = [
+  ...service.detalles,
+  ...(precioServicio ? [{ label: 'Inversión', val: lineasInversion(precioServicio).join('\n') }] : []),
+];
+const precioPack = service.pack?.precio ? precios[service.pack.precio] : undefined;
 ---
 
 <Base title={service.nombre} description={service.frase}>
@@ -134,15 +145,20 @@ const textoBloque = service.extra ?? service.sobre;
     )}
 
     <!-- 7. Detalles -->
-    {service.detalles?.length > 0 && (
+    {detalles.length > 0 && (
       <section class="section section--detalles">
-        <div class="gutter detalles-grid">
-          {service.detalles.map((d) => (
-            <div class="detalle-box">
-              <div class="detalle-box__label">{d.label}</div>
-              <div class="detalle-box__val" set:html={d.val.replace(/\n/g, '<br />')} />
-            </div>
-          ))}
+        <div class="gutter">
+          <div class="detalles-grid">
+            {detalles.map((d) => (
+              <div class="detalle-box">
+                <div class="detalle-box__label">{d.label}</div>
+                <div class="detalle-box__val" set:html={d.val.replace(/\n/g, '<br />')} />
+              </div>
+            ))}
+          </div>
+          {precioServicio && tieneVariasMonedas(precioServicio) && (
+            <p class="detalles-nota">{notaMonedas}</p>
+          )}
         </div>
       </section>
     )}
@@ -177,6 +193,15 @@ const textoBloque = service.extra ?? service.sobre;
               </div>
             ))}
           </div>
+          {precioPack && (
+            <div class="pack-section__inversion">
+              <div class="detalle-box pack-inversion-box">
+                <div class="detalle-box__label">Inversión</div>
+                <div class="detalle-box__val" set:html={lineasInversion(precioPack).join('<br />')} />
+              </div>
+              {tieneVariasMonedas(precioPack) && <p class="detalles-nota">{notaMonedas}</p>}
+            </div>
+          )}
           <p class="pack-section__nota">{service.pack.nota}</p>
         </div>
       </section>
@@ -282,27 +307,6 @@ const textoBloque = service.extra ?? service.sobre;
     margin: 14px 0 0;
   }
 
-  .detalles-grid {
-    display: grid;
-    /* auto-fit en vez de columnas fijas: se adapta a 2 o 3 detalles (no todos
-       los servicios traen Duración) sin dejar huecos vacíos en la cuadrícula. */
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--gap-sm);
-  }
-
-  @media (max-width: 780px) {
-    .detalles-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .detalle-box__val {
-    font-family: var(--font-display);
-    font-size: 20px;
-    color: var(--sage);
-    line-height: 1.3;
-  }
-
   .intro-box__text {
     font-size: 16px;
     line-height: 1.65;
@@ -333,6 +337,23 @@ const textoBloque = service.extra ?? service.sobre;
 
   .pack-section__grid {
     margin-bottom: 30px;
+  }
+
+  .pack-section__inversion {
+    margin-bottom: 30px;
+  }
+
+  /* La misma caja blanca que los detalles, pero sola: que no se estire al
+     ancho del gutter con tres líneas de texto adentro. */
+  .pack-inversion-box {
+    width: fit-content;
+    min-width: 240px;
+  }
+
+  /* --ink-body, no --warm-gray: sobre --sage-tone-3 el gris baja a 1.96:1
+     (misma razón que .pack-section__nota). */
+  .pack-section .detalles-nota {
+    color: var(--ink-body);
   }
 
   /*

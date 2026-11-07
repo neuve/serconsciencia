@@ -5,6 +5,7 @@
 import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
 import { services } from '../data/services';
+import { precios, lineasInversion, notaMonedas, tieneVariasMonedas } from '../data/precios';
 import '../styles/service-page.css';
 
 const animalParaQuien = [
@@ -22,6 +23,8 @@ const transformaciones = [
 
 const wa = 'https://wa.me/525532407194';
 const doula = services.doula;
+// Mismo precio que Doula (va incluida): una sola entrada en precios.ts.
+const precio = precios.animal;
 ---
 
 <Base
@@ -144,15 +147,22 @@ const doula = services.doula;
 
     <!-- Detalles -->
     <section class="section section--detalles">
-      <div class="gutter detalles-grid">
-        <div class="detalle-box">
-          <div class="detalle-box__label">Duración</div>
-          <div class="detalle-box__val">45 min + seguimiento</div>
+      <div class="gutter">
+        <div class="detalles-grid">
+          <div class="detalle-box">
+            <div class="detalle-box__label">Duración</div>
+            <div class="detalle-box__val">90 min + seguimiento</div>
+          </div>
+          <div class="detalle-box">
+            <div class="detalle-box__label">Modalidad</div>
+            <div class="detalle-box__val">Online</div>
+          </div>
+          <div class="detalle-box">
+            <div class="detalle-box__label">Inversión</div>
+            <div class="detalle-box__val" set:html={lineasInversion(precio).join('<br />')} />
+          </div>
         </div>
-        <div class="detalle-box">
-          <div class="detalle-box__label">Modalidad</div>
-          <div class="detalle-box__val">Online</div>
-        </div>
+        {tieneVariasMonedas(precio) && <p class="detalles-nota">{notaMonedas}</p>}
       </div>
     </section>
 
@@ -284,21 +294,4 @@ const doula = services.doula;
     display: block;
   }
 
-  .detalles-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--gap-sm);
-  }
-
-  @media (max-width: 640px) {
-    .detalles-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .detalle-box__val {
-    font-family: var(--font-display);
-    font-size: 22px;
-    color: var(--sage);
-  }
 </style>
