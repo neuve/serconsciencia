@@ -32,6 +32,7 @@ Horas en UTC. En CDMX son 6 horas menos.
 | 2026-11-06 15:40 | `2e168e33` | `9d24bd9` | Duraciones: akáshicos de 60 a 90 minutos, y Rosas de «Aprox. 1 hora y media» a 60 minutos | `/servicios/akashicos/`, `/servicios/rosas/` | No |
 | 2026-11-07 02:02 | `1be77bf5` | `0472f73` | Llave de IndexNow en la raíz. Primer aviso con `--todas`: 15 URLs, IndexNow respondió 202 | `/8355ff452871fec4993eced83904c8ef.txt` (nueva) | No |
 | 2026-11-07 08:03 | `0ec16564` | `7a938fa`, `581b412`, `6fb5c6e` | Precios publicados (recuadro «Inversión» con MXN, CLP y USD) en canal, ankh, rosas, doula, comunicación animal y el pack, que ahora se llama «sanación integral». Rosas pasa a «Online y presencial en CDMX». Revisado por Karen. IndexNow: 202 para las 6 URLs | rosas, doula, especiales, comunicacion-animal, canal, ankh | Sí |
+| 2026-11-11 01:36 | `dd552b1e` | `759ad16` | Precios copiados del panel de Karen: comunicación animal CLP 35,000 → 40,000; Sanación integral 2,366 / 123,000 / 133 → 2,300 MXN / 120,000 CLP / 130 USD. IndexNow: 200 para las 3 URLs | comunicacion-animal, doula, especiales | No |
 
 **De dónde salen los datos de las filas anteriores al 2026-11-06.** Las fechas y versiones son de
 `npx wrangler deployments list` (leído el 2026-11-06; el control positivo es que la última versión
