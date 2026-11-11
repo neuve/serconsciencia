@@ -1,4 +1,7 @@
 // Precios publicados de los servicios. Decididos por Patricio el 2026-11-06; Rosas corregido por Karen el 2026-11-07.
+// El 2026-11-10 Karen cambió en su panel de la agenda (base `karen-agenda-d1`) el CLP de
+// comunicación animal (35,000 → 40,000) y la Sanación integral (2,366/123,000/133 →
+// 2,300/120,000/130); aquí se copian a mano: el sitio no lee la agenda.
 //
 // Única fuente: ninguna página escribe una cifra a mano. `services.ts` enlaza
 // cada servicio con una llave de aquí (`precio`), y comunicacion-animal.astro
@@ -17,10 +20,10 @@ export interface Precio {
 
 export const precios = {
   canal: { mxn: 1000, clp: 45000, usd: 60 },
-  animal: { mxn: 800, clp: 35000, usd: 50 },
+  animal: { mxn: 800, clp: 40000, usd: 50 },
   ankh: { mxn: 888, clp: 35000, usd: 45 },
   rosas: { mxn: 800, clp: 40000, usd: 50 },
-  especial333: { mxn: 2366, clp: 123000, usd: 133 },
+  especial333: { mxn: 2300, clp: 120000, usd: 130 },
 } satisfies Record<string, Precio>;
 
 export type PrecioKey = keyof typeof precios;
