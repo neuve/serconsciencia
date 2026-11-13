@@ -1,0 +1,491 @@
+[
+  {
+    "archivo": "src/components/Footer.astro",
+    "texto": "¿Tienes dudas antes de agendar? Escríbeme por WhatsApp.",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/components/Nav.astro",
+    "texto": "nav__mobile-link nav__mobile-toggle",
+    "senales": [
+      "clave con guion bajo"
+    ]
+  },
+  {
+    "archivo": "src/components/Nav.astro",
+    "texto": "nav__cta nav__cta--mobile",
+    "senales": [
+      "clave con guion bajo"
+    ]
+  },
+  {
+    "archivo": "src/data/faqs.ts",
+    "texto": "Son el registro energético de la información de tu alma, de tus experiencias de vida, pasada, presente y futura. Al abrirlos podemos trabajar sobre el origen del bloqueo sobre tu momento presente para ordenar y sanar lo que hoy te limita.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/faqs.ts",
+    "texto": "No exactamente. La limpieza retira interferencias y energías densas; la armonización reequilibra tu energía después. Muchas veces se acompañan en la misma sesión.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/faqs.ts",
+    "texto": "Está bien llegar así. En la primera sesión ordenamos juntos lo que traes y elegimos un punto de partida claro.",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/data/faqs.ts",
+    "texto": "Es justo donde este trabajo ayuda: clarificamos qué está detenido, qué lección hay disponible y qué paso concreto sigue. Comprender el propósito mayor de tu experiencia actual.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/faqs.ts",
+    "texto": "La clave de esto es estar abiertos y receptivos para comprender la parte que nos toca sobre nuestro proceso de vida.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/faqs.ts",
+    "texto": "No. El taller está pensado para empezar desde cero, a tu ritmo.",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/data/faqs.ts",
+    "texto": "Es ideal tenerlo. Te comparto recomendaciones al inscribirte; también podemos trabajar con uno improvisado.",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/data/faqs.ts",
+    "texto": "Online, cada martes de 20 a 21:30 horas (horario Chile). Sólo para Chile.",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/data/faqs.ts",
+    "texto": "La inversión es de 38 mil CLP por los 4 encuentros, vía transferencia a la cuenta Santander. Envía tu comprobante de pago a s3rconsciencia@gmail.com para confirmar tu asistencia.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "A través de la canalización accedo a información de tu proceso presente y, junto con la Terapia de Respuesta Espiritual (TRE), identificamos y limpiamos los programas del alma —creencias, votos y bloqueos energéticos de esta u otras vidas— que te mantienen atrapado en un mismo patrón, para que puedas avanzar con más claridad y libertad.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Trabajo profundo y limpieza de los bloqueos que están impidiendo que logres tener más claridad y sabiduría sobre tu momento actual.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Para quienes deseen conectar y escuchar a su Yo superior, la parte más elevada y sagrada del alma conectada con la Fuente Divina.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Para quien no cree que hay propósitos mayores detrás de lo que nos ocurre; para quienes no desean salir del victimismo; para quienes no quieren asumir responsabilidad sobre sus procesos o esperan cambiar de la noche a la mañana.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "El tener mayor consciencia de lo que ocurre en este momento presente te permite salir de un estado de limitación en relación a la vivencia.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Un estado interno más sereno tras ordenar, soltar lo que pesa y tomar conciencia de lo ocurrido.\\nEste trabajo también permite alinear tu energía en relación a tu propósito de vida.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Reconocer con nitidez, sabiduría y coherencia lo que necesitas y deseas para este momento de tu vida, elegir cómo quieres transitarlo.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Te explico cómo vamos a trabajar, conversamos sobre lo que te ocurre y te hago preguntas. Probablemente hablemos de la energía que transitas este año y revisaremos qué sientes como bloqueo en este periodo de tu vida.\\nUna vez que definimos los objetivos de la sesión tu Yo superior (o supraconciencia) nos indica a través del péndulo cuales son los programas y bloqueos que se necesitan depurar.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Online y presencial en CDMX",
+    "senales": [
+      "estado EN MAYÚSCULAS"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Los Registros Akáshicos son una memoria universal de la existencia, y representan un espacio multidimensional dónde se archivan todas las experiencias del alma, incluyendo todos los conocimientos y las experiencias de las vidas pasadas, la vida presente y las potencialidades futuras.\\n\\nLos Registros nos brindan una ventana para poder observar sin alterar el pasado, y ver simplemente como meros espectadores de las posibilidades que tenemos en el presente o futuro, sabiendo que la elección ultima esta en nosotros. Nos han otorgado la vida para que crezcamos para acertar o equivocarnos, aunque ya debemos empezar a hablar de aprendizaje en lugar de equivocaciones, porque a estas alturas ya deberíamos saber que la vida no es otra cosa que contemplación y validación de nuestro propio caminar.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Para quien no cree que existan propósitos mayores detrás de lo que ocurre, o no desea asumir responsabilidad sobre sus procesos.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Los Registros no \"arreglan\" la vida de una persona. Lo que hacen es ofrecer una nueva comprensión que le permite actuar con mayor conciencia.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Conversamos sobre lo que quieres consultar y establecemos los objetivos de la sesión. Luego realizo la apertura y lectura, y limpiamos los bloqueos que aparecen para que entres en un estado de mayor claridad.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Algunas preguntas posibles:\\n1. ¿Cuál es mi misión de vida?\\n2. ¿Hay algún tipo de bloqueo que me esté impidiendo…?\\n3. ¿Cómo puedo mejorar…?\\n4. ¿Qué no estoy entendiendo de esta situación?\\n5. ¿Hay algo que aún debo ver para mejorar mi…?\\n6. ¿Cuántas vidas pasadas he tenido y quién fui en la última?\\n7. ¿Hay algún karma de mis vidas pasadas que me esté afectando en mi vida actual?\\n8. ¿Tengo algún bloqueo que esté deteniendo mi evolución?\\n9. ¿Hay algo de una vida anterior que necesite sanar en esta?\\n10. ¿Hay algún mensaje para mí en el día de hoy?",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "CÓMO ES UNA SESIÓN",
+    "senales": [
+      "estado EN MAYÚSCULAS"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Canalizado por Elda Salvador (México), esta técnica es asistida energéticamente por la Madre Cósmica, cuya representación es la Virgen de Guadalupe, María Guadalupe Tonantzin.\\n\\nDebido a la cualidad energética que portan las rosas, estas son capaces de poder trabajar desde aspectos profundos del mundo sutil para manifestar un proceso de transformación y por consecuencia de sanación.\\n\\nSe trabaja en todos los cuerpos que constituyen al ser humano y en todos sus tiempos (pasado, presente y futuro).",
+    "senales": [
+      "paréntesis que enumera",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Para quienes buscan un acompañamiento terapéutico más mental o conductual. Quienes no tengan interés en conectarse con su espiritualidad.",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Para cada sesión es necesario que dispongas de las rosas que se te indican según el tipo de trabajo a realizar. La sesión será acostad@ o sentad@ dependiendo del trabajo a realizar.\\nLa primera sesión de armonización es un requisito fundamental para cualquier tipo de proceso terapéutico con rosas que desees realizar.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Si deseas tomar sesiones con temas específicos debes tener en cuenta que podríamos necesitar más de un encuentro, deben espaciarse por una semana idealmente.\\n\\nTambién puedes tomarlo como un proceso terapéutico con encuentros semanales.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Este espacio está dedicado a todos los animales que han compartido su vida junto a mí, a quienes les agradezco haberme mostrado lo que es el amor incondicional: Mellenta, Pon, Baco y Cicuta, Gorda, Queeny, Loki (foto) y Temístocles, que sin ser su tutora, me enseñó lo que es el acompañamiento en el proceso de muerte.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Este acompañamiento está dirigido para sostener el proceso de muerte de un animal, ya sea por vejez, enfermedad crónica o terminal, y para tener mayor claridad en caso de requerirse o proponerse una eutanasia de parte del veterinario.\\nDurante este proceso trabajamos junto a ti y a quienes forman parte de su entorno para brindarle la mayor comodidad, contención y bienestar posibles, siempre respetando su voluntad y la manera en que tu animal desea transitar esta etapa.\\n\\nUno de los pilares de este acompañamiento es escuchar profundamente sus necesidades, honrando su proceso con respeto, compasión y dignidad. Al mismo tiempo, te acompaño para que puedas sostener este momento desde un lugar de amor, serenidad y consciencia, preparándote emocional y energéticamente para cuando llegue el instante de su partida.\\n\\nEn caso de ser necesario, realizamos una sesión de limpieza energética destinada a liberar bloqueos que puedan interferir en su bienestar o dificultar el cierre natural de este ciclo.\\n\\nMi compromiso es ofrecerte información, guía y contención durante todo el proceso, para que tanto tú como tu animal puedan vivir esta despedida de la manera más amorosa, consciente y en paz posible.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "val: 'Cada sesión se estructura en dos partes:\\n\\nEnvío de información. Me compartes fotos de tu animal, tu motivo de consulta y las preguntas que deseas hacerle. En esta parte coordinamos sobre tus objetivos de la sesión, la historia del animal y la situación actual que te lleva a querer saber cómo está y qué necesita de ti.\\n\\nEncuentro de devolución. Nos reunimos online para conversar sobre lo que tu animal respondió y resolver tus dudas; este encuentro puede ser grabado para que puedas volver a integrar la información y los detalles que en vivo se pueden ir.\\n\\n",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Nota importante: para la sesión te haré llegar un link para que tengas una guía del desarrollo de las preguntas y todos los detalles que necesitas saber para el día de nuestro encuentro.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Una sesión de canalización angelical es un espacio de conexión y guía espiritual donde recibes mensajes orientados a aportar claridad, paz y comprensión sobre los desafíos que estás viviendo. A través de la conexión con la energía de los ángeles, se entrega orientación para ayudarte a reconocer nuevas perspectivas, fortalecer la confianza en tu camino y tomar decisiones más alineadas con tu bienestar y propósito de vida.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "La mayoría de los bloqueos que experimentamos como seres humanos nacen desde la ausencia de amor. La energía compasiva de los ángeles nos ayudan a ver con mayor aceptación y menor resistencia lo que nos ocurre.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Sientes el sostén de tu guía espiritual.\\n\\nPercibes que existe una presencia amorosa que te sostiene incluso en los momentos más difíciles, esto no cambia la situación, sino que transforma la forma de atravesarlos.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Cuando sientes que estás acompañado espiritualmente, suele disminuir la necesidad de controlar cada resultado.\\n\\nTe conectas con una mayor capacidad de aceptación, paciencia y confianza frente a la incertidumbre.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Conversamos sobre lo que te ocurre y aquello en lo que buscas guía. Luego realizo la lectura y te comparto los mensajes que surgen, resolviendo tus dudas.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "La cruz de ankh es un símbolo egipcio milenario de vida, protección y equilibrio energético. En este trabajo la utilizo como herramienta para limpiar y sellar tu campo, devolviéndote fuerza vital y claridad. \\nTécnica creada por José Dekovic, prestigioso radiestesista chileno. Se dedicó a la investigación de la cultura egipcia, enfocándose en la aplicación de la \\ntecnología Ankh.\\nGracias a su investigación hoy podemos contar una herramienta eficaz y altamente eficiente de detección y limpieza de energías discordantes.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Trabajo minucioso de limpieza de todo tipo de ataques y energías mal calificadas: envidias, mal de ojo y trabajos energéticos dirigidos.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Regeneras y recuperas tu energía vital, creatividad y orientación en tu camino de vida, centrado en tu bienestar y poder personal.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "La Cruz de Ankh, o cruz de la vida, es una herramienta de sanación egipcia que ayuda a eliminar interferencias energéticas que afectan tu campo, tu salud, tu economía y tus relaciones.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "El diagnóstico, la limpieza, las conclusiones y las lecciones a aprender se te envían por WhatsApp en un documento una vez concluido el trabajo. Si es necesario una video llamada para aclarar dudas lo realizaremos.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Encuentros diseñados a tu medida para momentos que se salen del catálogo regular: proyectos, cierres de ciclo, cumpleaños o el acompañamiento de una pareja.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "No todas las búsquedas caben en una sesión estándar. Cuando lo que necesitas pide un enfoque propio, diseñamos juntos un espacio a la medida: elegimos las herramientas adecuadas (péndulo, registros akáshicos, sanación energética, rosas) según tu momento y tu intención. Escríbeme y lo conversamos antes de agendar.",
+    "senales": [
+      "segunda frase",
+      "paréntesis que enumera",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Para quien busca una fórmula fija o resultados garantizados. Estas sesiones se construyen contigo y requieren tu apertura y participación.",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Escríbeme contándome tu situación y lo que buscas. A partir de ahí definimos el enfoque, las herramientas y la duración de la sesión.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Para quienes buscan un acompañamiento intensivo y profundo, este pack integra  encuentros pensados como un proceso continuo.  Las sesiones se realizarán con una semana de diferencia en cada encuentro.\\n\\nPuedes tomar esta metodología cada vez que necesites, puedes tener un motivo especial o sólo un deseo de reorganizar y depurar tu  campo energético.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Primera sesión:  ANKH",
+    "senales": [
+      "estado EN MAYÚSCULAS"
+    ]
+  },
+  {
+    "archivo": "src/data/services.ts",
+    "texto": "Limpiamos bloqueos específicos y trabajamos a fondo el tema central que desees trabajar. Poniendo foco en la lección que estás transitando.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/pages/aviso-de-privacidad.astro",
+    "texto": "en Posesión de los Particulares (LFPDPPP). Domicilio: X. Contacto:",
+    "senales": [
+      "segunda frase",
+      "estado EN MAYÚSCULAS"
+    ]
+  },
+  {
+    "archivo": "src/pages/club-de-los-martes.astro",
+    "texto": "Péndulo, meditaciones, arcángeles, conversaciones, experimentos... y todo lo que vaya apareciendo. Encuentros online cada martes.",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/pages/comunicacion-animal.astro",
+    "texto": "Un puente con nuestros compañeros de otras especies, que facilita entender cómo se sienten, qué quieren o necesitan y cómo podemos acompañarlos.",
+    "senales": [
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/pages/comunicacion-animal.astro",
+    "texto": "COMUNICACIÓN ANIMAL",
+    "senales": [
+      "estado EN MAYÚSCULAS"
+    ]
+  },
+  {
+    "archivo": "src/pages/comunicacion-animal.astro",
+    "texto": "CÓMO SON LAS SESIONES",
+    "senales": [
+      "estado EN MAYÚSCULAS"
+    ]
+  },
+  {
+    "archivo": "src/pages/design-system.astro",
+    "texto": "— no es una maqueta aparte. Página no",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/pages/design-system.astro",
+    "texto": "). Cualquier elemento con radio, borde o sombra vive dentro de",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/pages/design-system.astro",
+    "texto": ". Y todo valor nuevo sale de la escalera",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/pages/design-system.astro",
+    "texto": ". Si hubiera un",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/pages/design-system.astro",
+    "texto": ". En Astro esa clase no recibe el",
+    "senales": [
+      "segunda frase"
+    ]
+  },
+  {
+    "archivo": "src/pages/index.astro",
+    "texto": "<h1 class=\"hero__title anim-float-delay-1\"",
+    "senales": [
+      "clave con guion bajo"
+    ]
+  },
+  {
+    "archivo": "src/pages/index.astro",
+    "texto": "Lleva tu cuerpo a un espacio de tranquilidad, seguridad y comodidad. Un audio guiado para entrenar tu propio poder de autorregulación — uno de los grandes regalos que hoy puedes hacerte.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/pages/terapias.astro",
+    "texto": "Cada sesión es una puerta distinta hacia la claridad y la sanación. Explora cada una y elige la que resuene con tu momento.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  },
+  {
+    "archivo": "src/pages/testimonios.astro",
+    "texto": "Palabras de quienes han caminado sus procesos de sanación en compañía. Cada historia es única — estas son algunas que se compartieron con permiso.",
+    "senales": [
+      "segunda frase",
+      "más de 20 palabras"
+    ]
+  }
+]

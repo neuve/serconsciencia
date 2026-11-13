@@ -80,11 +80,12 @@ Tú eres quien mueve `main`. Antes de tocar una rama que te reportan:
    en su momento y falsa ahora. Si el rebase mueve algo, dilo al reportar; si no mueve nada,
    dilo también, porque «no se movió» es parte de la medición.
 
-3. **Aquí no hay suite de pruebas** —no existe `tests/` ni `node --test`—, así que la puerta que
-   tú corres es otra, y hay que correrla entera:
+3. **La puerta es `npm test` y además `npm run build`**, y hay que correrlas enteras. `npm test`
+   es la guardiana de paja (`tests/`); lee `tests`, `pass` y `fail` completos, no sólo si hay un ✖:
 
    ```bash
    npm ci
+   npm test > /tmp/test-<rama>.txt 2>&1; echo "código: $?"
    npm run build > /tmp/build-<rama>.txt 2>&1; echo "código: $?"
    ```
 
