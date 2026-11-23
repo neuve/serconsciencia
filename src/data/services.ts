@@ -133,7 +133,7 @@ export const services: Record<string, Service> = {
     ],
     primeraEyebrow: 'CÓMO ES UNA SESIÓN',
     detalles: [
-      { label: 'Duración', val: '90 minutos' },
+      { label: 'Duración', val: '60 minutos' },
       { label: 'Frecuencia', val: 'Cuando lo necesites' },
       { label: 'Modalidad', val: 'Online' },
     ],
